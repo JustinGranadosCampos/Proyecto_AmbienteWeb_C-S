@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/global.css">
+    <title>Prestamos del Lab</title>
+</head>
+
+<body>
+    <div class="container border border">
+        <h1 class="text-secondary titulo">Sistema de Prestamos</h1>
+        <form action="./py/main.py" method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="wwid">WWID</label>
+                    <input type="text" class="form-control" id="wwid" placeholder="Ingrese su WWID" name="wwid">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nombre">Nombre</label>
+                    <input class="form-control" type="text" placeholder="Su nombre se cargará aquí...." name="nombre" readonly>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="requestType">Tipo de solicitud a realizar</label>
+                    <select class="form-control">
+                        <option>-- Seleccione una opción --</option>
+                        <option>Request Material</option>
+                        <option>Item Movement</option>
+                        <option>Material Return</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="material">Artículo</label>
+                    <input type="text" class="form-control" id="material" placeholder="Ingrese el nombre del material">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="cantidad">Cantidad</label>
+                    <input type="text" class="form-control" id="cantidad" placeholder="Cantidad">
+                </div>
+                <div class="form-group col-md-3">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="location">Ubicación</label>
+                    <input type="text" class="form-control" id="location" placeholder="Ingrese la ubicación" readonly>
+                </div>
+                <div class="form-group d-flex justify-content-center btn-centrado"">
+                    <button type="submit" class="btn btn-primary btn-lg aceptar">Aceptar</button>
+                </div>
+        </form>
+    </div>
+    <script src="js/bootstrap.js"></script>
+</body>
+
+</html>

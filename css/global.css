@@ -1,0 +1,121 @@
+body{
+    /* background: #4b7197; */
+    font-family: 'Exo', sans-serif;
+    width: 100vw;
+}
+
+.container-fluid{
+    position: relative;
+    top: 1.5em;
+    width: 80%;
+}
+
+.btn-centrado{
+    width: 100%;
+}
+
+/* .titulo{
+    color: black !important; 
+} */
+
+.btn-accept {
+    /* border: 1px solid gray; */
+    margin-top: 1em;
+    font-weight: bold;
+} 
+
+.btn-accept:hover {
+    color: #343a40;
+    background: white;
+} 
+
+.title{
+    /* font-size: 1.5em; */
+    margin-right: .3em;
+    margin-left: .2em;
+    /* font-family: 'Exo', sans-serif; */
+}
+
+.activeUnderline{
+    text-decoration: underline;
+}
+
+.cabinetTable{
+    margin-top: 10em;
+}
+
+.navbar-brand{
+    border-right: 1px solid gray;
+}
+
+/* #name-space{
+    display: none;
+} */
+
+.logo{
+    border-radius: 10%;
+}
+
+/* 343a40 */
+
+.btnNew{
+    margin-bottom: 2em;
+    background: white;
+    border: 2px solid #343a40;
+    color: #343a40;
+    font-weight: bold;
+}
+
+.btnNew:hover{
+    background: #343a40;
+    border: 2px solid white;
+    color: white;
+}
+
+.btnNew:visited, .btnNew:focus{
+    background: white;
+    border: 2px solid #343a40;
+    color: #343a40;
+}
+
+/*LOGIN*/
+.wrapp{
+    width: 30vw;
+    height: 75vh;
+    margin-top: 10vh;
+    color: white;
+    background: #1d2124;
+    border-radius: .8%;
+}
+
+.img-container{
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qrv-logo{
+    border-radius: 5%;
+}
+
+.button-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8vh;
+}
+
+.btn-login{
+    width: 45%;
+    color: #1d2124;
+    background: white;
+    border: 1px solid #1d2124;
+    font-weight: bolder;
+}
+
+.btn-login:hover{
+    color: white;
+    background: #1d2124;
+    border: 1px solid white;
+}
