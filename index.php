@@ -1,3 +1,9 @@
+<?php
+    // include './model/Conexion.inc.php';
+    // $con = new Conexion();
+    // $con->conectar();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,10 +17,6 @@
     <title>Items ֎ Boxes</title>
     <link rel="stylesheet" href="DataTables/datatables.min.css">
     <link rel="stylesheet" href="DataTables/DataTables-1.10.22/css/dataTables.bootstrap4.min.css">
-    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
-    <script src="./js/main/jquery.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script> -->
 
 </head>
 

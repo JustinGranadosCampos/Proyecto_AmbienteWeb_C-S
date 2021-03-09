@@ -1,8 +1,8 @@
 <?php
-class Rol{
-    private idRol;
-    private detalleRol
+// class Rol{
+//     private idRol;
+//     private detalleRol
 
     
-}
+// }
 ?>
