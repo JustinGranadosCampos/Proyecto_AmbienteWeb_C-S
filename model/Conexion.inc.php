@@ -5,7 +5,7 @@ class Conexion
     private $db_usuario = 'root';
     private $db_pass = '';
     private $db_host = 'localhost';
-    private $db_name = 'qrv_system';
+    private $db_name = 'sistemaQRV';
     private $conexion;
 
     public function conectar()
