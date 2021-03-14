@@ -12,15 +12,15 @@ class Conexion
     {
         try {
             $string_conexion = "mysql:host=".$this->db_host.";dbname=".$this->db_name;
-            $pdo = new PDO($string_conexion, $this->db_usuario, $this->db_pass);
-            // echo "Connected successfully!";
-            return $pdo;
+            $this->conexion = new PDO($string_conexion, $this->db_usuario, $this->db_pass);
+            $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $this->conexion;
         } catch (PDOException $e) {
             exit("ERROR: Could not connect to the database $this->db_name ". $e->getMessage());
         }
     }
 
-    private function desconectar()
+    public function desconectar()
     {
         $this->conexion = null;
     }

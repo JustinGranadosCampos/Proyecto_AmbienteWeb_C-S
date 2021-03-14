@@ -1,7 +1,11 @@
 <?php
     // include './model/Conexion.inc.php';
+    include './model/Box.inc.php';
     // $con = new Conexion();
     // $con->conectar();
+    $box = new Box();
+    // $resultado
+    // $con->desconectar($con);
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +38,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active activeUnderline">
-                    <a class="nav-link" href="#">Boxes Items <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Box Items <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./cabinet_items.html">Cabinet Items</a>
@@ -42,9 +46,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./admin/login.html">Login</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">ITEM</a>
-                </li> -->
             </ul>
         </div>
     </nav>
@@ -54,20 +55,6 @@
             <div class="col-sm-6">
                 <button id="btnNewItemBox" type="button" class="btn btn-success btnNew">+ Add New</button>
             </div>
-            <!-- <div class="col-sm-6">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="tableBox" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                      Show Box Tables
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="tableCabinet" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                      Show Cabinet Table
-                    </label>
-                  </div>
-            </div> -->
         </div>
     </div>
 
@@ -90,23 +77,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="text-center">
-                                        <div class="btn-group">
-                                            <button class="btn bg-dark text-light btnEdit">Edit</button>
-                                            <button class="btn btn-danger btnDelete">Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php
+                                $box->getItems();
+                            ?>
                         </tbody>
                     </table>
                 </div>
