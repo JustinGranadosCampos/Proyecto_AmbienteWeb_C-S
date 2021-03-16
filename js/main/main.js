@@ -3,7 +3,24 @@ $(document).ready( function () {
     $("#itemTable").DataTable();
 
     $("#formInventory").submit(function (e){
-        
+
+        e.preventDefault();
+        let boxNumber = $("#cboBoxNumber").val();
+        let serialNumber = $("#txtSerialNumber").val();
+        let name = $("#txtName").val();
+        let asset = $("#txtAsset").val();
+        let model = $("#txtModel").val();
+        let ismpStatus = $("#txtIsmpStatus").val();
+        let details = $("#txtDetails").val();
+        $.ajax({
+            type: "POST",
+            url: "./controller/BoxController.php",
+            data: {"data_1": boxNumber, "data_2": serialNumber, "data_3": name, "data_4": asset, "data_5": model, "data_6": ismpStatus, "data_7": details},
+            success: function(data){
+                console.log(data);
+                // $("#btnSaveBoxItem").attr('data-dismiss', 'modal');
+            }
+        })
     });
     
     // function to show modal in index

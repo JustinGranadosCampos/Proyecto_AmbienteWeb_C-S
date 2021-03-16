@@ -90,7 +90,7 @@
     </div>
 
     <!-- Modal para el CRUD -->
-    <form action="" method="post" id="formInventory">
+    <form action="/controller/BoxController.php" method="post" id="formInventory">
         <div class="modal fade" id="modalItemBoxCRUD" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -137,7 +137,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                            <button type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark" data-dismiss="modal">Save</button>
+                            <!-- <button type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark" data-dismiss="modal">Save</button> -->
+                            <button type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark">Save</button>
                         </div>
                     <!-- </form> -->
                 </div>
