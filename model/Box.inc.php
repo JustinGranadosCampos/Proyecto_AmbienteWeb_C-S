@@ -1,7 +1,8 @@
 <?php
     include __DIR__.'/Conexion.inc.php';
-    class Box extends Conexion{
-        // private 
+    class Box extends Conexion
+    {
+        // private
 
         public function getItems()
         {
@@ -10,12 +11,22 @@
             $data = array();
 
             #Saves all the items into $data that get from the DB
-            while($row = $result->fetch())
-            {
+            while ($row = $result->fetch()) {
                 $data[] = $row;
             }
             return $data;
             // $con->desconectar();
         }
+
+        public function getBoxes()
+        {
+            $sql = "call Show_Boxes()";
+            $result = $this->conectar()->query($sql);
+            $data = array();
+
+            while ($row = $result->fetch()) {
+                $data[] = $row;
+            }
+            return $data;
+        }
     }
-?>

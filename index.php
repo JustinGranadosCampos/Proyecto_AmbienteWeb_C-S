@@ -1,6 +1,7 @@
 <?php
     // include './model/Conexion.inc.php';
     include './view/BoxView.php';
+    include './view/BoxView.php';
     // $con = new Conexion();
     // $con->conectar();
     $box = new BoxView();
@@ -88,54 +89,60 @@
     </div>
 
     <!-- Modal para el CRUD -->
-    <div class="modal fade" id="modalItemBoxCRUD" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+    <form action="" method="post">
+        <div class="modal fade" id="modalItemBoxCRUD" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <!-- <form id="formInventory"> -->
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="itemLabel" class="col-form-label">Box Number</label>
+                                <select name="cboBoxNumber" id="cboBoxNumber" class="form-control">
+                                    <?php
+                                        $box->showBoxes();
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtSerialNumber" class="col-form-label">Serial Number</label>
+                                <input type="text" name="txtSerialNumber" class="form-control" id="txtSerialNumber">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtName" class="col-form-label">Name</label>
+                                <input type="text" name="txtName" class="form-control" id="txtName">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtAsset" class="col-form-label">ASSET</label>
+                                <input type="number" name="txtAsset" class="form-control" id="txtAsset">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtModel" class="col-form-label">MODEL</label>
+                                <input type="text" name="txtModel" class="form-control" id="txtModel">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtIsmpStatus" class="col-form-label">ISMP Status</label>
+                                <input type="text" name="txtIsmpStatus" class="form-control" id="txtIsmpStatus">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtDetails" class="col-form-label">Details</label>
+                                <input type="text" name="txtDetails" class="form-control" id="txtDetails">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                            <button type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark" data-dismiss="modal">Save</button>
+                        </div>
+                    <!-- </form> -->
                 </div>
-                <form id="formInventory">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="itemLabel" class="col-form-label">Box Number</label>
-                            <input type="text" class="form-control" id="itemLabel">
-                        </div>
-                        <div class="form-group">
-                            <label for="serial-number" class="col-form-label">Serial Number</label>
-                            <input type="text" class="form-control" id="serial-number">
-                        </div>
-                        <div class="form-group">
-                            <label for="item-name" class="col-form-label">Name</label>
-                            <input type="text" class="form-control" id="item-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="item-asset" class="col-form-label">ASSET</label>
-                            <input type="text" class="form-control" id="item-asset">
-                        </div>
-                        <div class="form-group">
-                            <label for="item-model" class="col-form-label">MODEL</label>
-                            <input type="text" class="form-control" id="item-model">
-                        </div>
-                        <div class="form-group">
-                            <label for="ismpStatus" class="col-form-label">ISMP Status</label>
-                            <input type="text" class="form-control" id="ismpStatus">
-                        </div>
-                        <div class="form-group">
-                            <label for="details" class="col-form-label">Details</label>
-                            <input type="text" class="form-control" id="details">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                        <button type="submit" id="btnSave" class="btn btn-dark" data-dismiss="modal">Save</button>
-                    </div>
-                </form>
             </div>
         </div>
-    </div>
+    </form>
     <script src="./jquery/jquery-3.3.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 

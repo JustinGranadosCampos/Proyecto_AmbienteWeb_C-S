@@ -18,5 +18,12 @@
                 echo '</tr>';
             }
         }
+
+        public function showBoxes()
+        {
+            $result = $this->getBoxes();
+            foreach ($result as $row) {
+                echo '<option value=' . $row["idBOX"] . '>' . $row["LABEL"] . '</option>';
+            }
+        }
     }
-?>
