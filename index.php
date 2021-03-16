@@ -1,9 +1,9 @@
 <?php
     // include './model/Conexion.inc.php';
-    include './model/Box.inc.php';
+    include './view/BoxView.php';
     // $con = new Conexion();
     // $con->conectar();
-    $box = new Box();
+    $box = new BoxView();
     // $resultado
     // $con->desconectar($con);
 ?>
@@ -78,7 +78,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                $box->getItems();
+                                $box->getItemsBox();
                             ?>
                         </tbody>
                     </table>
