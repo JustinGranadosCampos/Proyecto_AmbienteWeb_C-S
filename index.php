@@ -1,10 +1,11 @@
 <?php
     // include './model/Conexion.inc.php';
     include './view/BoxView.php';
-    include './view/BoxView.php';
+    // include './controller/BoxController.php';
     // $con = new Conexion();
     // $con->conectar();
     $box = new BoxView();
+    // $controller = new BoxController();
     // $resultado
     // $con->desconectar($con);
 ?>
@@ -89,7 +90,7 @@
     </div>
 
     <!-- Modal para el CRUD -->
-    <form action="" method="post">
+    <form action="" method="post" id="formInventory">
         <div class="modal fade" id="modalItemBoxCRUD" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
