@@ -1,9 +1,6 @@
 <?php
-    // include './model/Conexion.inc.php';
     include './view/ItemBoxView.php';
     include './controller/ItemBoxController.php';
-    // $con = new Conexion();
-    // $con->conectar();
     $itemBox = new ItemBoxView();
 
     if (isset($_POST['btnSaveBoxItem']))
@@ -16,9 +13,6 @@
     {
         echo "No se presionó";
     }
-
-    // $controller = new BoxController();
-    // $resultado
     // $con->desconectar($con);
 ?>
 

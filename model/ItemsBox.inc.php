@@ -53,5 +53,29 @@ class ItemBox extends Conexion
             echo $this->conectar->errorInfo();
         }
     }
+
+    public function updateItemBox($box, $serialNumber, $name, $asset, $model, $ismp, $details){
+        $sql = "call InsertNewItemBox('$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
+        if ($this->conectar->query($sql))
+        {
+            $idItemBox = $this->conectar->lastInsertId();
+            // $sql = "call InsertItem_x_Box($box, $idItemBox)"; cambiar por Update
+            if ($this->conectar->query($sql))
+            {
+                echo '<script>alert("Registro agregado exitosamente");</script>';
+                echo '<script>window.location.reload;</script>';
+            }
+            else
+            {
+                echo "\nPDO::errorInfo():\n";
+                echo $this->conectar->errorInfo();
+            }
+        }
+        else
+        {
+            echo "\nPDO::errorInfo():\n";
+            echo $this->conectar->errorInfo();
+        }
+    }
 }
 ?>
