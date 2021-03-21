@@ -1,10 +1,22 @@
 <?php
     // include './model/Conexion.inc.php';
-    include './view/BoxView.php';
-    // include './controller/BoxController.php';
+    include './view/ItemBoxView.php';
+    include './controller/ItemBoxController.php';
     // $con = new Conexion();
     // $con->conectar();
-    $box = new BoxView();
+    $itemBox = new ItemBoxView();
+
+    if (isset($_POST['btnSaveBoxItem']))
+    {
+        echo 'Se presionó';
+        // $itemBoxController = new ItemBoxController();
+        // $itemBoxController->addBoxItem($_POST['cboBoxNumber'], $_POST['txtSerialNumber'], $_POST['txtName'], $_POST['txtAsset'], $_POST['txtModel'], $_POST['txtIsmpStatus'], $_POST['txtDetails']);
+    }
+    else
+    {
+        echo "No se presionó";
+    }
+
     // $controller = new BoxController();
     // $resultado
     // $con->desconectar($con);
@@ -28,7 +40,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
             <img src="./img/qrv_logo.png" width="80" height="50" alt="Main_logo" loading="lazy"
                 class="d-inline-block align-top logo">
             <h1 class="text title d-inline-block">QRV Inventory System</h1>
@@ -80,7 +92,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                $box->getItemsBox();
+                                $itemBox->getItemsBox();
                             ?>
                         </tbody>
                     </table>
@@ -90,7 +102,7 @@
     </div>
 
     <!-- Modal para el CRUD -->
-    <form action="/controller/BoxController.php" method="post" id="formInventory">
+    <form action="" method="POST" id="formInventory">
         <div class="modal fade" id="modalItemBoxCRUD" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -100,13 +112,13 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
-                    <!-- <form id="formInventory"> -->
+                    <!-- <form method="POST" id="formInventory"> -->
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="itemLabel" class="col-form-label">Box Number</label>
                                 <select name="cboBoxNumber" id="cboBoxNumber" class="form-control">
                                     <?php
-                                        $box->showBoxes();
+                                        $itemBox->showBoxes();
                                     ?>
                                 </select>
                             </div>
@@ -138,7 +150,13 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                             <!-- <button type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark" data-dismiss="modal">Save</button> -->
-                            <button type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark">Save</button>
+                            <!-- <input type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark" value="Save"> -->
+                            <input
+                                type="submit"
+                                id="btnSaveBoxItem"
+                                name="btnSaveBoxItem"
+                                value="Save"
+                                class="btn btn-dark">
                         </div>
                     <!-- </form> -->
                 </div>

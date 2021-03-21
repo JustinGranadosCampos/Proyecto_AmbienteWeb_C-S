@@ -1,15 +1,57 @@
 <?php
+include __DIR__.'/Conexion.inc.php';
+class ItemBox extends Conexion
+{
+    // private
 
-include_once "./Conexion.inc.php";
-$object = new Conexion();
-$connection = $object->conectar();
+    public function getItems()
+    {
+        $sql = "call Items_x_Box()";
+        $result = $this->conectar()->query($sql);
+        $data = array();
 
-$label = (isset($_POST[''])) ? $_POST[''] : '';
+        #Saves all the items into $data that get from the DB
+        while ($row = $result->fetch()) {
+            $data[] = $row;
+        }
+        return $data;
+        // $con->desconectar();
+    }
 
-$SQL_SELECT_V_ITEM_X_BOX = "SELECT * FROM V_ITEM_x_BOX";
-// return $execution = $connection->query($SQL_SELECT_V_ITEM_X_BOX)->fetchAll(PDO::FETCH_ASSOC);
-$result = $connection->prepare($SQL_SELECT_V_ITEM_X_BOX);
-// $result->execute();
-print json_encode($execution, JSON_UNESCAPED_UNICODE);
-$connection = null;
+    public function getBoxes()
+    {
+        $sql = "call Show_Boxes()";
+        $result = $this->conectar()->query($sql);
+        $data = array();
+
+        while ($row = $result->fetch()) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
+    public function insertItemBox($box, $serialNumber, $name, $asset, $model, $ismp, $details){
+        $sql = "call InsertNewItemBox('$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
+        if ($this->conectar->query($sql))
+        {
+            $idItemBox = $this->conectar->lastInsertId();
+            $sql = "call InsertItem_x_Box($box, $idItemBox)";
+            if ($this->conectar->query($sql))
+            {
+                echo '<script>alert("Registro agregado exitosamente");</script>';
+                echo '<script>window.location.reload;</script>';
+            }
+            else
+            {
+                echo "\nPDO::errorInfo():\n";
+                echo $this->conectar->errorInfo();
+            }
+        }
+        else
+        {
+            echo "\nPDO::errorInfo():\n";
+            echo $this->conectar->errorInfo();
+        }
+    }
+}
 ?>

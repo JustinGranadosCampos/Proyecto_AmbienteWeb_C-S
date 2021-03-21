@@ -1,6 +1,6 @@
 <?php
-    include './model/Box.inc.php';
-    class BoxView extends Box
+    include './model/ItemsBox.inc.php';
+    class ItemBoxView extends ItemBox
     {
         public function getItemsBox()
         {
