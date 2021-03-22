@@ -14,7 +14,7 @@
                 echo '<td>' . $row["MODEL"] . '</td>';
                 echo '<td>' . $row["ISMP_STATUS"] . '</td>';
                 echo '<td>' . $row["DETAIL"] . '</td>';
-                echo '<td><div class="text-center"><div class="btn-group"><button class="btn bg-dark text-light btnEdit">Edit</button><button class="btn btn-danger btnDelete">Delete</button></div></div></td>';
+                echo '<td><div class="text-center"><div class="btn-group"><a href="updateItemBox.php?id=' . $row["idITEM_BOX"] . '" class="btn bg-dark text-light btnEdit">Edit</a><button class="btn btn-danger btnDelete">Delete</button></div></div></td>';
                 echo '</tr>';
             }
         }

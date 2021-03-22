@@ -5,13 +5,12 @@
 
     if (isset($_POST['btnSaveBoxItem']))
     {
-        echo 'Se presionó';
-        // $itemBoxController = new ItemBoxController();
-        // $itemBoxController->addBoxItem($_POST['cboBoxNumber'], $_POST['txtSerialNumber'], $_POST['txtName'], $_POST['txtAsset'], $_POST['txtModel'], $_POST['txtIsmpStatus'], $_POST['txtDetails']);
+        $itemBoxController = new ItemBoxController();
+        $itemBoxController->addBoxItem($_POST['cboBoxNumber'], $_POST['txtSerialNumber'], $_POST['txtName'], $_POST['txtAsset'], $_POST['txtModel'], $_POST['txtIsmpStatus'], $_POST['txtDetails']);
     }
     else
     {
-        echo "No se presionó";
+        // echo "No se presionó";
     }
     // $con->desconectar($con);
 ?>
@@ -96,7 +95,7 @@
     </div>
 
     <!-- Modal para el CRUD -->
-    <form action="" method="POST" id="formInventory">
+    <!-- <form action="" method="POST" id="formInventory"> -->
         <div class="modal fade" id="modalItemBoxCRUD" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -106,7 +105,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
-                    <!-- <form method="POST" id="formInventory"> -->
+                    <form action="" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="itemLabel" class="col-form-label">Box Number</label>
@@ -145,18 +144,18 @@
                             <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                             <!-- <button type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark" data-dismiss="modal">Save</button> -->
                             <!-- <input type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark" value="Save"> -->
-                            <input
+                            <button
                                 type="submit"
                                 id="btnSaveBoxItem"
                                 name="btnSaveBoxItem"
-                                value="Save"
-                                class="btn btn-dark">
+                                class="btn btn-dark">Save</button>
                         </div>
-                    <!-- </form> -->
+                    </form>
+                    
                 </div>
             </div>
         </div>
-    </form>
+    <!-- </form> -->
     <script src="./jquery/jquery-3.3.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 

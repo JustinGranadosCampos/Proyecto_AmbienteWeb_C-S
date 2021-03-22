@@ -31,26 +31,29 @@ class ItemBox extends Conexion
     }
 
     public function insertItemBox($box, $serialNumber, $name, $asset, $model, $ismp, $details){
-        $sql = "call InsertNewItemBox('$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
-        if ($this->conectar->query($sql))
+        $query = $this->conectar()->query("call GetLastIdItemBox()");
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        $lastId = $result['idITEM_BOX'] + 1;
+        $sql = "call InsertNewItemBox($lastId, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
+        // $idItemBox = $this->conectar()->lastInsertId();
+        if ($this->conectar()->query($sql))
         {
-            $idItemBox = $this->conectar->lastInsertId();
-            $sql = "call InsertItem_x_Box($box, $idItemBox)";
-            if ($this->conectar->query($sql))
+            $sqlRelation = "call InsertItem_x_Box($box, $lastId)";
+            if ($this->conectar()->query($sqlRelation))
             {
                 echo '<script>alert("Registro agregado exitosamente");</script>';
-                echo '<script>window.location.reload;</script>';
+                echo '<script>location.replace("./index.php");</script>';
             }
             else
             {
                 echo "\nPDO::errorInfo():\n";
-                echo $this->conectar->errorInfo();
+                echo $this->conectar()->errorInfo();
             }
         }
         else
         {
             echo "\nPDO::errorInfo():\n";
-            echo $this->conectar->errorInfo();
+            echo $this->conectar()->errorInfo();
         }
     }
 
