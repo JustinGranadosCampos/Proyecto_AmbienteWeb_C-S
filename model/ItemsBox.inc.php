@@ -18,6 +18,18 @@ class ItemBox extends Conexion
         // $con->desconectar();
     }
 
+    public function getItem($id){
+        $sql = "call GetItemBox($id)";
+        $result = $this->conectar()->query($sql);
+        $data = array();
+
+        #Saves all the items into $data that get from the DB
+        while ($row = $result->fetch()) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
     public function getBoxes()
     {
         $sql = "call Show_Boxes()";

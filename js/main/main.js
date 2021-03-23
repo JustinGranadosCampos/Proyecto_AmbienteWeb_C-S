@@ -41,16 +41,24 @@ $(document).ready( function () {
     
     // function to show modal in index
     $("#btnNewItemBox").click(function(){
-        $("#formInventory").trigger("reset");
+        // $("#formInventory").trigger("reset");
         $("#modalItemBoxCRUD").modal("show");
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
         $(".modal-title").text("New Box Item");
     });
 
+    $("#btnEditItemBox").click(function(){
+        // $("#formInventory").trigger("reset");
+        $("#modalItemBoxCRUD").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title").text("Edit Box Item");
+    });
+
     // function to show modal in cabinet form
     $("#btnNewItemCabinet").click(function(){
-        $("#formInventory").trigger("reset");
+        // $("#formInventory").trigger("reset");
         $("#modalItemCabinetCRUD").modal("show");
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");

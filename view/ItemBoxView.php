@@ -19,6 +19,11 @@
             }
         }
 
+        public function getItemBox($id){
+            $result = $this->getItem($id);
+            //fill the inputs
+        }
+
         public function showBoxes()
         {
             $result = $this->getBoxes();

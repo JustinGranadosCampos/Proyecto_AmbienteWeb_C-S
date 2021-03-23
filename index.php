@@ -8,10 +8,16 @@
         $itemBoxController = new ItemBoxController();
         $itemBoxController->addBoxItem($_POST['cboBoxNumber'], $_POST['txtSerialNumber'], $_POST['txtName'], $_POST['txtAsset'], $_POST['txtModel'], $_POST['txtIsmpStatus'], $_POST['txtDetails']);
     }
-    else
-    {
-        // echo "No se presionó";
-    }
+
+    // if (isset($_POST['btnEditItemBox']))
+    // {
+    //     echo "Se presionó";
+    //     $id = $_POST('id');
+    //     echo $id;
+    // }
+    // else{
+    //     echo "No se presionó";
+    // }
     // $con->desconectar($con);
 ?>
 
@@ -96,7 +102,6 @@
     </div>
 
     <!-- Modal para el CRUD -->
-    <!-- <form action="" method="POST" id="formInventory"> -->
         <div class="modal fade" id="modalItemBoxCRUD" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -143,8 +148,6 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                            <!-- <button type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark" data-dismiss="modal">Save</button> -->
-                            <!-- <input type="submit" id="btnSaveBoxItem" name="btnSaveBoxItem" class="btn btn-dark" value="Save"> -->
                             <button
                                 type="submit"
                                 id="btnSaveBoxItem"
@@ -156,7 +159,6 @@
                 </div>
             </div>
         </div>
-    <!-- </form> -->
     <script src="./jquery/jquery-3.3.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 
