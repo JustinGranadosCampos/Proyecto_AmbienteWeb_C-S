@@ -1,27 +1,43 @@
 $(document).ready( function () {
-    $("#cabinetTable").DataTable();
-    $("#itemTable").DataTable();
+    $("#cabinetTable").DataTable({
+        dom: 'Bfrtip',
+          buttons: [
+              'copyHtml5',
+              'excelHtml5',
+              'csvHtml5',
+              'pdfHtml5'
+      ]
+      });
+    $("#itemTable").DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+      ]
+      });
 
-    $("#formInventory").submit(function (e){
+    // $("#formInventory").submit(function (e){
 
-        e.preventDefault();
-        let boxNumber = $("#cboBoxNumber").val();
-        let serialNumber = $("#txtSerialNumber").val();
-        let name = $("#txtName").val();
-        let asset = $("#txtAsset").val();
-        let model = $("#txtModel").val();
-        let ismpStatus = $("#txtIsmpStatus").val();
-        let details = $("#txtDetails").val();
-        $.ajax({
-            type: "POST",
-            url: "./controller/BoxController.php",
-            data: {"data_1": boxNumber, "data_2": serialNumber, "data_3": name, "data_4": asset, "data_5": model, "data_6": ismpStatus, "data_7": details},
-            success: function(data){
-                console.log(data);
-                // $("#btnSaveBoxItem").attr('data-dismiss', 'modal');
-            }
-        })
-    });
+    //     e.preventDefault();
+    //     let boxNumber = $("#cboBoxNumber").val();
+    //     let serialNumber = $("#txtSerialNumber").val();
+    //     let name = $("#txtName").val();
+    //     let asset = $("#txtAsset").val();
+    //     let model = $("#txtModel").val();
+    //     let ismpStatus = $("#txtIsmpStatus").val();
+    //     let details = $("#txtDetails").val();
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "./controller/BoxController.php",
+    //         data: {"data_1": boxNumber, "data_2": serialNumber, "data_3": name, "data_4": asset, "data_5": model, "data_6": ismpStatus, "data_7": details},
+    //         success: function(data){
+    //             console.log(data);
+    //             // $("#btnSaveBoxItem").attr('data-dismiss', 'modal');
+    //         }
+    //     })
+    // });
     
     // function to show modal in index
     $("#btnNewItemBox").click(function(){
