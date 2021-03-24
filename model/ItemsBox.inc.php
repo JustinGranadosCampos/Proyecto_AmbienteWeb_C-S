@@ -18,8 +18,9 @@ class ItemBox extends Conexion
         // $con->desconectar();
     }
 
-    public function getItem($id){
-        $sql = "call GetItemBox($id)";
+    public function getItem_x_Box($id)
+    {
+        $sql = "call GetItem_x_box($id)";
         $result = $this->conectar()->query($sql);
         $data = array();
 
@@ -28,6 +29,16 @@ class ItemBox extends Conexion
             $data[] = $row;
         }
         return $data;
+        // $con->desconectar();
+    }
+
+    public function getItem($id){
+        $sql = "call GetItemBox($id)";
+        $result = $this->conectar()->query($sql);
+        $data = array();
+        $row = $result->fetch();
+        
+        return $row;
     }
 
     public function getBoxes()
@@ -69,27 +80,40 @@ class ItemBox extends Conexion
         }
     }
 
-    public function updateItemBox($box, $serialNumber, $name, $asset, $model, $ismp, $details){
-        $sql = "call InsertNewItemBox('$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
-        if ($this->conectar->query($sql))
+    public function updateItem($id, $box, $serialNumber, $name, $asset, $model, $ismp, $details){
+        $sql = "call UpdateItemBox($id, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
+        if ($this->conectar()->query($sql))
         {
-            $idItemBox = $this->conectar->lastInsertId();
-            // $sql = "call InsertItem_x_Box($box, $idItemBox)"; cambiar por Update
-            if ($this->conectar->query($sql))
+            $sql = "call UpdateItem_x_Box($id, $box)";
+            if ($this->conectar()->query($sql))
             {
-                echo '<script>alert("Registro agregado exitosamente");</script>';
-                echo '<script>window.location.reload;</script>';
+                echo '<script>alert("Registro actualizado exitosamente");</script>';
+                echo '<script>location.replace("./index.php");</script>';
             }
             else
             {
                 echo "\nPDO::errorInfo():\n";
-                echo $this->conectar->errorInfo();
+                echo $this->conectar()->errorInfo();
             }
         }
         else
         {
             echo "\nPDO::errorInfo():\n";
-            echo $this->conectar->errorInfo();
+            echo $this->conectar()->errorInfo();
+        }
+    }
+
+    public function deleteItem($id){
+        $sql = "call DeleteItemBox($id)";
+        if($this->conectar()->query($sql))
+        {
+            echo '<script>alert("Registro eliminado exitosamente");</script>';
+            echo '<script>location.replace("./index.php");</script>';
+        }
+        else
+        {
+            echo "\nPDO::errorInfo():\n";
+            echo $this->conectar()->errorInfo();
         }
     }
 }

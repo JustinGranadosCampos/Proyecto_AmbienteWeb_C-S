@@ -1,8 +1,20 @@
 <?php
     include './view/ItemBoxView.php';
+    include './controller/ItemBoxController.php';
     $itemBox = new ItemBoxView();
     $id = $_GET['id'];
-    
+
+    if (isset($_POST['btnSaveUpdateBoxItem']))
+    {
+        $itemBoxController = new ItemBoxController();
+        $itemBoxController->updateItemBox($id, $_POST['cboBoxNumber'], $_POST['txtSerialNumber'], $_POST['txtName'], $_POST['txtAsset'], $_POST['txtModel'], $_POST['txtIsmpStatus'], $_POST['txtDetails']);
+    }
+
+    if (isset($_POST['btnDelete']))
+    {
+        $itemBoxController = new ItemBoxController();
+        $itemBoxController->deleteItemBox($id);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,66 +23,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,200;1,400&display=swap" rel="stylesheet">
+    <title>Edit Item Box</title>
+	<link rel="stylesheet" href="DataTables/datatables.min.css">
+    <link rel="stylesheet" href="DataTables/DataTables-1.10.22/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
     <!-- Modal para el CRUD -->
-    <div class="modal fade" id="modalItemBoxCRUD" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="modalItemBoxEdit" data-backdrop="static" tabindex="1" role="dialog" aria-labelledby="modal"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
+                    <div class="modal-header modalEdit-header">
+                        <h5 class="modal-title modalEdit-title" id="modal"></h5>
                     </div>
                     <form action="" method="POST">
                         <div class="modal-body">
-                            <div class="form-group">
-                                <label for="itemLabel" class="col-form-label">Box Number</label>
-                                <select name="cboBoxNumber" id="cboBoxNumber" class="form-control">
-                                    <?php
-                                        $itemBox->showBoxes();
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="txtSerialNumber" class="col-form-label">Serial Number</label>
-                                <input type="text" name="txtSerialNumber" class="form-control" id="txtSerialNumber">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtName" class="col-form-label">Name</label>
-                                <input type="text" name="txtName" class="form-control" id="txtName">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtAsset" class="col-form-label">ASSET</label>
-                                <input type="number" name="txtAsset" class="form-control" id="txtAsset">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtModel" class="col-form-label">MODEL</label>
-                                <input type="text" name="txtModel" class="form-control" id="txtModel">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtIsmpStatus" class="col-form-label">ISMP Status</label>
-                                <input type="text" name="txtIsmpStatus" class="form-control" id="txtIsmpStatus">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtDetails" class="col-form-label">Details</label>
-                                <input type="text" name="txtDetails" class="form-control" id="txtDetails">
-                            </div>
-                        </div>
+                            <?php
+                                $itemBox->getItemBox($id);
+                            ?>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                            <a href="index.php" class="btn btn-light">Cancel</a>
                             <button
                                 type="submit"
                                 id="btnSaveBoxItem"
-                                name="btnSaveBoxItem"
+                                name="btnSaveUpdateBoxItem"
                                 class="btn btn-dark">Save</button>
+                                <button type="submit" name="btnDelete" class="btn btn-danger btnDelete">Delete</button></div></div>
                         </div>
                     </form>
                     
                 </div>
             </div>
         </div>
+        <script src="./jquery/jquery-3.3.1.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+		<script src="DataTables/datatables.min.js"></script>
+        <script src="./js/main/main.js"></script>
 </body>
 </html>

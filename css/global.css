@@ -72,6 +72,11 @@ body{
     color: white;
 }
 
+.btnEdit{
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
 .buttons-html5{
     background: white !important;
     border: 2px solid #343a40 !important;

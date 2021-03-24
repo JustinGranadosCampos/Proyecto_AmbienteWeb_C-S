@@ -1,13 +1,13 @@
-$(document).ready( function () {
+$(document).ready(function () {
     $("#cabinetTable").DataTable({
         dom: 'Bfrtip',
-          buttons: [
-              'copyHtml5',
-              'excelHtml5',
-              'csvHtml5',
-              'pdfHtml5'
-      ]
-      });
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    });
     $("#itemTable").DataTable({
         dom: 'Bfrtip',
         buttons: [
@@ -15,8 +15,8 @@ $(document).ready( function () {
             'excelHtml5',
             'csvHtml5',
             'pdfHtml5'
-      ]
-      });
+        ]
+    });
 
     // $("#formInventory").submit(function (e){
 
@@ -38,9 +38,9 @@ $(document).ready( function () {
     //         }
     //     })
     // });
-    
+
     // function to show modal in index
-    $("#btnNewItemBox").click(function(){
+    $("#btnNewItemBox").click(function () {
         // $("#formInventory").trigger("reset");
         $("#modalItemBoxCRUD").modal("show");
         $(".modal-header").css("color", "#343a40");
@@ -48,16 +48,13 @@ $(document).ready( function () {
         $(".modal-title").text("New Box Item");
     });
 
-    $("#btnEditItemBox").click(function(){
-        // $("#formInventory").trigger("reset");
-        $("#modalItemBoxCRUD").modal("show");
-        $(".modal-header").css("color", "#343a40");
-        $(".modal-header").css("color", "#343a40");
-        $(".modal-title").text("Edit Box Item");
-    });
+    $("#modalItemBoxEdit").modal("show");
+    $(".modalEdit-header").css("color", "#343a40");
+    $(".modalEdit-header").css("color", "#343a40");
+    $(".modalEdit-title").text("Edit Box Item");
 
     // function to show modal in cabinet form
-    $("#btnNewItemCabinet").click(function(){
+    $("#btnNewItemCabinet").click(function () {
         // $("#formInventory").trigger("reset");
         $("#modalItemCabinetCRUD").modal("show");
         $(".modal-header").css("color", "#343a40");
@@ -84,4 +81,4 @@ $(document).ready( function () {
     //         data: {label}
     //     })
     // });
-} );
+});
