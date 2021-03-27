@@ -2,8 +2,6 @@
 include __DIR__.'/Conexion.inc.php';
 class ItemBox extends Conexion
 {
-    // private
-
     public function getItems()
     {
         $sql = "call Items_x_Box()";

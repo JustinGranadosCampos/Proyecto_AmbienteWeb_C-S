@@ -8,17 +8,6 @@
         $itemBoxController = new ItemBoxController();
         $itemBoxController->addBoxItem($_POST['cboBoxNumber'], $_POST['txtSerialNumber'], $_POST['txtName'], $_POST['txtAsset'], $_POST['txtModel'], $_POST['txtIsmpStatus'], $_POST['txtDetails']);
     }
-
-    // if (isset($_POST['btnEditItemBox']))
-    // {
-    //     echo "Se presionó";
-    //     $id = $_POST('id');
-    //     echo $id;
-    // }
-    // else{
-    //     echo "No se presionó";
-    // }
-    // $con->desconectar($con);
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +44,7 @@
                     <a class="nav-link" href="#">Box Items <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./cabinet_items.html">Cabinet Items</a>
+                    <a class="nav-link" href="./cabinet_items.php">Cabinet Items</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./admin/login.html">Login</a>
@@ -78,23 +67,9 @@
                 <div class="table-responsive">
                     <table id="itemTable" class="table table-stripped table-bordered table-condensed display table-hover"
                         style="width: 100%;">
-                        <thead class="text-center">
-                            <tr>
-                                <th id="boxLabel">BOX LABEL</th>
-                                <th id="serialNumber">SERIAL NUMBER</th>
-                                <th id="iName">NAME</th>
-                                <th id="iAsset">ASSET</th>
-                                <th id="iModel">MODEL</th>
-                                <th id="iISMP_stat">ISMP STATUS</th>
-                                <th id="iDetail">DETAIL</th>
-                                <th>ACTIONS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $itemBox->getItemsBox();
-                            ?>
-                        </tbody>
+                        <?php
+                            $itemBox->getItemsBox();
+                        ?>
                     </table>
                 </div>
             </div>

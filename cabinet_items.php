@@ -1,3 +1,7 @@
+<?php
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,9 +41,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./admin/login.html">Login</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">ITEM</a>
-                </li> -->
             </ul>
         </div>
     </nav>
@@ -49,20 +50,6 @@
             <div class="col-sm-6">
                 <button id="btnNewItemCabinet" type="button" class="btn btn-success btnNew">+ Add New</button>
             </div>
-            <!-- <div class="col-sm-6">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="tableBox" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                      Show Box Table
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="tableCabinet" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                      Show Cabinet Table
-                    </label>
-                  </div>
-            </div> -->
         </div>
     </div>
 
