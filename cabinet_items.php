@@ -1,5 +1,7 @@
 <?php
-    
+    include './view/ItemCabinetView.php';
+    // include './controller/ItemBoxController.php';
+    $itemView = new ItemCabinetView();
 ?>
 
 <!DOCTYPE html>
@@ -54,37 +56,9 @@
                 <div class="table-responsive">
                     <table id="cabinetTable" class="display cabinetTable table table0stripped table-bordered table-condensed"
                         style="width: 100%;">
-                        <thead class="text-center">
-                            <tr>
-                                <th>CABINET LABEL</th>
-                                <th>SERIAL NUMBER</th>
-                                <th>NAME</th>
-                                <th>ASSET</th>
-                                <th>MODEL</th>
-                                <th>ISMP STATUS</th>
-                                <th>DETAIL</th>
-                                <th>ACTIONS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="text-center">
-                                        <div class="btn-group">
-                                            <button class="btn bg-dark text-light btnEdit">Edit</button>
-                                            <button class="btn btn-danger btnDelete">Delete</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <?php
+                            $itemView->getItemsCabinet();
+                        ?>
                     </table>
                 </div>
             </div>
