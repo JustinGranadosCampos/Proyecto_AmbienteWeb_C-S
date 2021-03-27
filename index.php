@@ -16,15 +16,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/global.css">
-    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,200;1,400&display=swap" rel="stylesheet">
     <title>Items ֎ Boxes</title>
-    <link rel="stylesheet" href="DataTables/datatables.min.css">
-    <link rel="stylesheet" href="DataTables/DataTables-1.10.22/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
-
+    <?php
+        include './styles.php';
+    ?>
 </head>
 
 <body>
@@ -134,17 +129,9 @@
                 </div>
             </div>
         </div>
-    <script src="./jquery/jquery-3.3.1.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-
-    <script src="DataTables/datatables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
-
-    <script src="./js/main/main.js"></script>
+    <?php
+        include './scripts.php';
+    ?>
 </body>
 
 </html>
