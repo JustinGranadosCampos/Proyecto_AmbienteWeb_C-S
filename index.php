@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Items ֎ Boxes</title>
+    <title>Items in Boxes</title>
     <?php
         include './styles.php';
     ?>
