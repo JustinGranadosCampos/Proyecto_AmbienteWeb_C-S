@@ -1,3 +1,8 @@
+<?php
+    include './view/cabinetView.php';
+    $cabinetView = new CabinetView();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +39,65 @@
             </ul>
         </div>
     </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <button id="btnNewCabinet" type="button" class="btn btn-success btnNew">+ Add New</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table id="itemTable" class="table table-stripped table-bordered table-condensed display table-hover"
+                        style="width: 100%;">
+                        <?php
+                            $cabinetView->showCabinets();
+                        ?>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para el CRUD -->
+        <div class="modal fade" id="modalAddCabinet" tabindex="1" role="dialog" aria-labelledby="modalAddNewCabinet"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalAddNewCabinet"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <form action="" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="itemLabel" class="col-form-label">Box Number</label>
+                                <input type="number" name="txtBoxNumber" class="form-control" id="txtBoxNumber">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtSerialNumber" class="col-form-label">Label</label>
+                                <input type="text" name="txtLabel" class="form-control" id="txtLabel">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                            <button
+                                type="submit"
+                                id="btnSaveBox"
+                                name="btnSaveBox"
+                                class="btn btn-dark">Save</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
     <?php
         include './scripts.php';
     ?>

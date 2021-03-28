@@ -75,7 +75,15 @@ $(document).ready(function () {
         $("#modalAddBox").modal("show");
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
-        $(".modal-title").text("New User");
+        $(".modal-title").text("New Box");
+    });
+
+    $("#btnNewCabinet").click(function () {
+        // $("#formInventory").trigger("reset");
+        $("#modalAddCabinet").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title").text("New Box");
     });
 
 

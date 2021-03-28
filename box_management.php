@@ -1,3 +1,8 @@
+<?php
+    include './view/boxView.php';
+    $boxView = new BoxView();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +55,7 @@
                     <table id="itemTable" class="table table-stripped table-bordered table-condensed display table-hover"
                         style="width: 100%;">
                         <?php
-                            // $itemBox->getItemsBox();
+                            $boxView->showBoxes();
                         ?>
                     </table>
                 </div>
@@ -72,35 +77,11 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="itemLabel" class="col-form-label">Box Number</label>
-                                <select name="cboBoxNumber" id="cboBoxNumber" class="form-control">
-                                    <?php
-                                        // $itemBox->showBoxes();
-                                    ?>
-                                </select>
+                                <input type="number" name="txtBoxNumber" class="form-control" id="txtBoxNumber">
                             </div>
                             <div class="form-group">
-                                <label for="txtSerialNumber" class="col-form-label">Serial Number</label>
-                                <input type="text" name="txtSerialNumber" class="form-control" id="txtSerialNumber">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtName" class="col-form-label">Name</label>
-                                <input type="text" name="txtName" class="form-control" id="txtName">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtAsset" class="col-form-label">ASSET</label>
-                                <input type="number" name="txtAsset" class="form-control" id="txtAsset">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtModel" class="col-form-label">MODEL</label>
-                                <input type="text" name="txtModel" class="form-control" id="txtModel">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtIsmpStatus" class="col-form-label">ISMP Status</label>
-                                <input type="text" name="txtIsmpStatus" class="form-control" id="txtIsmpStatus">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtDetails" class="col-form-label">Details</label>
-                                <input type="text" name="txtDetails" class="form-control" id="txtDetails">
+                                <label for="txtSerialNumber" class="col-form-label">Label</label>
+                                <input type="text" name="txtLabel" class="form-control" id="txtLabel">
                             </div>
                         </div>
                         <div class="modal-footer">

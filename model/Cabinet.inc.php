@@ -1,9 +1,9 @@
 <?php
     include __DIR__.'/Conexion.inc.php';
-    class Box extends Conexion
+    class Cabinet extends Conexion
     {
-        protected function getBoxes(){
-            $sql = "call Show_Boxes()";
+        protected function getCabinets(){
+            $sql = "call ShowCabinets()";
             $result = $this->conectar()->query($sql);
             $data = array();
 
@@ -16,7 +16,7 @@
                 
         }
 
-        protected function getBox($id){
+        protected function getCabinet($id){
             $sql = "call ShowBox($id)";
             $result = $this->conectar()->query($sql);
             $data = array();
