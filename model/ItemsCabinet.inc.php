@@ -41,7 +41,7 @@
 
         protected function getCabinets()
         {
-            $sql = "call Show_Boxes()";
+            $sql = "call ShowCabinets()";
             $result = $this->conectar()->query($sql);
             $data = array();
 

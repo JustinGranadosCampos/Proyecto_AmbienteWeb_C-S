@@ -36,5 +36,13 @@
             }
             echo '</tbody>';
         }
+
+        public function showCabinets()
+        {
+            $result = $this->getCabinets();
+            foreach ($result as $row) {
+                echo '<option value=' . $row["idCABINET"] . '>' . $row["CABINET_NUMBER"] . '</option>';
+            }
+        }
     }
 ?>

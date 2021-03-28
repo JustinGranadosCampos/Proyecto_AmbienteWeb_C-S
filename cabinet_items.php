@@ -79,7 +79,11 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="itemLabel" class="col-form-label">Cabinet Number</label>
-                            <input type="text" class="form-control" id="itemLabel">
+                            <select name="cboCabinetNumber" id="cboCabinetNumber" class="form-control">
+                                <?php
+                                    $itemView->showCabinets();
+                                ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="serial-number" class="col-form-label">Serial Number</label>

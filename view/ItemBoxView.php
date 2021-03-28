@@ -81,7 +81,7 @@
             echo '<div class="form-group">';
             echo '<label for="txtDetails" class="col-form-label">Details</label>';
             echo '<input type="text" name="txtDetails" class="form-control" id="txtDetails" value="' . $result['DETAIL'] . '">';
-            echo '</div>';
+            echo '</div>'; 
             echo '</div>';
         }
 
