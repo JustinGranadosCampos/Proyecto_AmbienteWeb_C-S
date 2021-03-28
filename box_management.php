@@ -34,6 +34,89 @@
             </ul>
         </div>
     </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <button id="btnNewBox" type="button" class="btn btn-success btnNew">+ Add New</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table id="itemTable" class="table table-stripped table-bordered table-condensed display table-hover"
+                        style="width: 100%;">
+                        <?php
+                            // $itemBox->getItemsBox();
+                        ?>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para el CRUD -->
+        <div class="modal fade" id="modalAddBox" tabindex="1" role="dialog" aria-labelledby="modalAddNewBox"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalAddNewBox"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <form action="" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="itemLabel" class="col-form-label">Box Number</label>
+                                <select name="cboBoxNumber" id="cboBoxNumber" class="form-control">
+                                    <?php
+                                        // $itemBox->showBoxes();
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtSerialNumber" class="col-form-label">Serial Number</label>
+                                <input type="text" name="txtSerialNumber" class="form-control" id="txtSerialNumber">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtName" class="col-form-label">Name</label>
+                                <input type="text" name="txtName" class="form-control" id="txtName">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtAsset" class="col-form-label">ASSET</label>
+                                <input type="number" name="txtAsset" class="form-control" id="txtAsset">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtModel" class="col-form-label">MODEL</label>
+                                <input type="text" name="txtModel" class="form-control" id="txtModel">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtIsmpStatus" class="col-form-label">ISMP Status</label>
+                                <input type="text" name="txtIsmpStatus" class="form-control" id="txtIsmpStatus">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtDetails" class="col-form-label">Details</label>
+                                <input type="text" name="txtDetails" class="form-control" id="txtDetails">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                            <button
+                                type="submit"
+                                id="btnSaveBox"
+                                name="btnSaveBox"
+                                class="btn btn-dark">Save</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
     <?php
         include './scripts.php';
     ?>

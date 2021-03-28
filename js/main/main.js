@@ -62,6 +62,22 @@ $(document).ready(function () {
         $(".modal-title").text("New Cabinet Item");
     });
 
+    $("#btnNewUser").click(function () {
+        // $("#formInventory").trigger("reset");
+        $("#modalAddUser").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title").text("New User");
+    });
+
+    $("#btnNewBox").click(function () {
+        // $("#formInventory").trigger("reset");
+        $("#modalAddBox").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title").text("New User");
+    });
+
 
     // $("#formInventory").load(function(e){
     //     e.preventDefault();
