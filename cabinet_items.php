@@ -35,9 +35,9 @@
                 <li class="nav-item">
                     <a class="nav-link active activeUnderline" href="./cabinet_items.html">Cabinet Items <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./admin/login.html">Login</a>
-                </li>
+                <?php
+                    include './nav_items_menu.php';
+                ?>
             </ul>
         </div>
     </nav>

@@ -41,9 +41,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./cabinet_items.php">Cabinet Items</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./admin/login.html">Login</a>
-                </li>
+                <?php
+                    include './nav_items_menu.php';
+                ?>
             </ul>
         </div>
     </nav>
