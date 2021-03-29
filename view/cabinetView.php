@@ -6,7 +6,7 @@
             echo '<thead class="text-center">';
             echo '<tr>';
             echo '<th id="boxLabel">ID CABINET</th>';
-            echo '<th id="serialNumber">LABEL</th>';
+            echo '<th id="serialNumber">CABINET NUMBER</th>';
             //Validate if $_SESSION['idRol'] == 1 to show actions
             echo '<th>ACTIONS</th>';
             //Validate if $_SESSION['idRol'] == 1 to show actions
