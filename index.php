@@ -51,7 +51,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <button id="btnNewItemBox" type="button" class="btn btn-success btnNew">+ Add New</button>
+                <?php
+                    $itemBox->showButtonNew();
+                ?>
             </div>
         </div>
     </div>

@@ -2,6 +2,19 @@
     include './model/ItemsCabinet.inc.php';
     class ItemCabinetView extends ItemCabinet
     {
+        public function showButtonNew()
+        {
+            if ($_SESSION['Profile'] == 1)
+            {
+                echo '<button id="btnNewItemBox" type="button" class="btn btn-success btnNew">+ Add New</button>';
+            }
+            else
+            {
+                echo '<br>';
+                echo '<br>';
+            }
+        }
+
         public function getItemsCabinet()
         {
             echo '<thead class="text-center">';
@@ -34,9 +47,9 @@
                 echo '<td>' . $row["ISMP_STATUS"] . '</td>';
                 echo '<td>' . $row["DETAIL"] . '</td>';
                 if ($_SESSION['Profile'] == 1)
-            {
-                echo '<td><div class="text-center"><div class="btn-group"><a href="updateItemBox.php?id=' /*. $row["idITEM_BOX"]*/ . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
-            }
+                {
+                    echo '<td><div class="text-center"><div class="btn-group"><a href="updateItemBox.php?id=' /*. $row["idITEM_BOX"]*/ . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
+                }
                 echo '</tr>';
             }
             echo '</tbody>';

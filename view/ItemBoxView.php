@@ -2,6 +2,19 @@
     include './model/ItemsBox.inc.php';
     class ItemBoxView extends ItemBox
     {
+        public function showButtonNew()
+        {
+            if ($_SESSION['Profile'] == 1)
+            {
+                echo '<button id="btnNewItemBox" type="button" class="btn btn-success btnNew">+ Add New</button>';
+            }
+            else
+            {
+                echo '<br>';
+                echo '<br>';
+            }
+        }
+
         public function getItemsBox()
         {
             echo '<thead class="text-center">';
