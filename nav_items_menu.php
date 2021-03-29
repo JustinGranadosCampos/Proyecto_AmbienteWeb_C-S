@@ -6,8 +6,7 @@
     }
 
     session_start();
-    $_SESSION['idRol'] = 1;
-    if ($_SESSION['idRol'] == 1)
+    if ($_SESSION['Profile'] == 1)
     {
         echo '<li class="nav-item">';
         echo '<a class="nav-link" href="./users_management.php">Users</a>';
@@ -19,13 +18,19 @@
         echo '<a class="nav-link" href="./cabinet_management.php">Cabinets</a>';
         echo '</li>';
         echo '<li class="nav-item">';
-        echo '<a class="nav-link" href="#">Logout</a>';
+        echo '<a class="nav-link" href="./logout.php">Logout</a>';
+        echo '</li>';
+    }
+    else if($_SESSION['Profile'] == 2)
+    {
+        echo '<li class="nav-item">';
+        echo '<a class="nav-link" href="./logout.php">Logout</a>';
         echo '</li>';
     }
     else
     {
         echo '<li class="nav-item">';
-        echo '<a class="nav-link" href="./admin/login.html">Login</a>';
+        echo '<a class="nav-link" href="./admin/login.php">Login</a>';
         echo '</li>';
     }
 ?>
