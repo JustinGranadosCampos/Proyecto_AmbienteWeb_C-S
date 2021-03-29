@@ -53,6 +53,11 @@ $(document).ready(function () {
     $(".modalEdit-header").css("color", "#343a40");
     $(".modalEdit-title").text("Edit Box Item");
 
+    $("#modalBoxEdit").modal("show");
+    $(".modal-header").css("color", "#343a40");
+    $(".modal-header").css("color", "#343a40");
+    $(".modal-title").text("Edit Box");
+
     // function to show modal in cabinet form
     $("#btnNewItemCabinet").click(function () {
         // $("#formInventory").trigger("reset");

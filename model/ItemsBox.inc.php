@@ -56,7 +56,6 @@ class ItemBox extends Conexion
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $lastId = $result['idITEM_BOX'] + 1;
         $sql = "call InsertNewItemBox($lastId, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
-        // $idItemBox = $this->conectar()->lastInsertId();
         if ($this->conectar()->query($sql))
         {
             $sqlRelation = "call InsertItem_x_Box($box, $lastId)";

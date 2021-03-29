@@ -19,18 +19,57 @@
         protected function getBox($id){
             $sql = "call ShowBox($id)";
             $result = $this->conectar()->query($sql);
-            $data = array();
             $row = $result->fetch();
             
             return $row;
         }
 
-        protected function insertBox($id /*....*/){
-            $sql = "call AddBox($id /*....*/)";
+        protected function insertBox($id, $label){
+            $sql = "call InsertBox($id, '$label')";
+            if ($this->conectar()->query($sql))
+            {
+                echo '<script>alert("Registro agregado exitosamente");</script>';
+                echo '<script>location.replace("./box_management.php");</script>';
+            }
+            else
+            {
+                echo "\nPDO::errorInfo():\n";
+                echo $this->conectar()->errorInfo();
+            }
         }
 
-        protected function deleteBox($id){
+        protected function updateBoxData($id, $label){
+            $sql = "call UpdateBox($id, '$label')";
+            if ($this->conectar()->query($sql)) {
+                echo '<script>alert("Registro actualizado exitosamente");</script>';
+                echo '<script>location.replace("./box_management.php");</script>';
+            }
+            else
+            {
+                echo "\nPDO::errorInfo():\n";
+                echo $this->conectar()->errorInfo();
+            }
+        }
+
+        protected function deleteBoxData($id){
             $sql = "call DeleteBox($id)";
+            if ($this->conectar()->query($sql)) {
+                echo '<script>alert("Registro eliminado");</script>';
+                echo '<script>location.replace("./box_management.php");</script>';
+            }
+            else
+            {
+                echo "\nPDO::errorInfo():\n";
+                echo $this->conectar()->errorInfo();
+            }
+        }
+
+        protected function getLastIdBox(){
+            $sql = $this->conectar()->query("call GetLastIdBox()");
+            $result = $sql->fetch(PDO::FETCH_ASSOC);
+            // echo $result;
+            $lastId = $result['idBOX'] + 1;
+            return $lastId;
         }
     }
 ?>

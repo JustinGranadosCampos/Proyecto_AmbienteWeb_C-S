@@ -1,6 +1,13 @@
 <?php
     include './view/boxView.php';
+    include './controller/boxController.php';
     $boxView = new BoxView();
+
+    if(isset($_POST['btnSaveBox']))
+    {
+        $boxController = new BoxController();
+        $boxController->addBox($_POST['txtBoxNumber'], $_POST['txtLabel']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -63,40 +70,43 @@
         </div>
     </div>
 
-    <!-- Modal para el CRUD -->
-        <div class="modal fade" id="modalAddBox" tabindex="1" role="dialog" aria-labelledby="modalAddNewBox"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalAddNewBox"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                    </div>
-                    <form action="" method="POST">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="itemLabel" class="col-form-label">Box Number</label>
-                                <input type="number" name="txtBoxNumber" class="form-control" id="txtBoxNumber">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtSerialNumber" class="col-form-label">Label</label>
-                                <input type="text" name="txtLabel" class="form-control" id="txtLabel">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                            <button
-                                type="submit"
-                                id="btnSaveBox"
-                                name="btnSaveBox"
-                                class="btn btn-dark">Save</button>
-                        </div>
-                    </form>
-                    
+    <!-- Modal -->
+    <div
+        class="modal fade"
+        id="modalAddBox"
+        tabindex="1"
+        role="dialog"
+        aria-labelledby="modalAddNewBox"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAddNewBox"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
                 </div>
+                <form action="" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="itemLabel" class="col-form-label">Box Number</label>
+                            <?php
+                                        $boxView->showNextBox();
+                                    ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtSerialNumber" class="col-form-label">Label</label>
+                            <input type="text" name="txtLabel" class="form-control" id="txtLabel">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                        <button type="submit" id="btnSaveBox" name="btnSaveBox" class="btn btn-dark">Save</button>
+                    </div>
+                </form>
+
             </div>
         </div>
+    </div>
 
     <?php
         include './scripts.php';
