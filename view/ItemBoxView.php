@@ -14,7 +14,10 @@
             echo '<th id="iISMP_stat">ISMP STATUS</th>';
             echo '<th id="iDetail">DETAIL</th>';
             //Validate if $_SESSION['idRol'] == 1 to show actions
-            echo '<th>ACTIONS</th>';
+            if ($_SESSION['Profile'] == 1)
+            {
+                echo '<th>ACTIONS</th>';
+            }
             //Validate if $_SESSION['idRol'] == 1 to show actions
             echo '</tr>';
             echo '</thead>';
@@ -29,7 +32,10 @@
                 echo '<td>' . $row["MODEL"] . '</td>';
                 echo '<td>' . $row["ISMP_STATUS"] . '</td>';
                 echo '<td>' . $row["DETAIL"] . '</td>';
+                if ($_SESSION['Profile'] == 1)
+            {
                 echo '<td><div class="text-center"><div class="btn-group"><a href="updateItemBox.php?id=' . $row["idITEM_BOX"] . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
+            }
                 echo '</tr>';
             }
             echo '</tbody>';
