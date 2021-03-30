@@ -12,7 +12,7 @@
                 $_SESSION['Profile'] = $row['idROL'];
                 $_SESSION['Desc_profile'] = $row['ROL_NAME'];
                 $_SESSION['wwid'] = $row['WWID'];
-                echo '<script>location.replace("../index.php");</script>';
+                echo '<script>location.replace("../box_items.php");</script>';
             }
             else
             {

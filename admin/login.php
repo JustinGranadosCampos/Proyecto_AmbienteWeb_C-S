@@ -35,7 +35,7 @@
                   <input type="password" name="txtPass" class="form-control" id="exampleInputPassword1">
                 </div>
                 <div class="button-container">
-                    <a href="/index.php" class="btn btn-dark btn-login">Go Back</a>
+                    <a href="../index.html" class="btn btn-dark btn-login">Go Back</a>
                     <button type="submit" name="btnLogin" class="btn btn-dark btn-login">Login</button>
                 </div>
               </form>
