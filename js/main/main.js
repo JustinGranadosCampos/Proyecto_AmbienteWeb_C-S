@@ -58,6 +58,13 @@ $(document).ready(function () {
     $(".modal-header").css("color", "#343a40");
     $(".modal-title").text("Edit Box");
 
+    $("#btnAddNewCabinet").click(function () {
+        $("#modalAddCabinet").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title").text("Add Cabinet");
+    });
+
     // function to show modal in cabinet form
     $("#btnNewItemCabinet").click(function () {
         // $("#formInventory").trigger("reset");
@@ -90,24 +97,4 @@ $(document).ready(function () {
         $(".modal-header").css("color", "#343a40");
         $(".modal-title").text("New Box");
     });
-
-
-    // $("#formInventory").load(function(e){
-    //     e.preventDefault();
-    //     $("#formInventory").submit()
-    //     // label = $.trim($("#boxLabel").val());
-    //     // serial_number = $.trim($("#serialNumber").val());
-    //     // name = $.trim($("#iName").val());
-    //     // asset = $.trim($("#iAsset").val());
-    //     // model = $.trim($("#iModel").val());
-    //     // ismp_status = $.trim($("#iISMP_stat").val());
-    //     // detail = $.trim($("#iDetail").val());
-
-    //     $.ajax({
-    //         url: "../model/ItemsBox.inc.php",
-    //         type: "POST",
-    //         dataType: "json",
-    //         data: {label}
-    //     })
-    // });
 });

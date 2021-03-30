@@ -1,6 +1,13 @@
 <?php
     include './view/cabinetView.php';
+    include './controller/cabinetController.php';
     $cabinetView = new CabinetView();
+
+    if(isset($_POST['btnSaveCabinet']))
+    {
+        $cabientController = new CabinetController();
+        $cabientController->addBox($_POST['txtBoxNumber'], $_POST['txtLabel']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +50,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <button id="btnNewCabinet" type="button" class="btn btn-success btnNew">+ Add New</button>
+                <button id="btnAddNewCabinet" type="button" class="btn btn-success btnNew">+ Add New</button>
             </div>
         </div>
     </div>
@@ -76,20 +83,22 @@
                     <form action="" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="itemLabel" class="col-form-label">Box Number</label>
-                                <input type="number" name="txtBoxNumber" class="form-control" id="txtBoxNumber">
+                                <label for="itemLabel" class="col-form-label">ID Cabinet</label>
+                                <?php
+                                    $cabinetView->showNextCabinet();
+                                ?>
                             </div>
                             <div class="form-group">
-                                <label for="txtSerialNumber" class="col-form-label">Label</label>
-                                <input type="text" name="txtLabel" class="form-control" id="txtLabel">
+                                <label for="txtSerialNumber" class="col-form-label">Cabinet Number</label>
+                                <input type="text" name="txtCabinetNumber" class="form-control" id="txtLabel">
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                             <button
                                 type="submit"
-                                id="btnSaveBox"
-                                name="btnSaveBox"
+                                id="btnSaveCabinet"
+                                name="btnSaveCabinet"
                                 class="btn btn-dark">Save</button>
                         </div>
                     </form>

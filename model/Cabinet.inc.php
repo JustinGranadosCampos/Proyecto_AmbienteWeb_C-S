@@ -17,7 +17,7 @@
         }
 
         protected function getCabinet($id){
-            $sql = "call ShowBox($id)";
+            $sql = "call ShowCabinet($id)";
             $result = $this->conectar()->query($sql);
             $data = array();
             $row = $result->fetch();
@@ -25,12 +25,52 @@
             return $row;
         }
 
-        protected function insertBox($id /*....*/){
-            $sql = "call AddBox($id /*....*/)";
+        protected function insertCabinet($id, $number){
+            $sql = "call InsertCabinet($id, $number)";
+            if ($this->conectar()->query($sql))
+            {
+                echo '<script>alert("Registro agregado exitosamente");</script>';
+                echo '<script>location.replace("./cabinet_management.php");</script>';
+            }
+            else
+            {
+                echo "\nPDO::errorInfo():\n";
+                echo $this->conectar()->errorInfo();
+            }
         }
 
-        protected function deleteBox($id){
-            $sql = "call DeleteBox($id)";
+        protected function updateBoxData($id, $number){
+            $sql = "call UpdateCabinet($id, $number)";
+            if ($this->conectar()->query($sql)) {
+                echo '<script>alert("Registro actualizado exitosamente");</script>';
+                echo '<script>location.replace("./cabinet_management.php");</script>';
+            }
+            else
+            {
+                echo "\nPDO::errorInfo():\n";
+                echo $this->conectar()->errorInfo();
+            }
+        }
+
+        protected function deleteBoxData($id){
+            $sql = "call DeleteCabinet($id)";
+            if ($this->conectar()->query($sql)) {
+                echo '<script>alert("Registro eliminado");</script>';
+                echo '<script>location.replace("./cabinet_management.php");</script>';
+            }
+            else
+            {
+                echo "\nPDO::errorInfo():\n";
+                echo $this->conectar()->errorInfo();
+            }
+        }
+
+        protected function getLastIdCabinet(){
+            $sql = $this->conectar()->query("call GetLastIdCabinet()");
+            $result = $sql->fetch(PDO::FETCH_ASSOC);
+            // echo $result;
+            $lastId = $result['idCABINET'] + 1;
+            return $lastId;
         }
     }
 ?>
