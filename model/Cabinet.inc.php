@@ -39,7 +39,7 @@
             }
         }
 
-        protected function updateBoxData($id, $number){
+        protected function updateCabinetData($id, $number){
             $sql = "call UpdateCabinet($id, $number)";
             if ($this->conectar()->query($sql)) {
                 echo '<script>alert("Registro actualizado exitosamente");</script>';
@@ -52,7 +52,7 @@
             }
         }
 
-        protected function deleteBoxData($id){
+        protected function deleteCabinetData($id){
             $sql = "call DeleteCabinet($id)";
             if ($this->conectar()->query($sql)) {
                 echo '<script>alert("Registro eliminado");</script>';

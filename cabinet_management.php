@@ -6,7 +6,7 @@
     if(isset($_POST['btnSaveCabinet']))
     {
         $cabientController = new CabinetController();
-        $cabientController->addBox($_POST['txtBoxNumber'], $_POST['txtLabel']);
+        $cabientController->addCabinet($_POST['txtId'], $_POST['txtCabinetNumber']);
     }
 ?>
 

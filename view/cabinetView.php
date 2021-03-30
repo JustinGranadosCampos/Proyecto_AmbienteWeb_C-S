@@ -16,7 +16,7 @@
                 echo '<tr>';
                 echo '<td>' . $row["idCABINET"] . '</td>';
                 echo '<td>' . $row["CABINET_NUMBER"] . '</td>';
-                echo '<td><div class="text-center"><div class="btn-group"><a href="./edit_cabinet.php?id=' . $row["idCABINET"] . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
+                echo '<td><div class="text-center"><div class="btn-group"><a href="edit_cabinet.php?id=' . $row["idCABINET"] . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
                 echo '</tr>';
             }
             echo '</tbody>';
@@ -24,16 +24,16 @@
 
         public function showCabinet($id)
         {
-            $result = $this->getBox($id);
+            $result = $this->getCabinet($id);
             if (!empty($result))
             {
                 echo '<div class="form-group">';
-                echo '<label for="txtIdBox" class="col-form-label">ID BOX</label>';
-                echo '<input type="text" name="txtIdBox" class="form-control" id="txtIdBox" value="' . $result["idBOX"] . '" readonly>';
+                echo '<label for="txtIdCabinet" class="col-form-label">ID Cabinet</label>';
+                echo '<input type="text" name="txtIdCabinet" class="form-control" id="txtIdCabinet" value="' . $result["idCABINET"] . '" readonly>';
                 echo '</div>';
                 echo '<div class="form-group">';
-                echo '<label for="txtIdLabel" class="col-form-label">LABEL</label>';
-                echo '<input type="text" name="txtIdLabel" class="form-control" id="txtIdLabel" value="' . $result["LABEL"] . '">';
+                echo '<label for="txtNumber" class="col-form-label">Cabinet Number</label>';
+                echo '<input type="text" name="txtNumber" class="form-control" id="txtNumber" value="' . $result["CABINET_NUMBER"] . '">';
                 echo '</div>';
             }
         }
@@ -41,7 +41,7 @@
         public function showNextCabinet()
         {
             $result = $this->getLastIdCabinet();
-            echo '<input type="text" name="txtCabinetNumber" class="form-control" id="txtCabinetNumber" value=' . $result . ' readonly>';
+            echo '<input type="text" name="txtId" class="form-control" id="txtId" value=' . $result . ' readonly>';
         }
     }
 ?>

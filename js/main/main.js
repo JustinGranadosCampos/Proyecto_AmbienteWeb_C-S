@@ -57,6 +57,11 @@ $(document).ready(function () {
     $(".modal-header").css("color", "#343a40");
     $(".modal-header").css("color", "#343a40");
     $(".modal-title").text("Edit Box");
+    
+    $("#modalCabinetEdit").modal("show");
+    $(".modal-header").css("color", "#343a40");
+    $(".modal-header").css("color", "#343a40");
+    $(".modal-title").text("Edit Cabinet");
 
     $("#btnAddNewCabinet").click(function () {
         $("#modalAddCabinet").modal("show");
