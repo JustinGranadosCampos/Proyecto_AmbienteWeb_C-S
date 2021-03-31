@@ -103,7 +103,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtAsset" class="col-form-label">ASSET</label>
-                                <input type="number" name="txtAsset" class="form-control" id="txtAsset">
+                                <input type="number" name="txtAsset" class="form-control" id="txtAsset" onkeypress="return isNumber(event)">
                             </div>
                             <div class="form-group">
                                 <label for="txtModel" class="col-form-label">MODEL</label>

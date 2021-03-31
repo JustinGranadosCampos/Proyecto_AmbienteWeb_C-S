@@ -87,7 +87,7 @@
             echo '</div>';
             echo '<div class="form-group">';
             echo '<label for="txtAsset" class="col-form-label">ASSET</label>';
-            echo '<input type="number" name="txtAsset" class="form-control" id="txtAsset" value="' . $result['ASSET'] . '">';
+            echo '<input type="number" name="txtAsset" class="form-control" id="txtAsset" onkeypress="return isNumber(event)" value="' . $result['ASSET'] . '">';
             echo '</div>';
             echo '<div class="form-group">';
             echo '<label for="txtModel" class="col-form-label">MODEL</label>';

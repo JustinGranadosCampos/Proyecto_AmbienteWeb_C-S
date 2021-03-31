@@ -78,4 +78,74 @@ $(document).ready(function () {
     });
 
     // ************************************* //
+
+    /*  Validations  */
+    //Serial Number
+    $("#txtSerialNumber").blur(function () {
+        $("#txtSerialNumber").val($("#txtSerialNumber").val().replace(/ /g, ''));
+        $("#txtSerialNumber").val($("#txtSerialNumber").val().replace(/[^a-zA-Z0-9]/g, ""));
+        if (isBlank($("#txtModel").val())){
+            console.log("Por favor llenar el campo");
+        }
+    });
+
+    //Name
+    $("#txtName").blur(function () {
+        $("#txtName").val($("#txtName").val().trim());
+        $("#txtName").val($("#txtName").val().replace(/[^a-zA-Z0-9]/g, " "));
+        if (isBlank($("#txtModel").val())){
+            console.log("Por favor llenar el campo");
+        }
+    });
+
+    //Model
+    $("#txtModel").blur(function () {
+        $("#txtModel").val($("#txtModel").val().trim());
+        $("#txtModel").val($("#txtModel").val().replace(/[^a-zA-Z0-9]/g, " "));
+        if (isBlank($("#txtModel").val())){
+            console.log("Por favor llenar el campo");
+        }
+    });
+
+    //ISMP Status
+    $("#txtIsmpStatus").blur(function () {
+        $("#txtIsmpStatus").val($("#txtIsmpStatus").val().trim());
+        $("#txtIsmpStatus").val($("#txtIsmpStatus").val().replace(/[^a-zA-Z0-9]/g, " "));
+        if (isBlank($("#txtModel").val())){
+            console.log("Por favor llenar el campo");
+        }
+    });
+
+    //Asset
+    $("#txtAsset").blur(function () {
+        if (isBlank($("#txtModel").val())){
+            console.log("Por favor llenar el campo");
+        }
+    });
+
+    //Details
+    $("#txtDetails").blur(function () {
+        $("#txtDetails").val($("#txtDetails").val().trim());
+        $("#txtDetails").val($("#txtDetails").val().replace(/[^a-zA-Z0-9]/g, " "));
+    });
+
 });
+
+function isNumber(evt) {
+    evt = (evt)
+        ? evt
+        : window.event;
+    var charCode = (evt.which)
+        ? evt.which
+        : evt.keyCode;
+    if (charCode < 48 || charCode > 57) {
+        return false;
+    }
+    return true;
+}
+
+function isBlank(field){
+    if (field.length == 0){
+        return true;
+    }
+}
