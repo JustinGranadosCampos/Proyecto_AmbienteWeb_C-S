@@ -5,7 +5,7 @@
         $active[$folder] = ($directory[0] == $folder)? "active":"noactive";
     }
 
-    session_start();
+    // session_start();
     if ($_SESSION['Profile'] == 1)
     {
         echo '<li class="nav-item">';

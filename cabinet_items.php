@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include './view/ItemCabinetView.php';
     // include './controller/ItemBoxController.php';
     $itemView = new ItemCabinetView();

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include './view/cabinetView.php';
     include './controller/cabinetController.php';
     $cabinetView = new CabinetView();
