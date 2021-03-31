@@ -18,7 +18,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="box_items.php">
             <img src="./img/qrv_logo.png" width="80" height="50" alt="Main_logo" loading="lazy"
                 class="d-inline-block align-top logo">
             <h1 class="text title d-inline-block">QRV Inventory System</h1>
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php">Boxes Items</a>
+                    <a class="nav-link" href="./box_items.php">Boxes Items</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active activeUnderline" href="./cabinet_items.html">Cabinet Items <span class="sr-only">(current)</span></a>
