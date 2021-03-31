@@ -18,30 +18,9 @@ $(document).ready(function () {
         ]
     });
 
-    // $("#formInventory").submit(function (e){
+    // *** Show modals in pages *** //
 
-    //     e.preventDefault();
-    //     let boxNumber = $("#cboBoxNumber").val();
-    //     let serialNumber = $("#txtSerialNumber").val();
-    //     let name = $("#txtName").val();
-    //     let asset = $("#txtAsset").val();
-    //     let model = $("#txtModel").val();
-    //     let ismpStatus = $("#txtIsmpStatus").val();
-    //     let details = $("#txtDetails").val();
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "./controller/BoxController.php",
-    //         data: {"data_1": boxNumber, "data_2": serialNumber, "data_3": name, "data_4": asset, "data_5": model, "data_6": ismpStatus, "data_7": details},
-    //         success: function(data){
-    //             console.log(data);
-    //             // $("#btnSaveBoxItem").attr('data-dismiss', 'modal');
-    //         }
-    //     })
-    // });
-
-    // function to show modal in index
     $("#btnNewItemBox").click(function () {
-        // $("#formInventory").trigger("reset");
         $("#modalItemBoxCRUD").modal("show");
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
@@ -57,7 +36,7 @@ $(document).ready(function () {
     $(".modal-header").css("color", "#343a40");
     $(".modal-header").css("color", "#343a40");
     $(".modal-title").text("Edit Box");
-    
+
     $("#modalCabinetEdit").modal("show");
     $(".modal-header").css("color", "#343a40");
     $(".modal-header").css("color", "#343a40");
@@ -70,9 +49,7 @@ $(document).ready(function () {
         $(".modal-title").text("Add Cabinet");
     });
 
-    // function to show modal in cabinet form
     $("#btnNewItemCabinet").click(function () {
-        // $("#formInventory").trigger("reset");
         $("#modalItemCabinetCRUD").modal("show");
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
@@ -80,7 +57,6 @@ $(document).ready(function () {
     });
 
     $("#btnNewUser").click(function () {
-        // $("#formInventory").trigger("reset");
         $("#modalAddUser").modal("show");
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
@@ -88,7 +64,6 @@ $(document).ready(function () {
     });
 
     $("#btnNewBox").click(function () {
-        // $("#formInventory").trigger("reset");
         $("#modalAddBox").modal("show");
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
@@ -96,10 +71,11 @@ $(document).ready(function () {
     });
 
     $("#btnNewCabinet").click(function () {
-        // $("#formInventory").trigger("reset");
         $("#modalAddCabinet").modal("show");
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
         $(".modal-title").text("New Box");
     });
+
+    // ************************************* //
 });
