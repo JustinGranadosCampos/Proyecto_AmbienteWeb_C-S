@@ -62,7 +62,7 @@ class ItemBox extends Conexion
             if ($this->conectar()->query($sqlRelation))
             {
                 echo '<script>alert("Registro agregado exitosamente");</script>';
-                echo '<script>location.replace("./index.php");</script>';
+                echo '<script>location.replace("./box_items.php");</script>';
             }
             else
             {
@@ -85,7 +85,7 @@ class ItemBox extends Conexion
             if ($this->conectar()->query($sql))
             {
                 echo '<script>alert("Registro actualizado exitosamente");</script>';
-                echo '<script>location.replace("./index.php");</script>';
+                echo '<script>location.replace("./box_items.php");</script>';
             }
             else
             {
@@ -105,7 +105,7 @@ class ItemBox extends Conexion
         if($this->conectar()->query($sql))
         {
             echo '<script>alert("Registro eliminado exitosamente");</script>';
-            echo '<script>location.replace("./index.php");</script>';
+            echo '<script>location.replace("./box_items.php");</script>';
         }
         else
         {
