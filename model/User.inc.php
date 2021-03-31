@@ -5,7 +5,7 @@
         protected function login($wwid, $pass){
             $sql = "call ShowUserLogin($wwid, '$pass')";
             $result = $this->conectar()->query($sql);
-            if ($result)
+            if ($result->fetchColumn() > 0)
             {
                 $row = $result->fetch();
                 session_start();
@@ -16,6 +16,7 @@
             }
             else
             {
+                echo '<script>location.replace("../admin/login.php");</script>';
                 echo "\nPDO::errorInfo():\n";
                 echo $this->conectar()->errorInfo();
             }
