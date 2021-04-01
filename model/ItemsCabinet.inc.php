@@ -16,20 +16,6 @@
             // $con->desconectar();
         }
 
-        // public function getItem_x_Box($id)
-        // {
-        //     $sql = "call GetItem_x_box($id)";
-        //     $result = $this->conectar()->query($sql);
-        //     $data = array();
-
-        //     #Saves all the items into $data that get from the DB
-        //     while ($row = $result->fetch()) {
-        //         $data[] = $row;
-        //     }
-        //     return $data;
-        //     // $con->desconectar();
-        // }
-
         protected function getItem($id){
             $sql = "call GetItemBox($id)";
             $result = $this->conectar()->query($sql);
