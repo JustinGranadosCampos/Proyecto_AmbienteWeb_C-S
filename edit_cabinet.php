@@ -15,6 +15,7 @@
         $cabinetController = new CabinetController();
         $cabinetController->deleteCabinet($id);
     }
+    include './validation.php';
 ?>
 
 <!DOCTYPE html>

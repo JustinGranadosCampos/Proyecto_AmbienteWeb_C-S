@@ -15,6 +15,7 @@
         $boxController = new BoxController();
         $boxController->deleteBox($id);
     }
+    include './validation.php';
 ?>
 
 <!DOCTYPE html>

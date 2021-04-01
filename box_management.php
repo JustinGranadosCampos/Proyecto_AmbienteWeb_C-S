@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include './validation.php';
     include './view/boxView.php';
     include './controller/boxController.php';
     $boxView = new BoxView();

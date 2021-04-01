@@ -15,6 +15,7 @@
         $itemBoxController = new ItemBoxController();
         $itemBoxController->deleteItemBox($id);
     }
+    include './validation.php';
 ?>
 
 <!DOCTYPE html>

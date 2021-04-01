@@ -17,7 +17,7 @@
         }
 
         protected function getItem($id){
-            $sql = "call GetItemBox($id)";
+            $sql = "call GetItemCabinet($id)";
             $result = $this->conectar()->query($sql);
             $data = array();
             $row = $result->fetch();

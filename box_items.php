@@ -8,6 +8,7 @@
         $itemBoxController = new ItemBoxController();
         $itemBoxController->addBoxItem($_POST['cboBoxNumber'], $_POST['txtSerialNumber'], $_POST['txtName'], $_POST['txtAsset'], $_POST['txtModel'], $_POST['txtIsmpStatus'], $_POST['txtDetails']);
     }
+    include './validation.php';
 ?>
 
 <!DOCTYPE html>
@@ -21,11 +22,6 @@
         include './styles.php';
     ?>
 </head>
-<?php
-    session_start();
-    if($_SESSION['Profile'] != null)
-    {
-?>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="box_items.php">
@@ -141,10 +137,3 @@
 </body>
 
 </html>
-<?php    
-    }
-    else
-    {
-        echo '<script>location.replace("./404.html");</script>';
-    }
-?>

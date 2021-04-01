@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include './validation.php';
     include './view/cabinetView.php';
     include './controller/cabinetController.php';
     $cabinetView = new CabinetView();

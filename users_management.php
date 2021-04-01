@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include './validation.php';
 ?>
 
 <!DOCTYPE html>
