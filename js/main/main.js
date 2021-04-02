@@ -18,21 +18,18 @@ $(document).ready(function () {
         ]
     });
 
-    // $("#btnAddNewCabinet").click(function () {
-
-    //     $("#modalAddCabinet").modal("show");
-    //     $(".modal-header").css("color", "#343a40");
-    //     $(".modal-header").css("color", "#343a40");
-    //     $(".modal-title").text("Add Cabinet");
-    //     // $('#cboCabinetNumber').selectpicker();
-    //     // $('#cboCabinetLabel').selectpicker();
-    //     load_data('category_data', '');
-    // });
+    $("#btnAddNewCabinet").click(function () {
+        $("#modalAddCabinet").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title").text("Add Cabinet");
+    });
 
     $('#cboCabinetNumber').selectpicker();
     $('#cboCabinetLabel').selectpicker();
 
     $('#cboCabinetNumber').change(function () {
+        $('#cboCabinetLabel').val("Select Cabinet Label");
         var id = parseInt($('#cboCabinetNumber').val());
         load_data('sub_category_data', id);
     });
@@ -89,6 +86,23 @@ $(document).ready(function () {
         $(".modal-header").css("color", "#343a40");
         $(".modal-title").text("New Box");
     });
+
+    /**/
+    $("#btnSaveItemCabinet").click(function () {
+        alert("Entré a la función");
+        var label = $('#cboCabinetLabel option:selected').html();
+        console.log(label);
+        $.ajax({
+            url: "cabinet_items.php",
+            method: "POST",
+            cache: false,
+            data: "label=" + label,
+            beforeSend: function () { // callback que se ejecutará antes de enviar la solicitud
+                console.log("Enviando por medio de post");
+            },
+        });
+    });
+    /**/
 
     // ************************************* //
 

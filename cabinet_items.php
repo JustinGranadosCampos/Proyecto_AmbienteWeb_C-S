@@ -1,8 +1,29 @@
 <?php
     include './validation.php';
     include './view/ItemCabinetView.php';
-    // include './controller/ItemBoxController.php';
+    include './controller/ItemCabinetController.php';
     $itemView = new ItemCabinetView();
+
+    if (isset($_POST['btnSaveItemCabinet']))
+    {
+        if(isset($_POST['label']))
+        {
+            $label = $_POST['label'];
+        }
+        else{
+            echo '<script>console.log("No hay label :(");</script>';
+        }
+        // echo '<script>alert("Hola");</script>';
+        // echo '<script>console.log("Entré bien");</script>';
+        // $itemController = new ItemCabinetController();
+        // $itemController->insertItemCabinet($_POST['cboCabinetNumber'],
+        //                                    $_POST['cboCabinetNumber'],
+        //                                    $_POST['cboCabinetNumber'],
+        //                                    $_POST['cboCabinetNumber'],
+        //                                    $_POST['cboCabinetNumber'],
+        //                                    $_POST['cboCabinetNumber']
+        //                                  );
+    }
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +99,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
-                <form method="POST">
+                <form action="cabinet_items.php" method="POST">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="itemLabel" class="col-form-label">Cabinet Number</label>
@@ -122,8 +143,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                        <button type="submit" id="btnSave" class="btn btn-dark" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-light" name="btnCancelItemCabinet" data-dismiss="modal">Cancel</button>
+                        <button type="submit" id="btnSaveItemCabinet" name="btnSaveItemCabinet" class="btn btn-dark">Save</button>
                     </div>
                 </form>
             </div>

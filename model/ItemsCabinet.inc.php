@@ -49,19 +49,18 @@
             return $data;
         }
 
-        protected function insertItem($box, $serialNumber, $name, $asset, $model, $ismp, $details){
-            $query = $this->conectar()->query("call GetLastIdItemBox()");
+        protected function insertItem($cabinetNumber, $cabinetLevel, $cabinetLabel, $serialNumber, $name, $asset, $model, $ismp, $details){
+            $query = $this->conectar()->query("call GetLastIdItemCabinet()");
             $result = $query->fetch(PDO::FETCH_ASSOC);
-            $lastId = $result['idITEM_BOX'] + 1;
+            $lastId = $result['idITEM_CABINET'] + 1;
             $sql = "call InsertNewItemBox($lastId, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
-            // $idItemBox = $this->conectar()->lastInsertId();
             if ($this->conectar()->query($sql))
             {
-                $sqlRelation = "call InsertItem_x_Box($box, $lastId)";
+                $sqlRelation = "call InsertItemCabinetLevel($cabinetLevel, $cabinetLabel, $lastId, $cabinetNumber)";
                 if ($this->conectar()->query($sqlRelation))
                 {
                     echo '<script>alert("Registro agregado exitosamente");</script>';
-                    echo '<script>location.replace("./index.php");</script>';
+                    echo '<script>location.replace("./cabinet_items.php");</script>';
                 }
                 else
                 {
