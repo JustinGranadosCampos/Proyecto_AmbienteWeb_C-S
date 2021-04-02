@@ -34,7 +34,7 @@
                     <a class="nav-link" href="./box_items.php">Boxes Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active activeUnderline" href="./cabinet_items.html">Cabinet Items <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active activeUnderline" href="./cabinet_items.php">Cabinet Items <span class="sr-only">(current)</span></a>
                 </li>
                 <?php
                     include './nav_items_menu.php';
@@ -78,35 +78,43 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
-                <form id="formInventory">
+                <form method="POST">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="itemLabel" class="col-form-label">Cabinet Number</label>
-                            <select name="cboCabinetNumber" id="cboCabinetNumber" class="form-control">
+                            <select name="cboCabinetNumber" id="cboCabinetNumber" class="form-control" data-live-search="true" title="Select Cabinet Number">
                                 <?php
-                                    $itemView->showCabinets();
+                                    // $itemView->showCabinets();
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtCabinetLabel" class="col-form-label">Cabinet Label</label>
+                            <select name="cboCabinetLabel" id="cboCabinetLabel" class="form-control" data-live-search="true" title="Select Cabinet Level Number">
+                                <?php
+                                    // $itemView->showCabinetsLevels();
                                 ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="serial-number" class="col-form-label">Serial Number</label>
-                            <input type="text" class="form-control" id="serial-number">
+                            <input type="text" class="form-control" id="serial-number" required>
                         </div>
                         <div class="form-group">
                             <label for="item-name" class="col-form-label">Name</label>
-                            <input type="text" class="form-control" id="item-name">
+                            <input type="text" class="form-control" id="item-name" required>
                         </div>
                         <div class="form-group">
                             <label for="item-asset" class="col-form-label">ASSET</label>
-                            <input type="text" class="form-control" id="item-asset">
+                            <input type="text" class="form-control" id="item-asset" required>
                         </div>
                         <div class="form-group">
                             <label for="item-model" class="col-form-label">MODEL</label>
-                            <input type="text" class="form-control" id="item-model">
+                            <input type="text" class="form-control" id="item-model" required>
                         </div>
                         <div class="form-group">
                             <label for="ismpStatus" class="col-form-label">ISMP Status</label>
-                            <input type="text" class="form-control" id="ismpStatus">
+                            <input type="text" class="form-control" id="ismpStatus" required>
                         </div>
                         <div class="form-group">
                             <label for="details" class="col-form-label">Details</label>

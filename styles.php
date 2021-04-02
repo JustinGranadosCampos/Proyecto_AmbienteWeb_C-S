@@ -6,4 +6,5 @@
     echo '<link rel="stylesheet" href="DataTables/datatables.min.css">';
     echo '<link rel="stylesheet" href="DataTables/DataTables-1.10.22/css/dataTables.bootstrap4.min.css">';
     echo '<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">';
+    echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css ">';
 ?>

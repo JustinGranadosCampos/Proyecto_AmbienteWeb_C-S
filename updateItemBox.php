@@ -24,13 +24,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/global.css">
-    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,200;1,400&display=swap" rel="stylesheet">
     <title>Edit Item Box</title>
-	<link rel="stylesheet" href="DataTables/datatables.min.css">
-    <link rel="stylesheet" href="DataTables/DataTables-1.10.22/css/dataTables.bootstrap4.min.css">
+    <?php
+        include './styles.php';
+    ?>
 </head>
 <body>
     <!-- Modal para el CRUD -->
@@ -60,9 +57,8 @@
                 </div>
             </div>
         </div>
-        <script src="./jquery/jquery-3.3.1.min.js"></script>
-        <script src="./js/bootstrap.min.js"></script>
-		<script src="DataTables/datatables.min.js"></script>
-        <script src="./js/main/main.js"></script>
+    <?php
+        include './scripts.php';
+    ?>
 </body>
 </html>

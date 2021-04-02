@@ -6,7 +6,7 @@
         {
             if ($_SESSION['Profile'] == 1)
             {
-                echo '<button id="btnNewItemBox" type="button" class="btn btn-success btnNew">+ Add New</button>';
+                echo '<button id="btnNewItemCabinet" type="button" class="btn btn-success btnNew">+ Add New</button>';
             }
             else
             {
@@ -60,6 +60,14 @@
             $result = $this->getCabinets();
             foreach ($result as $row) {
                 echo '<option value=' . $row["idCABINET"] . '>' . $row["CABINET_NUMBER"] . '</option>';
+            }
+        }
+
+        public function showCabinetsLevels()
+        {
+            $result = $this->getCabinetsLevels();
+            foreach ($result as $row) {
+                echo '<option value=' . $row["LEVEL_NUMBER"] . '>' . $row["LABEL"] . '</option>';
             }
         }
     }

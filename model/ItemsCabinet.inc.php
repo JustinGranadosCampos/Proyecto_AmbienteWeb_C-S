@@ -37,6 +37,18 @@
             return $data;
         }
 
+        protected function getCabinetsLevels()
+        {
+            $sql = "call ShowCabinetLevel()";
+            $result = $this->conectar()->query($sql);
+            $data = array();
+
+            while ($row = $result->fetch()) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+
         protected function insertItem($box, $serialNumber, $name, $asset, $model, $ismp, $details){
             $query = $this->conectar()->query("call GetLastIdItemBox()");
             $result = $query->fetch(PDO::FETCH_ASSOC);

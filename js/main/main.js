@@ -18,6 +18,25 @@ $(document).ready(function () {
         ]
     });
 
+    // $("#btnAddNewCabinet").click(function () {
+
+    //     $("#modalAddCabinet").modal("show");
+    //     $(".modal-header").css("color", "#343a40");
+    //     $(".modal-header").css("color", "#343a40");
+    //     $(".modal-title").text("Add Cabinet");
+    //     // $('#cboCabinetNumber').selectpicker();
+    //     // $('#cboCabinetLabel').selectpicker();
+    //     load_data('category_data', '');
+    // });
+
+    $('#cboCabinetNumber').selectpicker();
+    $('#cboCabinetLabel').selectpicker();
+
+    $('#cboCabinetNumber').change(function () {
+        var id = parseInt($('#cboCabinetNumber').val());
+        load_data('sub_category_data', id);
+    });
+
     // *** Show modals in pages *** //
 
     $("#btnNewItemBox").click(function () {
@@ -42,18 +61,12 @@ $(document).ready(function () {
     $(".modal-header").css("color", "#343a40");
     $(".modal-title").text("Edit Cabinet");
 
-    $("#btnAddNewCabinet").click(function () {
-        $("#modalAddCabinet").modal("show");
-        $(".modal-header").css("color", "#343a40");
-        $(".modal-header").css("color", "#343a40");
-        $(".modal-title").text("Add Cabinet");
-    });
-
     $("#btnNewItemCabinet").click(function () {
         $("#modalItemCabinetCRUD").modal("show");
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
         $(".modal-title").text("New Cabinet Item");
+        load_data('category_data', '');
     });
 
     $("#btnNewUser").click(function () {
@@ -84,7 +97,7 @@ $(document).ready(function () {
     $("#txtSerialNumber").blur(function () {
         $("#txtSerialNumber").val($("#txtSerialNumber").val().replace(/ /g, ''));
         $("#txtSerialNumber").val($("#txtSerialNumber").val().replace(/[^a-zA-Z0-9]/g, ""));
-        if (isBlank($("#txtModel").val())){
+        if (isBlank($("#txtModel").val())) {
             console.log("Por favor llenar el campo");
         }
     });
@@ -93,7 +106,7 @@ $(document).ready(function () {
     $("#txtName").blur(function () {
         $("#txtName").val($("#txtName").val().trim());
         $("#txtName").val($("#txtName").val().replace(/[^a-zA-Z0-9]/g, " "));
-        if (isBlank($("#txtModel").val())){
+        if (isBlank($("#txtModel").val())) {
             console.log("Por favor llenar el campo");
         }
     });
@@ -102,7 +115,7 @@ $(document).ready(function () {
     $("#txtModel").blur(function () {
         $("#txtModel").val($("#txtModel").val().trim());
         $("#txtModel").val($("#txtModel").val().replace(/[^a-zA-Z0-9]/g, " "));
-        if (isBlank($("#txtModel").val())){
+        if (isBlank($("#txtModel").val())) {
             console.log("Por favor llenar el campo");
         }
     });
@@ -111,14 +124,14 @@ $(document).ready(function () {
     $("#txtIsmpStatus").blur(function () {
         $("#txtIsmpStatus").val($("#txtIsmpStatus").val().trim());
         $("#txtIsmpStatus").val($("#txtIsmpStatus").val().replace(/[^a-zA-Z0-9]/g, " "));
-        if (isBlank($("#txtModel").val())){
+        if (isBlank($("#txtModel").val())) {
             console.log("Por favor llenar el campo");
         }
     });
 
     //Asset
     $("#txtAsset").blur(function () {
-        if (isBlank($("#txtModel").val())){
+        if (isBlank($("#txtModel").val())) {
             console.log("Por favor llenar el campo");
         }
     });
@@ -144,8 +157,38 @@ function isNumber(evt) {
     return true;
 }
 
-function isBlank(field){
-    if (field.length == 0){
+function isBlank(field) {
+    if (field.length == 0) {
         return true;
     }
+}
+
+function load_data(type, cabinet_id) {
+    let parameters = { "type": type, "id": cabinet_id };
+    $.ajax({
+        url: "load_data.php",
+        method: "POST",
+        cache: false,
+        data: parameters,
+        success: function (data) {
+            var content = '';
+            // console.log("Data recieved from PHP: " + data);
+            if (data > 0 || data != null) {
+                data = $.parseJSON(data);
+                for (let i in data) {
+                    content += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                }
+                if (type == "category_data") {
+                    $('#cboCabinetNumber').html(content);
+                    $('#cboCabinetNumber').selectpicker('refresh');
+                } else {
+                    $('#cboCabinetLabel').html(content);
+                    $('#cboCabinetLabel').selectpicker('refresh');
+                }
+            }
+        },
+        error: function () {
+            alert("Error");
+        }
+    });
 }
