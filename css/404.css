@@ -1,10 +1,10 @@
 
 body {
-    background-color: #95c2de;
+    background-color: #343a40;
   }
   
   .mainbox {
-    background-color: #95c2de;
+    background-color: #343a40;
     margin: auto;
     height: 600px;
     width: 600px;
@@ -45,13 +45,14 @@ body {
       left: 16%;
       top: 45%;
       width: 75%;
+      color: white;
     }
   
   a {
-    text-decoration: none;
+    text-decoration: underline;
     color: white;
   }
   
   a:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
