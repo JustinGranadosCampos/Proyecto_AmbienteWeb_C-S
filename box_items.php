@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active activeUnderline">
-                    <a class="nav-link" href="box_items.php">Box Items <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active activeUnderline" href="box_items.php">Box Items <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./cabinet_items.php">Cabinet Items</a>
