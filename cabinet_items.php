@@ -6,23 +6,33 @@
 
     if (isset($_POST['btnSaveItemCabinet']))
     {
-        if(isset($_POST['label']))
+        $itemController = new ItemCabinetController();
+        if(isset($_POST['cboCabinetLabel']))
         {
-            $label = $_POST['label'];
+            $idCabinet = $_POST['cboCabinetNumber'];
+            $levelNumber = $_POST['cboCabinetLabel'];
+            $label = $itemController->getCabinetLevelLabel($idCabinet, $levelNumber);
+            $itemController -> insertItemCabinet(
+                                                    $idCabinet,
+                                                    $levelNumber,
+                                                    $label,
+                                                    $_POST['serial-number'],
+                                                    $_POST['item-name'],
+                                                    $_POST['item-asset'],
+                                                    $_POST['item-model'],
+                                                    $_POST['ismpStatus'],
+                                                    $_POST['details']
+                                                );
         }
-        else{
-            echo '<script>console.log("No hay label :(");</script>';
-        }
+        // if(isset($_POST['label']))
+        // {
+        //     $label = $_POST['label'];
+        // }
+        // else{
+        //     echo '<script>console.log("No hay label :(");</script>';
+        // }
         // echo '<script>alert("Hola");</script>';
         // echo '<script>console.log("Entré bien");</script>';
-        // $itemController = new ItemCabinetController();
-        // $itemController->insertItemCabinet($_POST['cboCabinetNumber'],
-        //                                    $_POST['cboCabinetNumber'],
-        //                                    $_POST['cboCabinetNumber'],
-        //                                    $_POST['cboCabinetNumber'],
-        //                                    $_POST['cboCabinetNumber'],
-        //                                    $_POST['cboCabinetNumber']
-        //                                  );
     }
 ?>
 
@@ -104,42 +114,38 @@
                         <div class="form-group">
                             <label for="itemLabel" class="col-form-label">Cabinet Number</label>
                             <select name="cboCabinetNumber" id="cboCabinetNumber" class="form-control" data-live-search="true" title="Select Cabinet Number">
-                                <?php
-                                    // $itemView->showCabinets();
-                                ?>
+                                <!-- call ajax method -->
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="txtCabinetLabel" class="col-form-label">Cabinet Label</label>
                             <select name="cboCabinetLabel" id="cboCabinetLabel" class="form-control" data-live-search="true" title="Select Cabinet Level Number">
-                                <?php
-                                    // $itemView->showCabinetsLevels();
-                                ?>
+                                <!-- call ajax method -->
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="serial-number" class="col-form-label">Serial Number</label>
-                            <input type="text" class="form-control" id="serial-number" required>
+                            <input type="text" class="form-control" id="serial-number" name="serial-number" required>
                         </div>
                         <div class="form-group">
                             <label for="item-name" class="col-form-label">Name</label>
-                            <input type="text" class="form-control" id="item-name" required>
+                            <input type="text" class="form-control" id="item-name" name="item-name" required>
                         </div>
                         <div class="form-group">
                             <label for="item-asset" class="col-form-label">ASSET</label>
-                            <input type="text" class="form-control" id="item-asset" required>
+                            <input type="text" class="form-control" id="item-asset" name="item-asset" required>
                         </div>
                         <div class="form-group">
                             <label for="item-model" class="col-form-label">MODEL</label>
-                            <input type="text" class="form-control" id="item-model" required>
+                            <input type="text" class="form-control" id="item-model" name="item-model" required>
                         </div>
                         <div class="form-group">
                             <label for="ismpStatus" class="col-form-label">ISMP Status</label>
-                            <input type="text" class="form-control" id="ismpStatus" required>
+                            <input type="text" class="form-control" id="ismpStatus" name="ismpStatus" required>
                         </div>
                         <div class="form-group">
                             <label for="details" class="col-form-label">Details</label>
-                            <input type="text" class="form-control" id="details">
+                            <input type="text" class="form-control" id="details" name="details">
                         </div>
                     </div>
                     <div class="modal-footer">

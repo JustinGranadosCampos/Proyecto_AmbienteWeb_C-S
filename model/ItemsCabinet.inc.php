@@ -25,6 +25,13 @@
             return $row;
         }
 
+        protected function getLabel($id, $levelNum){
+            $sql = "call GetCabinetLabel($id, $levelNum)";
+            $result = $this->conectar()->query($sql)->fetch();
+            $row = $result['LABEL'];
+            return $row;
+        }
+
         protected function getCabinets()
         {
             $sql = "call ShowCabinets()";
@@ -53,10 +60,10 @@
             $query = $this->conectar()->query("call GetLastIdItemCabinet()");
             $result = $query->fetch(PDO::FETCH_ASSOC);
             $lastId = $result['idITEM_CABINET'] + 1;
-            $sql = "call InsertNewItemBox($lastId, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
+            $sql = "call InsertNewItemCabinet($lastId, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
             if ($this->conectar()->query($sql))
             {
-                $sqlRelation = "call InsertItemCabinetLevel($cabinetLevel, $cabinetLabel, $lastId, $cabinetNumber)";
+                $sqlRelation = "call InsertItemCabinetLevel($cabinetLevel, '$cabinetLabel', $lastId, $cabinetNumber)";
                 if ($this->conectar()->query($sqlRelation))
                 {
                     echo '<script>alert("Registro agregado exitosamente");</script>';

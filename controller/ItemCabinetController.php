@@ -9,5 +9,9 @@
         {
             $this->updateItem($cabinetNumber, $cabinetLevel, $cabinetLabel, $serialNumber, $name, $asset, $model, $ismp, $details);
         }
+
+        public function getCabinetLevelLabel($id, $levelNum){
+            return $this->getLabel($id, $levelNum);
+        }
     }
 ?>
