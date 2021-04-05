@@ -48,6 +48,11 @@ $(document).ready(function () {
     $(".modalEdit-header").css("color", "#343a40");
     $(".modalEdit-title").text("Edit Box Item");
 
+    $("#modalItemCabinetEdit").modal("show");
+    $(".modalEdit-header").css("color", "#343a40");
+    $(".modalEdit-header").css("color", "#343a40");
+    $(".modalEdit-title").text("Edit Cabinet Item");
+
     $("#modalBoxEdit").modal("show");
     $(".modal-header").css("color", "#343a40");
     $(".modal-header").css("color", "#343a40");
@@ -63,6 +68,10 @@ $(document).ready(function () {
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
         $(".modal-title").text("New Cabinet Item");
+        load_data('category_data', '');
+    });
+
+    $("#btnEdit").click(function () {
         load_data('category_data', '');
     });
 

@@ -24,15 +24,6 @@
                                                     $_POST['details']
                                                 );
         }
-        // if(isset($_POST['label']))
-        // {
-        //     $label = $_POST['label'];
-        // }
-        // else{
-        //     echo '<script>console.log("No hay label :(");</script>';
-        // }
-        // echo '<script>alert("Hola");</script>';
-        // echo '<script>console.log("Entré bien");</script>';
     }
 ?>
 

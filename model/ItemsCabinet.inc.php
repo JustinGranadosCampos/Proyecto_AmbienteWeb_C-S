@@ -25,6 +25,24 @@
             return $row;
         }
 
+        protected function getFullItem($id){
+            $sql = "call ShowItem_Cabinet_Level($id)";
+            $result = $this->conectar()->query($sql);
+            $data = array();
+            $row = $result->fetch();
+            
+            return $row;
+        }
+
+        protected function getCabinetData($idCabinet, $cabinetNumber){
+            $sql = "call GetCabinet($idCabinet, $cabinetNumber)";
+            $result = $this->conectar()->query($sql);
+            $data = array();
+            $row = $result->fetch();
+            
+            return $row;
+        }
+
         protected function getLabel($id, $levelNum){
             $sql = "call GetCabinetLabel($id, $levelNum)";
             $result = $this->conectar()->query($sql)->fetch();
