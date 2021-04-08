@@ -1,6 +1,8 @@
 <?php
+    include './controller/errorHandlerController.php';
     include './view/ItemBoxView.php';
     include './controller/ItemBoxController.php';
+
     $itemBox = new ItemBoxView();
     $id = $_GET['id'];
 

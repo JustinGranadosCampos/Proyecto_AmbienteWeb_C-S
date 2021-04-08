@@ -20,8 +20,35 @@ class Conexion
         }
     }
 
+    public function consulta($consulta, $datos){
+        //statement query, setea parametors, retorna resultado
+    }
+
+    public function insertar($consulta, $datos){
+        //statement query, setea parametors, retorna resultado
+    }
+
+    public function actualizar($consulta, $datos){
+
+    }
+
+    public function borrar($consulta, $datos){
+
+    }
+
     public function desconectar()
     {
         $this->conexion = null;
+    }
+
+    public function reportError($code, $msg, $file, $line){
+        $arreglo = array(
+            'code' => $code
+            , 'msg' => $msg
+            , 'file' => $file
+            , 'line' => $line
+        );
+        echo '<pre>'; print_r($arreglo); echo '</pre><hr>';
+        // 'INSERT INTO cagada_seguida (codigo, mensaje, archivo, linea, fecha') VALUES ($code, $file, $line, $line, NOW())
     }
 }
