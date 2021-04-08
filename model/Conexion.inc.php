@@ -42,13 +42,24 @@ class Conexion
     }
 
     public function reportError($code, $msg, $file, $line){
-        $arreglo = array(
-            'code' => $code
-            , 'msg' => $msg
-            , 'file' => $file
-            , 'line' => $line
-        );
-        echo '<pre>'; print_r($arreglo); echo '</pre><hr>';
+        // $arreglo = array(
+        //     'code' => $code
+        //     , 'msg' => $msg
+        //     , 'file' => $file
+        //     , 'line' => $line
+        // );
+        echo '<script>console.log("llegue bitches")</script>';
+            $sql = "call InsertErrorLog(?, ?, ?, ?, ?)";
+            $gsent = $this->conectar()->prepare($sql);
+            $gsent->bindParam(1, 1234, PDO::PARAM_INT);
+            $gsent->bindParam(2, $code, PDO::PARAM_STR);
+            $gsent->bindParam(3, $msg, PDO::PARAM_STR);
+            $gsent->bindParam(4, $file, PDO::PARAM_STR);
+            $gsent->bindParam(5, $line, PDO::PARAM_INT);
+            
+            $gsent->execute();
+
+        // echo '<pre>'; print_r($arreglo); echo '</pre><hr>';
         // 'INSERT INTO cagada_seguida (codigo, mensaje, archivo, linea, fecha') VALUES ($code, $file, $line, $line, NOW())
     }
 }

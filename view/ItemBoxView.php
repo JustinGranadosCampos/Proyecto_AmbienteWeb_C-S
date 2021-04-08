@@ -64,14 +64,14 @@
             if (!empty($boxesResult))
             {
                 foreach ($boxesResult as $row) {
-                    if ($row['idITEM_BOX'] == $joinResult['idITEM_BOX'])
-                    {
-                        echo '<option value=' . $row["idBOX"] . ' selected>' . $row["LABEL"] . '</option>';
-                    }
-                    else
-                    {
+                    // if ($row['idITEM_BOX'] == $joinResult['idITEM_BOX'])
+                    // {
+                        // echo '<option value=' . $row["idBOX"] . ' selected>' . $row["LABEL"] . '</option>';
+                    // }
+                    // else
+                    // {
                         echo '<option value=' . $row["idBOX"] . '>' . $row["LABEL"] . '</option>';
-                    }
+                    // }
                 }
             }
             echo '</select>';
