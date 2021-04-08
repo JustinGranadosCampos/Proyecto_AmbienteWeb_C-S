@@ -12,6 +12,7 @@
                 $row = $result->fetch();
                 session_start();
                 $_SESSION['Profile'] = $row['idROL'];
+                $_SESSION['UserName'] = $row['FIRST_NAME'];
                 $_SESSION['Desc_profile'] = $row['ROL_NAME'];
                 $_SESSION['wwid'] = $row['WWID'];
                 echo '<script>location.replace("../box_items.php");</script>';
