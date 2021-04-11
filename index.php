@@ -1,5 +1,5 @@
 <?php
-include 'correo.php';
+include 'send-email.php';
 
 ?>
 
@@ -87,7 +87,7 @@ include 'correo.php';
               </div>
               <div class="container">
                 <label><b class="tex">  Correo Electronico</b></label>
-                <input class="inputCorreo" type="text" placeholder="correo" name="Correo" required>
+                <input class="inputCorreo" type="text" placeholder="Email address" name="Correo" required>
                 <button class="sendlbtn" type="submit" name="enivar">Enviar</button>
                 <button type="button" onclick="document.getElementById('id01').style.display='none'"
                   class="cancelbtn">Cancel</button>
