@@ -61,8 +61,17 @@ class ItemBox extends Conexion
             $sqlRelation = "call InsertItem_x_Box($box, $lastId)";
             if ($this->conectar()->query($sqlRelation))
             {
-                echo '<script>alert("Registro agregado exitosamente");</script>';
-                echo '<script>location.replace("./box_items.php");</script>';
+                echo '<script type="text/javascript">';
+                    echo 'setTimeout(function () {
+                        swal({
+                            "title":"Item Added!",
+                            "text":"The item was sucessfully added!",
+                            "icon":"success"
+                        }).then(function(){ 
+                                
+                            });
+                        }, 1500);
+                        </script>';
             }
             else
             {
@@ -99,8 +108,17 @@ class ItemBox extends Conexion
                 $sql = "call UpdateItem_x_Box($id, $box)";
                 if ($this->conectar()->query($sql))
                 {
-                    echo '<script>alert("Registro actualizado exitosamente");</script>';
-                    echo '<script>location.replace("./box_items.php");</script>';
+                    echo '<script type="text/javascript">';
+                    echo 'setTimeout(function () {
+                        swal({
+                            "title":"Done!",
+                            "text":"The item was sucessfully updated!",
+                            "icon":"success"
+                        }).then(function(){ 
+                                location.replace("./box_items.php");
+                            });
+                        }, 1500);
+                        </script>';
                 }
                 else
                 {

@@ -95,23 +95,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtSerialNumber" class="col-form-label">Serial Number</label>
-                                <input type="text" name="txtSerialNumber" class="form-control" id="txtSerialNumber">
+                                <input type="text" name="txtSerialNumber" class="form-control" id="txtSerialNumber" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtName" class="col-form-label">Name</label>
-                                <input type="text" name="txtName" class="form-control" id="txtName">
+                                <input type="text" name="txtName" class="form-control" id="txtName" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtAsset" class="col-form-label">ASSET</label>
-                                <input type="number" name="txtAsset" class="form-control" id="txtAsset" onkeypress="return isNumber(event)">
+                                <input type="number" name="txtAsset" class="form-control" id="txtAsset" onkeypress="return isNumber(event)" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtModel" class="col-form-label">MODEL</label>
-                                <input type="text" name="txtModel" class="form-control" id="txtModel">
+                                <input type="text" name="txtModel" class="form-control" id="txtModel" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtIsmpStatus" class="col-form-label">ISMP Status</label>
-                                <input type="text" name="txtIsmpStatus" class="form-control" id="txtIsmpStatus">
+                                <input type="text" name="txtIsmpStatus" class="form-control" id="txtIsmpStatus" required>
                             </div>
                             <div class="form-group">
                                 <label for="txtDetails" class="col-form-label">Details</label>

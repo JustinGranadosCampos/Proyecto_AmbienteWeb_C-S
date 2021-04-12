@@ -1,5 +1,5 @@
 <?php
-    // include './model/Box.inc.php';
+    // include './model/ItemsBox.inc.php';
     class ItemBoxController extends ItemBox
     {
         public function addBoxItem($box, $serialNumber, $name, $asset, $model, $ismp, $details)

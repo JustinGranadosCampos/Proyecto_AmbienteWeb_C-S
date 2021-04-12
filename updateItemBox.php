@@ -12,11 +12,34 @@
         $itemBoxController->updateItemBox($id, $_POST['cboBoxNumber'], $_POST['txtSerialNumber'], $_POST['txtName'], $_POST['txtAsset'], $_POST['txtModel'], $_POST['txtIsmpStatus'], $_POST['txtDetails']);
     }
 
-    if (isset($_POST['btnDelete']))
-    {
-        $itemBoxController = new ItemBoxController();
-        $itemBoxController->deleteItemBox($id);
-    }
+    // if (isset($_POST['btnDelete']))
+    // {
+    //     $itemBoxController = new ItemBoxController();
+        // echo '<script type="text/javascript">';
+        // echo 'setTimeout(function () {
+        //         swal({
+        //             "title":"Item will be deleted!",
+        //             "text":"Are you sure you want to delete the item?",
+        //             "icon":"warning",
+        //             "buttons":{
+        //                 "cancel":"Cancel",
+        //                 "catch":{
+        //                     "text":"Continue",
+        //                     "value":"catch",
+        //                 },
+        //             },
+        //         }).then((value) => { 
+        //             switch (value){
+        //                 case "catch":'.
+        //                     $itemBoxController->deleteItemBox($id);
+        //                     'break;
+        //             }
+        //            });
+        //       }, 1);
+        //       </script>';
+        // $itemBoxController = new ItemBoxController();
+        // $itemBoxController->deleteItemBox($id);
+    // }
     include './validation.php';
 ?>
 
@@ -52,7 +75,7 @@
                                 id="btnSaveBoxItem"
                                 name="btnSaveUpdateBoxItem"
                                 class="btn btn-dark">Save</button>
-                                <button type="submit" name="btnDelete" class="btn btn-danger btnDelete">Delete</button></div></div>
+                                <button type="submit" name="btnDelete" class="btn btn-danger btnDeleteItemBox">Delete</button></div></div>
                         </div>
                     </form>
                     

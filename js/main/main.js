@@ -43,10 +43,12 @@ $(document).ready(function () {
         $(".modal-title").text("New Box Item");
     });
 
-    $("#modalItemBoxEdit").modal("show");
-    $(".modalEdit-header").css("color", "#343a40");
-    $(".modalEdit-header").css("color", "#343a40");
-    $(".modalEdit-title").text("Edit Box Item");
+    $(document).ready(function () {
+        $("#modalItemBoxEdit").modal("show");
+        $(".modalEdit-header").css("color", "#343a40");
+        $(".modalEdit-header").css("color", "#343a40");
+        $(".modalEdit-title").text("Edit Box Item");
+    });
 
     $("#modalItemCabinetEdit").modal("show");
     $(".modalEdit-header").css("color", "#343a40");
@@ -165,6 +167,50 @@ $(document).ready(function () {
         $("#txtDetails").val($("#txtDetails").val().replace(/[^a-zA-Z0-9]/g, " "));
     });
 
+    $('.btnDeleteItemBox').click(function (e) {
+        e.preventDefault(); // prevent form submit
+        let val = window.location.search;
+        const urlParams = new URLSearchParams(val);
+        let id = urlParams.get('id');
+
+        swal({
+            title: "Item will be deleted!",
+            text: "Are you sure you want to delete the item?",
+            icon: "warning",
+            dangerMode: true,
+            buttons: {
+                cancel: "Cancel",
+                catch: {
+                    text: "Continue",
+                    value: "catch",
+                },
+            },
+        }).then((value) => {
+            switch (value) {
+                case "catch":
+                    $.ajax({
+                        type: "POST",
+                        url: "deleteItemBox.php",
+                        data: {"id":id},
+                        success: function (response) {
+                            console.log("Respuesta de PHP: "+response);
+                            swal({
+                                "title": "Item Deleted!",
+                                "text": "The item was sucessfully deleted!",
+                                "icon": "info"
+                            }).then(function () {
+                                location.replace("./box_items.php");
+                            });
+                        },
+                        error: function () {
+                            swal("ERROR", "Data was not sent correctly", "error");
+                        }
+                    });
+                    break;
+            }
+        });
+    });
+
 });
 
 function isNumber(evt) {
@@ -195,7 +241,6 @@ function load_data(type, cabinet_id) {
         data: parameters,
         success: function (data) {
             var content = '';
-            // console.log("Data recieved from PHP: " + data);
             if (data > 0 || data != null) {
                 data = $.parseJSON(data);
                 for (let i in data) {
