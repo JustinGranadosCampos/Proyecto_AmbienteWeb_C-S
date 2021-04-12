@@ -211,6 +211,8 @@ $(document).ready(function () {
         });
     });
 
+    /******************************************/
+
     /* *** Delete Box *** */
     $('.btnDeleteBox').click(function (e) {
         e.preventDefault(); // prevent form submit
@@ -346,7 +348,6 @@ function validateDeleteSuccess(response, data, url) {
             "icon": "info"
         }).then(function () {
             location.replace(url);
-            // location.replace("./box_items.php");
         });
     }
     else {
