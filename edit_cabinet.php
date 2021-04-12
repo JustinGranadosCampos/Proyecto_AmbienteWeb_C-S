@@ -50,7 +50,7 @@
                                 id="btnSaveUpdateCabinet"
                                 name="btnSaveUpdateCabinet"
                                 class="btn btn-dark">Save</button>
-                                <button type="submit" name="btnDeleteCabinet" class="btn btn-danger btnDelete">Delete</button></div></div>
+                                <button type="submit" name="btnDeleteCabinet" class="btn btn-danger btnDeleteCabinet">Delete</button></div></div>
                         </div>
                     </form>
                     

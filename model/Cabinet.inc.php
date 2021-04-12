@@ -29,8 +29,18 @@
             $sql = "call InsertCabinet($id, $number)";
             if ($this->conectar()->query($sql))
             {
-                echo '<script>alert("Registro agregado exitosamente");</script>';
-                echo '<script>location.replace("./cabinet_management.php");</script>';
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () {
+                    swal({
+                        "title":"Cabinet Added!",
+                        "text":"The cabinet was sucessfully added!",
+                        "icon":"success"
+                    }).then(function(){ 
+                            
+                        });
+                    }, 1500);
+                    </script>';
+                // echo '<script>location.replace("./cabinet_management.php");</script>';
             }
             else
             {
@@ -42,8 +52,18 @@
         protected function updateCabinetData($id, $number){
             $sql = "call UpdateCabinet($id, $number)";
             if ($this->conectar()->query($sql)) {
-                echo '<script>alert("Registro actualizado exitosamente");</script>';
-                echo '<script>location.replace("./cabinet_management.php");</script>';
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () {
+                    swal({
+                        "title":"Done!",
+                        "text":"The item was sucessfully updated!",
+                        "icon":"success"
+                    }).then(function(){ 
+                            location.replace("./cabinet_management.php");
+                        });
+                    }, 1500);
+                    </script>';
+                // echo '<script>location.replace("./cabinet_management.php");</script>';
             }
             else
             {

@@ -50,20 +50,25 @@ $(document).ready(function () {
         $(".modalEdit-title").text("Edit Box Item");
     });
 
-    $("#modalItemCabinetEdit").modal("show");
-    $(".modalEdit-header").css("color", "#343a40");
-    $(".modalEdit-header").css("color", "#343a40");
-    $(".modalEdit-title").text("Edit Cabinet Item");
+    $(document).ready(function () {
+        $("#modalItemCabinetEdit").modal("show");
+        $(".modalEdit-header").css("color", "#343a40");
+        $(".modalEdit-header").css("color", "#343a40");
+        $(".modalEdit-title").text("Edit Cabinet Item");
+    });
 
-    $("#modalBoxEdit").modal("show");
-    $(".modal-header").css("color", "#343a40");
-    $(".modal-header").css("color", "#343a40");
-    $(".modal-title").text("Edit Box");
+    $(document).ready(function () {
+        $("#modalBoxEdit").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title-Box").text("Edit Box");
+    });
 
-    $("#modalCabinetEdit").modal("show");
-    $(".modal-header").css("color", "#343a40");
-    $(".modal-header").css("color", "#343a40");
-    $(".modal-title").text("Edit Cabinet");
+    $(document).ready(function () {
+        $("#modalCabinetEdit").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title").text("Edit Cabinet");
+    });
 
     $("#btnNewItemCabinet").click(function () {
         $("#modalItemCabinetCRUD").modal("show");
@@ -167,6 +172,7 @@ $(document).ready(function () {
         $("#txtDetails").val($("#txtDetails").val().replace(/[^a-zA-Z0-9]/g, " "));
     });
 
+    /* *** Delete Item Box *** */
     $('.btnDeleteItemBox').click(function (e) {
         e.preventDefault(); // prevent form submit
         let val = window.location.search;
@@ -191,7 +197,7 @@ $(document).ready(function () {
                     $.ajax({
                         type: "POST",
                         url: "./includes/delete/deleteItemBox.php",
-                        data: {"id":id},
+                        data: { "id": id },
                         success: function (response) {
                             // console.log("Respuesta de PHP: "+response);
                             validateDeleteSuccess(response, "Item", "./box_items.php")
@@ -205,6 +211,7 @@ $(document).ready(function () {
         });
     });
 
+    /* *** Delete Box *** */
     $('.btnDeleteBox').click(function (e) {
         e.preventDefault(); // prevent form submit
         let val = window.location.search;
@@ -229,7 +236,7 @@ $(document).ready(function () {
                     $.ajax({
                         type: "POST",
                         url: "./includes/delete/deleteBox.php",
-                        data: {"id":id},
+                        data: { "id": id },
                         success: function (response) {
                             // console.log("Respuesta de PHP: "+response);
                             validateDeleteSuccess(response, "Box", "./box_management.php");
@@ -243,6 +250,44 @@ $(document).ready(function () {
         });
     });
 
+    /* *** Delete Cabinet *** */
+    $('.btnDeleteCabinet').click(function (e) {
+        e.preventDefault(); // prevent form submit
+        let val = window.location.search;
+        const urlParams = new URLSearchParams(val);
+        let id = urlParams.get('id');
+
+        swal({
+            title: "This Cabinet will be deleted!",
+            text: "Are you sure you want to delete this Cabinet?",
+            icon: "warning",
+            dangerMode: true,
+            buttons: {
+                cancel: "Cancel",
+                catch: {
+                    text: "Continue",
+                    value: "catch",
+                },
+            },
+        }).then((value) => {
+            switch (value) {
+                case "catch":
+                    $.ajax({
+                        type: "POST",
+                        url: "./includes/delete/deleteCabinet.php",
+                        data: { "id": id },
+                        success: function (response) {
+                            // console.log("Respuesta de PHP: "+response);
+                            validateDeleteSuccess(response, "Cabinet", "./cabinet_management.php");
+                        },
+                        error: function () {
+                            swal("ERROR", "Data was not sent correctly", "error");
+                        }
+                    });
+                    break;
+            }
+        });
+    });
 });
 
 function isNumber(evt) {
@@ -293,10 +338,10 @@ function load_data(type, cabinet_id) {
     });
 }
 
-function validateDeleteSuccess(response, data, url){
-    if(response == "success"){
+function validateDeleteSuccess(response, data, url) {
+    if (response == "success") {
         swal({
-            "title": data+" Deleted!",
+            "title": data + " Deleted!",
             "text": "The " + data + " was sucessfully deleted!",
             "icon": "info"
         }).then(function () {
@@ -304,7 +349,7 @@ function validateDeleteSuccess(response, data, url){
             // location.replace("./box_items.php");
         });
     }
-    else{
+    else {
         swal({
             "title": "ERROR!",
             "text": "The " + data + " item was not deleted!",

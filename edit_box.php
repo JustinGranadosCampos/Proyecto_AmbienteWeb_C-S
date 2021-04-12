@@ -36,7 +36,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header modalEdit-header">
-                        <h5 class="modal-title modalEdit-title" id="modalBox"></h5>
+                        <h5 class="modal-title-Box modalEdit-title" id="modalBox"></h5>
                     </div>
                     <form action="" method="POST">
                         <div class="modal-body">

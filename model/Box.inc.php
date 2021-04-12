@@ -55,7 +55,7 @@
                 echo 'setTimeout(function () {
                     swal({
                         "title":"Done!",
-                        "text":"The item was sucessfully updated!",
+                        "text":"The box was sucessfully updated!",
                         "icon":"success"
                     }).then(function(){ 
                             location.replace("./box_management.php");
