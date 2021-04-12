@@ -28,8 +28,18 @@
             $sql = "call InsertBox($id, '$label')";
             if ($this->conectar()->query($sql))
             {
-                echo '<script>alert("Registro agregado exitosamente");</script>';
-                echo '<script>location.replace("./box_management.php");</script>';
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () {
+                    swal({
+                        "title":"Box Added!",
+                        "text":"New Box Added!",
+                        "icon":"success"
+                    }).then(function(){ 
+                            
+                        });
+                    }, 1500);
+                    </script>';
+                // echo '<script>location.replace("./box_management.php");</script>';
             }
             else
             {
@@ -41,8 +51,18 @@
         protected function updateBoxData($id, $label){
             $sql = "call UpdateBox($id, '$label')";
             if ($this->conectar()->query($sql)) {
-                echo '<script>alert("Registro actualizado exitosamente");</script>';
-                echo '<script>location.replace("./box_management.php");</script>';
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () {
+                    swal({
+                        "title":"Done!",
+                        "text":"The item was sucessfully updated!",
+                        "icon":"success"
+                    }).then(function(){ 
+                            location.replace("./box_management.php");
+                        });
+                    }, 1500);
+                    </script>';
+                // echo '<script>location.replace("./box_management.php");</script>';
             }
             else
             {

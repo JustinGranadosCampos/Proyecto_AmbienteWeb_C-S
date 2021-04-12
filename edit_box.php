@@ -10,11 +10,11 @@
         $boxController->updateBox($id, $_POST['txtIdLabel']);
     }
 
-    if (isset($_POST['btnDeleteBox']))
-    {
-        $boxController = new BoxController();
-        $boxController->deleteBox($id);
-    }
+    // if (isset($_POST['btnDeleteBox']))
+    // {
+    //     $boxController = new BoxController();
+    //     $boxController->deleteBox($id);
+    // }
     include './validation.php';
 ?>
 
@@ -50,7 +50,7 @@
                                 id="btnSaveUpdateBox"
                                 name="btnSaveUpdateBox"
                                 class="btn btn-dark">Save</button>
-                                <button type="submit" name="btnDeleteBox" class="btn btn-danger btnDelete">Delete</button></div></div>
+                                <button type="submit" name="btnDeleteBox" class="btn btn-danger btnDeleteBox">Delete</button></div></div>
                         </div>
                     </form>
                     

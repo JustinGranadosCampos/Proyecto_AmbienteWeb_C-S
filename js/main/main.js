@@ -194,24 +194,45 @@ $(document).ready(function () {
                         data: {"id":id},
                         success: function (response) {
                             // console.log("Respuesta de PHP: "+response);
-                            if(response == "success"){
-                                swal({
-                                    "title": "Item Deleted!",
-                                    "text": "The item was sucessfully deleted!",
-                                    "icon": "info"
-                                }).then(function () {
-                                    location.replace("./box_items.php");
-                                });
-                            }
-                            else{
-                                swal({
-                                    "title": "ERROR!",
-                                    "text": "The item was not deleted!",
-                                    "icon": "error"
-                                }).then(function () {
-                                    location.replace("./box_items.php");
-                                });
-                            }
+                            validateDeleteSuccess(response, "Item", "./box_items.php")
+                        },
+                        error: function () {
+                            swal("ERROR", "Data was not sent correctly", "error");
+                        }
+                    });
+                    break;
+            }
+        });
+    });
+
+    $('.btnDeleteBox').click(function (e) {
+        e.preventDefault(); // prevent form submit
+        let val = window.location.search;
+        const urlParams = new URLSearchParams(val);
+        let id = urlParams.get('id');
+
+        swal({
+            title: "This Box will be deleted!",
+            text: "Are you sure you want to delete this box?",
+            icon: "warning",
+            dangerMode: true,
+            buttons: {
+                cancel: "Cancel",
+                catch: {
+                    text: "Continue",
+                    value: "catch",
+                },
+            },
+        }).then((value) => {
+            switch (value) {
+                case "catch":
+                    $.ajax({
+                        type: "POST",
+                        url: "./includes/delete/deleteBox.php",
+                        data: {"id":id},
+                        success: function (response) {
+                            // console.log("Respuesta de PHP: "+response);
+                            validateDeleteSuccess(response, "Box", "./box_management.php");
                         },
                         error: function () {
                             swal("ERROR", "Data was not sent correctly", "error");
@@ -270,4 +291,26 @@ function load_data(type, cabinet_id) {
             alert("Error");
         }
     });
+}
+
+function validateDeleteSuccess(response, data, url){
+    if(response == "success"){
+        swal({
+            "title": data+" Deleted!",
+            "text": "The " + data + " was sucessfully deleted!",
+            "icon": "info"
+        }).then(function () {
+            location.replace(url);
+            // location.replace("./box_items.php");
+        });
+    }
+    else{
+        swal({
+            "title": "ERROR!",
+            "text": "The " + data + " item was not deleted!",
+            "icon": "error"
+        }).then(function () {
+            location.replace(url);
+        });
+    }
 }
