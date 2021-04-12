@@ -1,8 +1,9 @@
 <?php
     // include_once './controller/ItemBoxController.php';
-    include_once './model/Conexion.inc.php';
+    include_once '../../model/Conexion.inc.php';
 
     $connection = new Conexion();
+    $state = "error";
 
     // echo $_SERVER['DOCUMENT_ROOT'];
     if (isset($_POST['id']))
@@ -12,7 +13,7 @@
         $sql = "call DeleteItemBox($id)";
         if($connection->conectar()->query($sql))
         {
-            
+            $state = "success";
         }
         else
         {
@@ -20,4 +21,4 @@
             echo $connection->conectar()->errorInfo();
         }
     }
-    echo $id;
+    echo $state;

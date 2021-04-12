@@ -190,17 +190,28 @@ $(document).ready(function () {
                 case "catch":
                     $.ajax({
                         type: "POST",
-                        url: "deleteItemBox.php",
+                        url: "./includes/delete/deleteItemBox.php",
                         data: {"id":id},
                         success: function (response) {
-                            console.log("Respuesta de PHP: "+response);
-                            swal({
-                                "title": "Item Deleted!",
-                                "text": "The item was sucessfully deleted!",
-                                "icon": "info"
-                            }).then(function () {
-                                location.replace("./box_items.php");
-                            });
+                            // console.log("Respuesta de PHP: "+response);
+                            if(response == "success"){
+                                swal({
+                                    "title": "Item Deleted!",
+                                    "text": "The item was sucessfully deleted!",
+                                    "icon": "info"
+                                }).then(function () {
+                                    location.replace("./box_items.php");
+                                });
+                            }
+                            else{
+                                swal({
+                                    "title": "ERROR!",
+                                    "text": "The item was not deleted!",
+                                    "icon": "error"
+                                }).then(function () {
+                                    location.replace("./box_items.php");
+                                });
+                            }
                         },
                         error: function () {
                             swal("ERROR", "Data was not sent correctly", "error");
