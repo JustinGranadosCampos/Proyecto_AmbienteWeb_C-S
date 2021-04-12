@@ -16,7 +16,7 @@ class Conexion
             $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $this->conexion;
         } catch (PDOException $e) {
-            exit("ERROR: Could not connect to the database $this->db_name ". $e->getMessage());
+            die("Connection Error: ". $e->getMessage());
         }
     }
 
