@@ -70,7 +70,11 @@
                     // }
                     // else
                     // {
-                        echo '<option value=' . $row["idBOX"] . '>' . $row["LABEL"] . '</option>';
+                        $selected = "";
+                        if ($row["idBOX"]==$joinResult[0]['idBOX']){
+                            $selected="selected";
+                        }
+                        echo '<option '.$selected.' value=' . $row["idBOX"] . '>' . $row["LABEL"] . '</option>';
                     // }
                 }
             }

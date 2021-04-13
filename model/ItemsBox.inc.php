@@ -1,5 +1,6 @@
 <?php
 include __DIR__.'/Conexion.inc.php';
+#include './controller/errorHandlerController.php';
 class ItemBox extends Conexion
 {
     public function getItems()
@@ -133,12 +134,10 @@ class ItemBox extends Conexion
             }
         }catch(EXCEPTION $e){
             $this->reportError($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
-            #echo "\nPDO::errorInfo():\n";
-            #echo 'LA CAGUE PORQUE HICE MAL LA VARA';
+          
         }catch(PDO_EXCEPTION $e){
             $this->reportError($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
-            #echo "\nPDO::errorInfo():\n";
-            #echo 'LA CAGUE PORQUE HICE MAL LA VARA';
+           
         }
     }
 

@@ -48,10 +48,11 @@ class Conexion
         //     , 'file' => $file
         //     , 'line' => $line
         // );
+        $codigopesito = 1234;
         echo '<script>console.log("llegue bitches")</script>';
             $sql = "call InsertErrorLog(?, ?, ?, ?, ?)";
             $gsent = $this->conectar()->prepare($sql);
-            $gsent->bindParam(1, 1234, PDO::PARAM_INT);
+            $gsent->bindParam(1, $codigopesito, PDO::PARAM_INT);
             $gsent->bindParam(2, $code, PDO::PARAM_STR);
             $gsent->bindParam(3, $msg, PDO::PARAM_STR);
             $gsent->bindParam(4, $file, PDO::PARAM_STR);
