@@ -1,5 +1,9 @@
 <?php
     include __DIR__.'\validation.php';
+    include __DIR__.'\view\cabinetLevelView.php';
+    
+    $cabLevel = new CabinetLevelView();
+    
     
 ?>
 
@@ -55,7 +59,7 @@
                     <table id="itemTable" class="table table-stripped table-bordered table-condensed display table-hover"
                         style="width: 100%;">
                         <?php
-                            // $boxView->showBoxes();
+                            $cabLevel->showCabinetsLevels();
                         ?>
                     </table>
                 </div>
