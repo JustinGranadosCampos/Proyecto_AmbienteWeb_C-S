@@ -19,9 +19,17 @@
             }
             else
             {
-                // echo "\nPDO::errorInfo():\n";
-                // echo $this->conectar()->errorInfo();
-                echo '<script>location.replace("../admin/login.php");</script>';
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () {
+                    swal({
+                        "title":"Error!",
+                        "text":"The WWID or password are incorrect!",
+                        "icon":"error"
+                    }).then(function(){ 
+                            location.replace("../admin/login.php");
+                        });
+                    }, 500);
+                    </script>';
             }
         }
     }

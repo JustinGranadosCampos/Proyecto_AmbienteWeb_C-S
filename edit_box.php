@@ -9,12 +9,6 @@
         $boxController = new BoxController();
         $boxController->updateBox($id, $_POST['txtIdLabel']);
     }
-
-    // if (isset($_POST['btnDeleteBox']))
-    // {
-    //     $boxController = new BoxController();
-    //     $boxController->deleteBox($id);
-    // }
     include './validation.php';
 ?>
 

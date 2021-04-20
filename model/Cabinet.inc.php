@@ -40,7 +40,7 @@
                         });
                     }, 1500);
                     </script>';
-                // echo '<script>location.replace("./cabinet_management.php");</script>';
+                
             }
             else
             {
@@ -63,7 +63,6 @@
                         });
                     }, 1500);
                     </script>';
-                // echo '<script>location.replace("./cabinet_management.php");</script>';
             }
             else
             {
@@ -88,7 +87,6 @@
         protected function getLastIdCabinet(){
             $sql = $this->conectar()->query("call GetLastIdCabinet()");
             $result = $sql->fetch(PDO::FETCH_ASSOC);
-            // echo $result;
             $lastId = $result['idCABINET'] + 1;
             return $lastId;
         }
