@@ -102,10 +102,10 @@
             $result = $this->conectar()->query($sql);
             $data = array();
 
-            #Saves all the items into $data that get from the DB
             while ($row = $result->fetch()) {
                 $data[] = $row;
             }
+
             return $data;
             // $con->desconectar();
         }
@@ -116,10 +116,10 @@
             $result = $this->conectar()->query($sql);
             $data = array();
 
-            #Saves all the items into $data that get from the DB
             while ($row = $result->fetch()) {
                 $data[] = $row;
             }
+            
             return $data;
             // $con->desconectar();
                 
