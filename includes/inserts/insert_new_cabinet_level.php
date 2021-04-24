@@ -16,7 +16,6 @@
         $idItem = $_POST['idItem'];
 
         $sql = "call InsertCabinetLevel(?, ?, ?, ?, ?)";
-        
         $stm = $connection->conectar()->prepare($sql);
 
         $stm->bindParam(1, $id, PDO::PARAM_INT);
