@@ -103,6 +103,13 @@ $(document).ready(function () {
         $(".modal-title").text("New Box");
     });
 
+    $("#btnNewCabinetLevel").click(function () {
+        $("#modalAddNewCabinetLevel").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title").text("New Cabinet Level");
+    });
+
     // *** ********************************* *** //
 
     /**/

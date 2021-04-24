@@ -3,8 +3,6 @@
     include __DIR__.'\view\cabinetLevelView.php';
     
     $cabLevel = new CabinetLevelView();
-    
-    
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +45,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <button id="btnNewBox" type="button" class="btn btn-success btnNew">+ Add New</button>
+                <button id="btnNewCabinetLevel" type="button" class="btn btn-success btnNew">+ Add New</button>
             </div>
         </div>
     </div>
@@ -85,14 +83,36 @@
                 <form action="" method="POST">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="itemLabel" class="col-form-label">Box Number</label>
+                            <label for="txtIdNextCabinetLevel" class="col-form-label">ID CABINET LEVEL</label>
                             <?php
-                                        // $boxView->showNextBox();
+                                        $cabLevel->showNextCabinetLevel();
                             ?>
                         </div>
                         <div class="form-group">
-                            <label for="txtSerialNumber" class="col-form-label">Label</label>
-                            <input type="text" name="txtLabel" class="form-control" id="txtLabel">
+                            <label for="txtLevel_Number" class="col-form-label">LEVEL NUMBER</label>
+                            <input type="text" name="txtLevel_Number" class="form-control" id="txtLevel_Number" onkeypress="return isNumber();">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtLabelCabinetLevel" class="col-form-label">LABEL</label>
+                            <input type="text" name="txtLabelCabinetLevel" class="form-control" id="txtLabelCabinetLevel">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtIdCabinet_CL" class="col-form-label">CABINET NUMBER</label>
+                            <select name="txtIdCabinet_CL" id="txtIdCabinet_CL" class="form-control">
+                                <option value="-1">Select an option</option>
+                                <?php
+                                    $cabLevel->showCabinets();
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtIdItem_CL" class="col-form-label">ITEM SERIAL NUMBER</label>
+                            <select name="txtIdItem_CL" id="txtIdItem_CL" class="form-control">
+                                <option value="-1">Select an option</option>
+                                <?php
+                                    $cabLevel->showItems();
+                                ?>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">

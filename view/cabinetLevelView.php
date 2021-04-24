@@ -11,9 +11,7 @@
             echo '<th id="label">LABEL</th>';
             echo '<th id="idCabinet">CABINET</th>';
             echo '<th id="idItemCabinet">ITEM</th>';
-            //Validate if $_SESSION['idRol'] == 1 to show actions
             echo '<th>ACTIONS</th>';
-            //Validate if $_SESSION['idRol'] == 1 to show actions
             echo '</tr>';
             echo '</thead>';
             echo '<tbody>';
@@ -47,9 +45,25 @@
             }
         }
 
-        public function showNextBox()
+        public function showNextCabinetLevel()
         {
-            $result = $this->getLastIdBox();
-            echo '<input type="text" name="txtBoxNumber" class="form-control" id="txtBoxNumber" value=' . $result . ' readonly>';
+            $result = $this->getLastIdCabinetLevel();
+            echo '<input type="text" name="txtIdNextCabinetLevel" class="form-control" id="txtIdNextCabinetLevel" value=' . $result . ' readonly>';
+        }
+
+        public function showItems()
+        {
+            $result = $this->getAllItems();
+            foreach ($result as $row) {
+                echo '<option value="' . $row['idITEM_CABINET'] . '">' . $row['NAME'] . ": " . $row['SERIAL_NUMBER'] . '</option>';
+            }
+        }
+        
+        public function showCabinets()
+        {
+            $result = $this->geAlltCabinets();
+            foreach ($result as $row) {
+                echo '<option value="' . $row['idCABINET'] . '">' . $row['CABINET_NUMBER'] . '</option>';
+            }
         }
     }

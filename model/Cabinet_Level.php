@@ -1,5 +1,6 @@
 <?php
     include __DIR__.'/Conexion.inc.php';
+
     class CabinetLevel extends Conexion
     {
         #Get All Cabinet_Level
@@ -11,7 +12,7 @@
             while ($row = $result->fetch()) {
                 $data[] = $row;
             }
-            
+
             return $data;
             // $con->desconectar();
                 
@@ -88,11 +89,40 @@
         }
 
         #Get the next auto_incremental ID from Cabinet_Level
-        protected function getLastIdBox(){
-            $sql = $this->conectar()->query("call GetLastIdBox()");
+        protected function getLastIdCabinetLevel(){
+            $sql = $this->conectar()->query("call GetLastIdCabinetLevel()");
             $result = $sql->fetch(PDO::FETCH_ASSOC);
-            $lastId = $result['idBOX'] + 1;
+            $lastId = $result['ID'] + 1;
             return $lastId;
+        }
+
+        #Get All Cabinet Items
+        protected function getAllItems(){
+            $sql = "call Items_x_Cabinet()";
+            $result = $this->conectar()->query($sql);
+            $data = array();
+
+            #Saves all the items into $data that get from the DB
+            while ($row = $result->fetch()) {
+                $data[] = $row;
+            }
+            return $data;
+            // $con->desconectar();
+        }
+        
+        #Get All Cabinets
+        protected function geAlltCabinets(){
+            $sql = "call ShowCabinets()";
+            $result = $this->conectar()->query($sql);
+            $data = array();
+
+            #Saves all the items into $data that get from the DB
+            while ($row = $result->fetch()) {
+                $data[] = $row;
+            }
+            return $data;
+            // $con->desconectar();
+                
         }
     }
 ?>
