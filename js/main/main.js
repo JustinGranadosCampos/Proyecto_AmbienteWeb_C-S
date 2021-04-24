@@ -375,7 +375,7 @@ $(document).ready(function () {
             $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
             $.ajax({
                 type: "POST",
-                url: "./includes/deletes/delete_cabinet_level.php",
+                url: "./includes/delete/delete_cabinet_level.php",
                 data: "data",
                 success: response => {
                     swal({
