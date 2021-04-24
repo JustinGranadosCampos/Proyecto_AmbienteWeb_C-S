@@ -298,6 +298,43 @@ $(document).ready(function () {
             }
         });
     });
+
+    // Cabinet Level //
+    /* Save Cabinet Level */
+    $('#btnSaveNewCabinetLevel').click(function () {
+        if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
+            $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
+            $.ajax({
+                type: "POST",
+                url: "./includes/inserts/insert_new_cabinet_level.php",
+                data: "data",
+                success: response => {
+                    swal({
+                        title: "Cabinet Level Added",
+                        text: "New Cabinet Level Added",
+                        icon: "success",
+                        dangerMode: true,
+                        buttons: {
+                            catch: {
+                                text: "Continue",
+                                value: "catch",
+                            },
+                        },
+                    }).then((value) => {
+                        switch (value) {
+                            case "catch":
+                                location.reload();
+                                break;
+                        }
+                    });
+                }
+            });
+        } else {
+            swal("Error", "Plese fill out the blank spaces", "info");
+        }
+    });
+
+    // END Cabinet Level //
 });
 
 function isNumber(evt) {

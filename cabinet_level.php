@@ -117,7 +117,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                        <button type="submit" id="btnSaveBox" name="btnSaveBox" class="btn btn-dark">Save</button>
+                        <button type="button" id="btnSaveNewCabinetLevel" name="btnSaveBox" class="btn btn-dark">Save</button>
                     </div>
                 </form>
 
