@@ -305,103 +305,99 @@ $(document).ready(function () {
     $('#btnSaveNewCabinetLevel').click(function () {
         if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
             $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
-            $.ajax({
-                type: "POST",
-                url: "./includes/inserts/insert_new_cabinet_level.php",
-                data: "data",
-                success: response => {
-                    swal({
-                        title: "Cabinet Level Added",
-                        text: "New Cabinet Level Added",
-                        icon: "success",
-                        dangerMode: true,
-                        buttons: {
-                            catch: {
-                                text: "Continue",
-                                value: "catch",
-                            },
-                        },
-                    }).then((value) => {
-                        switch (value) {
-                            case "catch":
-                                location.reload();
-                                break;
-                        }
-                    });
-                }
-            });
-        } else {
-            swal("Error", "Plese fill out the blank spaces", "info");
-        }
+                let id = $('#txtIdNextCabinetLevel').val();
+                let lvlNumber = $('#txtLevel_Number').val();
+                let label = $('#txtLabelCabinetLevel').val();
+                let idCabinet = $('#txtIdCabinet_CL').val();
+                let idItem = $('#txtIdItem_CL').val();
+                console.log(`${id}, ${lvlNumber}, ${label}, ${idCabinet}, ${idItem}`);
+                $.ajax({
+                    type: "POST",
+                    url: "./includes/inserts/insert_new_cabinet_level.php",
+                    data: { "id":id, "lvlNumber":lvlNumber, "label":label, "idCabinet":idCabinet, "idItem":idItem},
+                    success: function (response) {
+                        validateInsertSuccess(response, "Cabinet Level", "./cabinet_level.php");
+                    },
+                    error: () => {
+                        swal("Error", "Data was not sent correctly", "error");
+                    }
+                });
+            } else {
+                swal("Error", "Plese fill out the blank spaces", "info");
+            }
     });
 
-    /* Update Cabinet Level */
-    $('#btnSaveNewCabinetLevel').click(function () {
-        if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
-            $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
-            $.ajax({
-                type: "POST",
-                url: "./includes/updates/update_cabinet_level.php",
-                data: "data",
-                success: response => {
-                    swal({
-                        title: "Cabinet Level Added",
-                        text: "New Cabinet Level Added",
-                        icon: "success",
-                        dangerMode: true,
-                        buttons: {
-                            catch: {
-                                text: "Continue",
-                                value: "catch",
-                            },
-                        },
-                    }).then((value) => {
-                        switch (value) {
-                            case "catch":
-                                location.reload();
-                                break;
-                        }
-                    });
-                }
-            });
-        } else {
-            swal("Error", "Plese fill out the blank spaces", "info");
-        }
-    });
+    // /* Update Cabinet Level */
+    // $('#').click(function () {
+    //     if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
+    //         $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "./includes/updates/update_cabinet_level.php",
+    //             data: { "id":id, "lvlNumber":lvlNumber, "label":label, "idCabinet":idCabinet, "idItem":idItem},
+    //             success: response => {
+    //                 if (response == "success") {
+    //                     swal({
+    //                         title: "Cabinet Level Added",
+    //                         text: "New Cabinet Level Added",
+    //                         icon: "success",
+    //                         dangerMode: true,
+    //                         buttons: {
+    //                             catch: {
+    //                                 text: "Continue",
+    //                                 value: "catch",
+    //                             },
+    //                         },
+    //                     }).then((value) => {
+    //                         switch (value) {
+    //                             case "catch":
+    //                                 location.reload();
+    //                                 break;
+    //                         }
+    //                     });
+    //                 } else {
+                        
+    //                 }
+    //             }
+    //         });
+    //     } else {
+    //         swal("Error", "Plese fill out the blank spaces", "info");
+    //     }
+    // });
 
-    /* Delete Cabinet Level */
-    $('#btnSaveNewCabinetLevel').click(function () {
-        if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
-            $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
-            $.ajax({
-                type: "POST",
-                url: "./includes/delete/delete_cabinet_level.php",
-                data: "data",
-                success: response => {
-                    swal({
-                        title: "Cabinet Level Added",
-                        text: "New Cabinet Level Added",
-                        icon: "success",
-                        dangerMode: true,
-                        buttons: {
-                            catch: {
-                                text: "Continue",
-                                value: "catch",
-                            },
-                        },
-                    }).then((value) => {
-                        switch (value) {
-                            case "catch":
-                                location.reload();
-                                break;
-                        }
-                    });
-                }
-            });
-        } else {
-            swal("Error", "Plese fill out the blank spaces", "info");
-        }
-    });
+    // /* Delete Cabinet Level */
+    // $('#').click(function () {
+    //     if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
+    //         $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "./includes/delete/delete_cabinet_level.php",
+    //             data: "data",
+    //             success: response => {
+    //                 swal({
+    //                     title: "Cabinet Level Added",
+    //                     text: "New Cabinet Level Added",
+    //                     icon: "success",
+    //                     dangerMode: true,
+    //                     buttons: {
+    //                         catch: {
+    //                             text: "Continue",
+    //                             value: "catch",
+    //                         },
+    //                     },
+    //                 }).then((value) => {
+    //                     switch (value) {
+    //                         case "catch":
+    //                             location.reload();
+    //                             break;
+    //                     }
+    //                 });
+    //             }
+    //         });
+    //     } else {
+    //         swal("Error", "Plese fill out the blank spaces", "info");
+    //     }
+    // });
 
     // END Cabinet Level //
 });
@@ -468,6 +464,48 @@ function validateDeleteSuccess(response, data, url) {
         swal({
             "title": "ERROR!",
             "text": "The " + data + " item was not deleted!",
+            "icon": "error"
+        }).then(function () {
+            location.replace(url);
+        });
+    }
+}
+
+function validateInsertSuccess(response, data, url) {
+    if (response == "success") {
+        swal({
+            "title": data + " Added!",
+            "text": "The " + data + " was sucessfully added!",
+            "icon": "success"
+        }).then(function () {
+            location.replace(url);
+        });
+    }
+    else {
+        swal({
+            "title": "ERROR!",
+            "text": "The " + data + " item was not added!",
+            "icon": "error"
+        }).then(function () {
+            // location.replace(url);
+        });
+    }
+}
+
+function validateUpdateSuccess(response, data, url) {
+    if (response == "success") {
+        swal({
+            "title": data + " Updated!",
+            "text": "The " + data + " was sucessfully updated!",
+            "icon": "success"
+        }).then(function () {
+            location.replace(url);
+        });
+    }
+    else {
+        swal({
+            "title": "ERROR!",
+            "text": "The " + data + " item was not updated!",
             "icon": "error"
         }).then(function () {
             location.replace(url);
