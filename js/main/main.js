@@ -18,13 +18,6 @@ $(document).ready(function () {
         ]
     });
 
-    $("#btnAddNewCabinet").click(function () {
-        $("#modalAddCabinet").modal("show");
-        $(".modal-header").css("color", "#343a40");
-        $(".modal-header").css("color", "#343a40");
-        $(".modal-title").text("Add Cabinet");
-    });
-
     $('#cboCabinetNumber').selectpicker();
     $('#cboCabinetLabel').selectpicker();
 
@@ -35,6 +28,13 @@ $(document).ready(function () {
     });
 
     // *** Show modals in pages *** //
+
+    $("#btnAddNewCabinet").click(function () {
+        $("#modalAddCabinet").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title").text("Add Cabinet");
+    });
 
     $("#btnNewItemBox").click(function () {
         $("#modalItemBoxCRUD").modal("show");
@@ -103,6 +103,8 @@ $(document).ready(function () {
         $(".modal-title").text("New Box");
     });
 
+    // *** ********************************* *** //
+
     /**/
     $("#btnSaveItemCabinet").click(function () {
         alert("Entré a la función");
@@ -128,7 +130,6 @@ $(document).ready(function () {
         $("#txtSerialNumber").val($("#txtSerialNumber").val().replace(/ /g, ''));
         $("#txtSerialNumber").val($("#txtSerialNumber").val().replace(/[^a-zA-Z0-9]/g, ""));
         if (isBlank($("#txtModel").val())) {
-            console.log("Por favor llenar el campo");
         }
     });
 
@@ -137,7 +138,6 @@ $(document).ready(function () {
         $("#txtName").val($("#txtName").val().trim());
         $("#txtName").val($("#txtName").val().replace(/[^a-zA-Z0-9]/g, " "));
         if (isBlank($("#txtModel").val())) {
-            console.log("Por favor llenar el campo");
         }
     });
 
@@ -146,7 +146,6 @@ $(document).ready(function () {
         $("#txtModel").val($("#txtModel").val().trim());
         $("#txtModel").val($("#txtModel").val().replace(/[^a-zA-Z0-9]/g, " "));
         if (isBlank($("#txtModel").val())) {
-            console.log("Por favor llenar el campo");
         }
     });
 
@@ -155,14 +154,12 @@ $(document).ready(function () {
         $("#txtIsmpStatus").val($("#txtIsmpStatus").val().trim());
         $("#txtIsmpStatus").val($("#txtIsmpStatus").val().replace(/[^a-zA-Z0-9]/g, " "));
         if (isBlank($("#txtModel").val())) {
-            console.log("Por favor llenar el campo");
         }
     });
 
     //Asset
     $("#txtAsset").blur(function () {
         if (isBlank($("#txtModel").val())) {
-            console.log("Por favor llenar el campo");
         }
     });
 
@@ -171,6 +168,10 @@ $(document).ready(function () {
         $("#txtDetails").val($("#txtDetails").val().trim());
         $("#txtDetails").val($("#txtDetails").val().replace(/[^a-zA-Z0-9]/g, " "));
     });
+
+    /***  END VALIDATION ***/
+
+    //**************************************//
 
     /* *** Delete Item Box *** */
     $('.btnDeleteItemBox').click(function (e) {
