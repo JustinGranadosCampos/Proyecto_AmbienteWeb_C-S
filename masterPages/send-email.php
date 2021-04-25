@@ -2,8 +2,8 @@
     if(isset($_POST['enivar'])){
         $correo = $_POST['Correo'];
 
-        require 'PHPMailer/src/PHPMailer.php';
-        require 'PHPMailer/src/SMTP.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/vendor/PHPMailer/src/PHPMailer.php';
+        require $_SERVER['DOCUMENT_ROOT'].'/vendor/PHPMailer/src/SMTP.php';
 
         $mail = new PHPMailer();
         $mail -> CharSet = 'UTF-8';
@@ -16,12 +16,11 @@
         $mail -> Port = 587; 
         $mail -> SMTPAuth = true;
         $mail -> Username = 'QRVLABInventory@outlook.com';
-        $mail -> Password = 'AmbienteClienteServidor';
+        $mail -> Password = '';
         $mail -> SetFrom('QRVLABInventory@outlook.com', "QRVLABInventory");
         $mail -> Subject = 'Nosotros';
         $mail -> MsgHTML($body);
         $mail->AddAddress($correo, 'Cliente');
-        $mail->send();
-    
+        $result = $mail->send();
     }
 ?>
