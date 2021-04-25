@@ -23,7 +23,8 @@
                 echo '<td>' . $row["LABEL"] . '</td>';
                 echo '<td>' . $row["CABINET_idCABINET"] . '</td>';
                 echo '<td>' . $row["NAME"] . '</td>';
-                echo '<td><div class="text-center"><div class="btn-group"><a href="" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
+                // echo '<td><div class="text-center"><div class="btn-group"><a href="" class="btn bg-dark text-light btnEdit" id>Edit</a></div></div></td>';
+                echo '<td><div class="text-center"><div class="btn-group"><button type="button" name="btnEditCabinetLevel" class="btn bg-dark text-light btnEdit" id="btnEditCabinetLevel">Edit</button></div></div></td>';
                 echo '</tr>';
             }
             echo '</tbody>';

@@ -110,6 +110,81 @@ $(document).ready(function () {
         $(".modal-title").text("New Cabinet Level");
     });
 
+    /* SHOW DATA ON MODAL (CABINET LEVEL)*/
+    $(document).on('click', '#btnEditCabinetLevel', function () {
+
+        let row = $(this).closest("tr");
+        let id = parseInt(row.find('td:eq(0)').text());
+        let lvlNumber = parseInt(row.find('td:eq(1)').text());
+        let label = row.find('td:eq(2)').text();
+        let idCabinet = parseInt(row.find('td:eq(3)').text());
+        let idItem = row.find('td:eq(4)').text();
+
+        $.ajax({
+            type: "POST",
+            url: "./includes/selects/select_all_cabinets.php",
+            data: { "idCabinet": idCabinet },
+            success: response => {
+                let content = '';
+                if (response > 0 || response != null) {
+                    let data = $.parseJSON(response);
+                    for (let i in data) {
+                        if (idCabinet == data[i].value) {
+                            content += '<option value="' + data[i].value + '" selected>' + data[i].name + '</option>';
+                        } else {
+                            content += '<option value="' + data[i].value + '">' + data[i].name + '</option>';
+                        }
+                    }
+                    $('#txtEditIdCabinet_CL').html(content);
+                }
+            },
+            error: () => {
+                swal("ERROR", "Data was not sent correctly", "error");
+            }
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "./includes/selects/select_all_itemsCabinet.php",
+            data: { "idItem": idItem },
+            success: response => {
+                let content = '';
+                if (response > 0 || response != null) {
+                    let data = $.parseJSON(response);
+                    for (let i in data) {
+                        if (idItem == data[i].name) {
+                            content += '<option value="' + data[i].id + '" selected>' + "[" + data[i].serialNumber + "] " + data[i].name + '</option>';
+                        } else {
+                            content += '<option value="' + data[i].id + '">' + "[" + data[i].serialNumber + "] " + data[i].name + '</option>';
+                        }
+                    }
+                    $('#txtEditIdItem_CL').html(content);
+                }
+            },
+            error: () => {
+                swal("ERROR", "Data was not sent correctly", "error");
+            }
+        });
+
+        setTimeout(() => {
+            $("#modalEditCabinetLevel").modal("show");
+            $(".modal-header").css("color", "#343a40");
+            $(".modal-header").css("color", "#343a40");
+            $(".modal-title-CabinetLevel").text("Edit Cabinet Level");
+        }, 1800);
+
+
+        $('#txtEditIdNextCabinetLevel').val(id);
+        $('#txtEdiLevel_Number').val(lvlNumber);
+        $('#txtEditLabelCabinetLevel').val(label);
+        $('#txtEditIdCabinet_CL').val(idCabinet);
+        $('#txtEditIdItem_CL').val(idItem);
+    });
+
+    $('#btnCancelCabinetLevel').click(function () {
+        $("#modalEditCabinetLevel").modal("hide");
+    });
+
     // *** ********************************* *** //
 
     /**/
@@ -305,26 +380,26 @@ $(document).ready(function () {
     $('#btnSaveNewCabinetLevel').click(function () {
         if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
             $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
-                let id = $('#txtIdNextCabinetLevel').val();
-                let lvlNumber = $('#txtLevel_Number').val();
-                let label = $('#txtLabelCabinetLevel').val();
-                let idCabinet = $('#txtIdCabinet_CL').val();
-                let idItem = $('#txtIdItem_CL').val();
-                console.log(`${id}, ${lvlNumber}, ${label}, ${idCabinet}, ${idItem}`);
-                $.ajax({
-                    type: "POST",
-                    url: "./includes/inserts/insert_new_cabinet_level.php",
-                    data: { "id":id, "lvlNumber":lvlNumber, "label":label, "idCabinet":idCabinet, "idItem":idItem},
-                    success: function (response) {
-                        validateInsertSuccess(response, "Cabinet Level", "./cabinet_level.php");
-                    },
-                    error: () => {
-                        swal("Error", "Data was not sent correctly", "error");
-                    }
-                });
-            } else {
-                swal("Error", "Plese fill out the blank spaces", "info");
-            }
+            let id = $('#txtIdNextCabinetLevel').val();
+            let lvlNumber = $('#txtLevel_Number').val();
+            let label = $('#txtLabelCabinetLevel').val();
+            let idCabinet = $('#txtIdCabinet_CL').val();
+            let idItem = $('#txtIdItem_CL').val();
+            console.log(`${id}, ${lvlNumber}, ${label}, ${idCabinet}, ${idItem}`);
+            $.ajax({
+                type: "POST",
+                url: "./includes/inserts/insert_new_cabinet_level.php",
+                data: { "id": id, "lvlNumber": lvlNumber, "label": label, "idCabinet": idCabinet, "idItem": idItem },
+                success: function (response) {
+                    validateInsertSuccess(response, "Cabinet Level", "./cabinet_level.php");
+                },
+                error: () => {
+                    swal("Error", "Data was not sent correctly", "error");
+                }
+            });
+        } else {
+            swal("Error", "Plese fill out the blank spaces", "info");
+        }
     });
 
     // /* Update Cabinet Level */
@@ -356,7 +431,7 @@ $(document).ready(function () {
     //                         }
     //                     });
     //                 } else {
-                        
+
     //                 }
     //             }
     //         });
@@ -365,39 +440,41 @@ $(document).ready(function () {
     //     }
     // });
 
-    // /* Delete Cabinet Level */
-    // $('#').click(function () {
-    //     if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
-    //         $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
-    //         $.ajax({
-    //             type: "POST",
-    //             url: "./includes/delete/delete_cabinet_level.php",
-    //             data: "data",
-    //             success: response => {
-    //                 swal({
-    //                     title: "Cabinet Level Added",
-    //                     text: "New Cabinet Level Added",
-    //                     icon: "success",
-    //                     dangerMode: true,
-    //                     buttons: {
-    //                         catch: {
-    //                             text: "Continue",
-    //                             value: "catch",
-    //                         },
-    //                     },
-    //                 }).then((value) => {
-    //                     switch (value) {
-    //                         case "catch":
-    //                             location.reload();
-    //                             break;
-    //                     }
-    //                 });
-    //             }
-    //         });
-    //     } else {
-    //         swal("Error", "Plese fill out the blank spaces", "info");
-    //     }
-    // });
+    /* Delete Cabinet Level */
+    $('#btnDeleteEditCabinetLevel').click(function (e) {
+        e.preventDefault();
+        let id = $('#txtEditIdNextCabinetLevel').val();
+        console.log(id);
+        swal({
+            title: "This Cabinet level will be deleted!",
+            text: "Are you sure you want to delete it?",
+            icon: "warning",
+            dangerMode: true,
+            buttons: {
+                cancel: "Cancel",
+                catch: {
+                    text: "Continue",
+                    value: "catch",
+                },
+            },
+        }).then((value) => {
+            switch (value) {
+                case "catch":
+                    $.ajax({
+                        type: "POST",
+                        url: "./includes/delete/delete_cabinet_level.php",
+                        data: { "id": id },
+                        success: response => {
+                            validateDeleteSuccess(response, "Cabinet Level", "./cabinet_level.php");
+                        },
+                        error: () => {
+                            swal("Error", "Data was not sent correctly", "error");
+                        }
+                    });
+                    break;
+            }
+        });
+    });
 
     // END Cabinet Level //
 });

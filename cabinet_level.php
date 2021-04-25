@@ -69,6 +69,7 @@
     <div
         class="modal fade"
         id="modalAddNewCabinetLevel"
+        data-backdrop="static"
         tabindex="1"
         role="dialog"
         aria-labelledby="modalAddCabinetLevel"
@@ -90,15 +91,15 @@
                         </div>
                         <div class="form-group">
                             <label for="txtLevel_Number" class="col-form-label">LEVEL NUMBER</label>
-                            <input type="text" name="txtLevel_Number" class="form-control" id="txtLevel_Number" onkeypress="return isNumber();">
+                            <input type="text" name="txtLevel_Number" class="form-control" id="txtLevel_Number" onkeypress="return isNumber();" required>
                         </div>
                         <div class="form-group">
                             <label for="txtLabelCabinetLevel" class="col-form-label">LABEL</label>
-                            <input type="text" name="txtLabelCabinetLevel" class="form-control" id="txtLabelCabinetLevel">
+                            <input type="text" name="txtLabelCabinetLevel" class="form-control" id="txtLabelCabinetLevel" required>
                         </div>
                         <div class="form-group">
                             <label for="txtIdCabinet_CL" class="col-form-label">CABINET NUMBER</label>
-                            <select name="txtIdCabinet_CL" id="txtIdCabinet_CL" class="form-control">
+                            <select name="txtIdCabinet_CL" id="txtIdCabinet_CL" class="form-control" required>
                                 <option value="-1">Select an option</option>
                                 <?php
                                     $cabLevel->showCabinets();
@@ -107,7 +108,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtIdItem_CL" class="col-form-label">ITEM SERIAL NUMBER</label>
-                            <select name="txtIdItem_CL" id="txtIdItem_CL" class="form-control">
+                            <select name="txtIdItem_CL" id="txtIdItem_CL" class="form-control" required>
                                 <option value="-1">Select an option</option>
                                 <?php
                                     $cabLevel->showItems();
@@ -123,6 +124,65 @@
 
             </div>
         </div>
+    </div>
+
+    <!-- Modal Edit -->
+
+    <div class="modal fade" id="modalEditCabinetLevel" data-backdrop="static" tabindex="1" role="dialog" aria-labelledby="modalEditCabinetLevel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modalEdit-header">
+                        <h5 class="modal-title-CabinetLevel modalEdit-title" id="modalEditCabinetLevel"></h5>
+                    </div>
+                    <form action="" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="txtEditIdNextCabinetLevel" class="col-form-label">ID CABINET LEVEL</label>
+                                <input type="text" name="txtEditIdNextCabinetLevel" class="form-control" id="txtEditIdNextCabinetLevel" readonly>
+                                <?php
+                                    // $cabLevel->showNextCabinetLevel();
+                                ?>
+                            </div>
+                            <div class="form-group">
+                            <label for="txtEdiLevel_Number" class="col-form-label">LEVEL NUMBER</label>
+                            <input type="text" name="txtEdiLevel_Number" class="form-control" id="txtEdiLevel_Number" onkeypress="return isNumber();" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEditLabelCabinetLevel" class="col-form-label">LABEL</label>
+                            <input type="text" name="txtEditLabelCabinetLevel" class="form-control" id="txtEditLabelCabinetLevel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEditIdCabinet_CL" class="col-form-label">CABINET NUMBER</label>
+                            <select name="txtEditIdCabinet_CL" id="txtEditIdCabinet_CL" class="form-control" required>
+                                <option value="-1">Select an option</option>
+                                <?php
+                                    // $cabLevel->showCabinets();
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEditIdItem_CL" class="col-form-label">ITEM SERIAL NUMBER</label>
+                            <select name="txtEditIdItem_CL" id="txtEditIdItem_CL" class="form-control" required>
+                                <option value="-1">Select an option</option>
+                                <?php
+                                    // $cabLevel->showItems();
+                                ?>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="btnCancelCabinetLevel" class="btn btn-light">Cancel</button>
+                            <button
+                                type="button"
+                                id="btnSaveEditCabinetLevel"
+                                name="btnSaveEditCabinetLevel"
+                                class="btn btn-dark">Save</button>
+                                <button type="button" name="btnDeleteEditCabinetLevel" id="btnDeleteEditCabinetLevel" class="btn btn-danger">Delete</button></div></div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
     </div>
 
     <?php
