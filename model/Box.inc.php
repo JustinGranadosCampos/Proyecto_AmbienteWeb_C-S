@@ -58,7 +58,7 @@
                         "text":"The box was sucessfully updated!",
                         "icon":"success"
                     }).then(function(){ 
-                            location.replace("./box_management.php");
+                            location.replace("../../masterPages/box_management.php");
                         });
                     }, 1500);
                     </script>';
@@ -75,7 +75,7 @@
             $sql = "call DeleteBox($id)";
             if ($this->conectar()->query($sql)) {
                 echo '<script>alert("Registro eliminado");</script>';
-                echo '<script>location.replace("./box_management.php");</script>';
+                echo '<script>location.replace("../../masterPages/box_management.php");</script>';
             }
             else
             {

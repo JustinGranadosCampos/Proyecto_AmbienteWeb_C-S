@@ -1,5 +1,14 @@
 <?php
-    include './validation.php';
+    include '../includes/main/validation.php';
+    include '../view/cabinetView.php';
+    include '../controller/cabinetController.php';
+    $cabinetView = new CabinetView();
+
+    if(isset($_POST['btnSaveCabinet']))
+    {
+        $cabientController = new CabinetController();
+        $cabientController->addCabinet($_POST['txtId'], $_POST['txtCabinetNumber']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -8,15 +17,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users Management</title>
+    <title>Cabinet Management</title>
     <?php
-        include './styles.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/styles.php';
     ?>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="box_items.php">
-            <img src="./img/qrv_logo.png" width="80" height="50" alt="Main_logo" loading="lazy"
+            <img src="../img/qrv_logo.png" width="80" height="50" alt="Main_logo" loading="lazy"
                 class="d-inline-block align-top logo">
             <h1 class="text title d-inline-block">QRV Inventory System</h1>
         </a>
@@ -33,7 +42,7 @@
                     <a class="nav-link" href="./cabinet_items.php">Cabinet Items</a>
                 </li>
                 <?php
-                    include './nav_items_menu.php';
+                    include $_SERVER['DOCUMENT_ROOT'].'/includes/main/nav_items_menu.php';
                 ?>
             </ul>
         </div>
@@ -42,7 +51,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <button id="btnNewUser" type="button" class="btn btn-success btnNew">+ Add New</button>
+                <button id="btnAddNewCabinet" type="button" class="btn btn-success btnNew">+ Add New</button>
             </div>
         </div>
     </div>
@@ -54,7 +63,7 @@
                     <table id="itemTable" class="table table-stripped table-bordered table-condensed display table-hover"
                         style="width: 100%;">
                         <?php
-                            // $itemBox->getItemsBox();
+                            $cabinetView->showCabinets();
                         ?>
                     </table>
                 </div>
@@ -63,56 +72,34 @@
     </div>
 
     <!-- Modal para el CRUD -->
-        <div class="modal fade" id="modalAddUser" tabindex="1" role="dialog" aria-labelledby="modalAddUser"
+        <div class="modal fade" id="modalAddCabinet" tabindex="1" role="dialog" aria-labelledby="modalAddNewCabinet"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalAddUser"></h5>
+                        <h5 class="modal-title" id="modalAddNewCabinet"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                     </div>
                     <form action="" method="POST">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="itemLabel" class="col-form-label">Box Number</label>
-                                <select name="cboBoxNumber" id="cboBoxNumber" class="form-control">
-                                    <?php
-                                        // $itemBox->showBoxes();
-                                    ?>
-                                </select>
+                                <label for="itemLabel" class="col-form-label">ID Cabinet</label>
+                                <?php
+                                    $cabinetView->showNextCabinet();
+                                ?>
                             </div>
                             <div class="form-group">
-                                <label for="txtSerialNumber" class="col-form-label">Serial Number</label>
-                                <input type="text" name="txtSerialNumber" class="form-control" id="txtSerialNumber">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtName" class="col-form-label">Name</label>
-                                <input type="text" name="txtName" class="form-control" id="txtName">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtAsset" class="col-form-label">ASSET</label>
-                                <input type="number" name="txtAsset" class="form-control" id="txtAsset">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtModel" class="col-form-label">MODEL</label>
-                                <input type="text" name="txtModel" class="form-control" id="txtModel">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtIsmpStatus" class="col-form-label">ISMP Status</label>
-                                <input type="text" name="txtIsmpStatus" class="form-control" id="txtIsmpStatus">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtDetails" class="col-form-label">Details</label>
-                                <input type="text" name="txtDetails" class="form-control" id="txtDetails">
+                                <label for="txtSerialNumber" class="col-form-label">Cabinet Number</label>
+                                <input type="text" name="txtCabinetNumber" class="form-control" id="txtLabel" onkeypress="return isNumber(event)" required>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                             <button
                                 type="submit"
-                                id="btnSaveUser"
-                                name="btnSaveUser"
+                                id="btnSaveCabinet"
+                                name="btnSaveCabinet"
                                 class="btn btn-dark">Save</button>
                         </div>
                     </form>
@@ -122,7 +109,7 @@
         </div>
 
     <?php
-        include './scripts.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/scripts.php';
     ?>
 </body>
 </html>

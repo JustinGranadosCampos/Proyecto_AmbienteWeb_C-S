@@ -1,5 +1,5 @@
 <?php
-    include './model/ItemsBox.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/model/ItemsBox.inc.php';
     class ItemBoxView extends ItemBox
     {
         public function showButtonNew()
@@ -47,7 +47,7 @@
                 echo '<td>' . $row["DETAIL"] . '</td>';
                 if ($_SESSION['Profile'] == 1)
             {
-                echo '<td><div class="text-center"><div class="btn-group"><a href="updateItemBox.php?id=' . $row["idITEM_BOX"] . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
+                echo '<td><div class="text-center"><div class="btn-group"><a href="../includes/edit/updateItemBox.php?id=' . $row["idITEM_BOX"] . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
             }
                 echo '</tr>';
             }

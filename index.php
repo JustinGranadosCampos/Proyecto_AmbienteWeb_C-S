@@ -1,5 +1,5 @@
 <?php
-include 'send-email.php';
+include_once './masterPages/send-email.php';
 
 ?>
 
@@ -16,8 +16,8 @@ include 'send-email.php';
   <title>QRV</title>
   <link rel="stylesheet" href="./css/nicepage.css" media="screen">
   <link rel="stylesheet" href="./css/Página-1.css" media="screen">
-  <script class="u-script" type="text/javascript" src="./jquery/jquery-3.3.1.min.js" defer=""></script>
-  <script class="u-script" type="text/javascript" src="./js/main/nicepage.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="./vendor/jquery/jquery-3.3.1.min.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="./js/nicepage.js" defer=""></script>
   <meta name="generator" content="Nicepage 3.0.9, nicepage.com">
   <link id="u-theme-google-font" rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">

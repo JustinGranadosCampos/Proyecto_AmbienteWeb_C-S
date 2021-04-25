@@ -1,6 +1,6 @@
 <?php
-    include './view/BoxView.php';
-    include './controller/boxController.php';
+    include '../../view/BoxView.php';
+    include '../../controller/boxController.php';
     $boxView = new BoxView();
     $id = $_GET['id'];
 
@@ -9,7 +9,7 @@
         $boxController = new BoxController();
         $boxController->updateBox($id, $_POST['txtIdLabel']);
     }
-    include './validation.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/includes/main/validation.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Box</title>
     <?php
-        include './styles.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/styles.php';
     ?>
 </head>
 <body>
@@ -38,7 +38,7 @@
                                 $boxView->showBox($id);
                             ?>
                         <div class="modal-footer">
-                            <a href="./box_management.php" class="btn btn-light">Cancel</a>
+                            <a href="../../masterPages/box_management.php" class="btn btn-light">Cancel</a>
                             <button
                                 type="submit"
                                 id="btnSaveUpdateBox"
@@ -52,7 +52,7 @@
             </div>
         </div>
     <?php
-        include './scripts.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/scripts.php';
     ?>
 </body>
 </html>

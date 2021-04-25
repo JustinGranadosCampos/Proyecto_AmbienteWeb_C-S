@@ -1,6 +1,6 @@
 <?php
-    include __DIR__.'\validation.php';
-    include __DIR__.'\view\cabinetLevelView.php';
+    include '../includes/main/validation.php';
+    include '../view/cabinetLevelView.php';
     
     $cabLevel = new CabinetLevelView();
 ?>
@@ -13,13 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cabinet Level Management</title>
     <?php
-        include __DIR__.'\styles.php';;
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/styles.php';;
     ?>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="box_items.php">
-            <img src="/img/qrv_logo.png" width="80" height="50" alt="Main_logo" loading="lazy"
+            <img src="../img/qrv_logo.png" width="80" height="50" alt="Main_logo" loading="lazy"
                 class="d-inline-block align-top logo">
             <h1 class="text title d-inline-block">QRV Inventory System</h1>
         </a>
@@ -30,13 +30,13 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/box_items.php">Box Items <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./box_items.php">Box Items <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/cabinet_items.php">Cabinet Items</a>
+                    <a class="nav-link" href="./cabinet_items.php">Cabinet Items</a>
                 </li>
                 <?php
-                    include __DIR__.'\nav_items_menu.php';
+                    include $_SERVER['DOCUMENT_ROOT'].'/includes/main/nav_items_menu.php';
                 ?>
             </ul>
         </div>
@@ -177,7 +177,7 @@
     </div>
 
     <?php
-        include __DIR__.'\scripts.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/scripts.php';
     ?>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-    include './model/Box.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/model/Box.inc.php';
     class BoxView extends Box
     {
         public function showBoxes()
@@ -19,7 +19,7 @@
                 echo '<tr>';
                 echo '<td>' . $row["idBOX"] . '</td>';
                 echo '<td>' . $row["LABEL"] . '</td>';
-                echo '<td><div class="text-center"><div class="btn-group"><a href="edit_box.php?id=' . $row["idBOX"] . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
+                echo '<td><div class="text-center"><div class="btn-group"><a href="../includes/edit/edit_box.php?id=' . $row["idBOX"] . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
                 echo '</tr>';
             }
             echo '</tbody>';

@@ -1,5 +1,5 @@
 <?php
-    include './model/Cabinet.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/model/Cabinet.inc.php';
     class CabinetView extends Cabinet
     {
         public function showCabinets(){
@@ -16,7 +16,7 @@
                 echo '<tr>';
                 echo '<td>' . $row["idCABINET"] . '</td>';
                 echo '<td>' . $row["CABINET_NUMBER"] . '</td>';
-                echo '<td><div class="text-center"><div class="btn-group"><a href="edit_cabinet.php?id=' . $row["idCABINET"] . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
+                echo '<td><div class="text-center"><div class="btn-group"><a href="../includes/edit/edit_cabinet.php?id=' . $row["idCABINET"] . '" class="btn bg-dark text-light btnEdit">Edit</a></div></div></td>';
                 echo '</tr>';
             }
             echo '</tbody>';

@@ -59,7 +59,7 @@
                         "text":"The item was sucessfully updated!",
                         "icon":"success"
                     }).then(function(){ 
-                            location.replace("./cabinet_management.php");
+                            location.replace("../../masterPages/cabinet_management.php");
                         });
                     }, 1500);
                     </script>';
@@ -75,7 +75,7 @@
             $sql = "call DeleteCabinet($id)";
             if ($this->conectar()->query($sql)) {
                 echo '<script>alert("Registro eliminado");</script>';
-                echo '<script>location.replace("./cabinet_management.php");</script>';
+                echo '<script>location.replace("../../masterPages/cabinet_management.php");</script>';
             }
             else
             {

@@ -122,7 +122,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "./includes/selects/select_all_cabinets.php",
+            url: "/includes/selects/select_all_cabinets.php",
             data: { "idCabinet": idCabinet },
             success: response => {
                 let content = '';
@@ -145,7 +145,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "./includes/selects/select_all_itemsCabinet.php",
+            url: "/includes/selects/select_all_itemsCabinet.php",
             data: { "idItem": idItem },
             success: response => {
                 let content = '';
@@ -279,11 +279,11 @@ $(document).ready(function () {
                 case "catch":
                     $.ajax({
                         type: "POST",
-                        url: "./includes/delete/deleteItemBox.php",
+                        url: "/includes/delete/deleteItemBox.php",
                         data: { "id": id },
                         success: function (response) {
                             // console.log("Respuesta de PHP: "+response);
-                            validateDeleteSuccess(response, "Item", "./box_items.php")
+                            validateDeleteSuccess(response, "Item", "../../masterPages/box_items.php")
                         },
                         error: function () {
                             swal("ERROR", "Data was not sent correctly", "error");
@@ -320,11 +320,11 @@ $(document).ready(function () {
                 case "catch":
                     $.ajax({
                         type: "POST",
-                        url: "./includes/delete/deleteBox.php",
+                        url: "/includes/delete/deleteBox.php",
                         data: { "id": id },
                         success: function (response) {
                             // console.log("Respuesta de PHP: "+response);
-                            validateDeleteSuccess(response, "Box", "./box_management.php");
+                            validateDeleteSuccess(response, "Box", "../../masterPages/box_management.php");
                         },
                         error: function () {
                             swal("ERROR", "Data was not sent correctly", "error");
@@ -359,11 +359,11 @@ $(document).ready(function () {
                 case "catch":
                     $.ajax({
                         type: "POST",
-                        url: "./includes/delete/deleteCabinet.php",
+                        url: "/includes/delete/deleteCabinet.php",
                         data: { "id": id },
                         success: function (response) {
                             // console.log("Respuesta de PHP: "+response);
-                            validateDeleteSuccess(response, "Cabinet", "./cabinet_management.php");
+                            validateDeleteSuccess(response, "Cabinet", "../../masterPages/cabinet_management.php");
                         },
                         error: function () {
                             swal("ERROR", "Data was not sent correctly", "error");
@@ -389,10 +389,10 @@ $(document).ready(function () {
             
             $.ajax({
                 type: "POST",
-                url: "./includes/inserts/insert_new_cabinet_level.php",
+                url: "/includes/inserts/insert_new_cabinet_level.php",
                 data: { "id": id, "lvlNumber": lvlNumber, "label": label, "idCabinet": idCabinet, "idItem": idItem },
                 success: function (response) {
-                    validateInsertSuccess(response, "Cabinet Level", "./cabinet_level.php");
+                    validateInsertSuccess(response, "Cabinet Level", "/masterPages/cabinet_level.php");
                 },
                 error: () => {
                     swal("Error", "Data was not sent correctly", "error");
@@ -416,10 +416,10 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "./includes/updates/update_cabinet_level.php",
+                url: "/includes/updates/update_cabinet_level.php",
                 data: { "id": id, "lvlNumber": lvlNumber, "label": label, "idCabinet": idCabinet, "idItem": idItem },
                 success: response => {
-                    validateUpdateSuccess(response, "Cabinet Level", "./cabinet_level.php");
+                    validateUpdateSuccess(response, "Cabinet Level", "/masterPages/cabinet_level.php");
                 },
                 error: () => {
                     swal("Error", "Data was not sent correctly", "error");
@@ -452,10 +452,10 @@ $(document).ready(function () {
                 case "catch":
                     $.ajax({
                         type: "POST",
-                        url: "./includes/delete/delete_cabinet_level.php",
+                        url: "/includes/delete/delete_cabinet_level.php",
                         data: { "id": id },
                         success: response => {
-                            validateDeleteSuccess(response, "Cabinet Level", "./cabinet_level.php");
+                            validateDeleteSuccess(response, "Cabinet Level", "/masterPages/cabinet_level.php");
                         },
                         error: () => {
                             swal("Error", "Data was not sent correctly", "error");
@@ -491,7 +491,7 @@ function isBlank(field) {
 function load_data(type, cabinet_id) {
     let parameters = { "type": type, "id": cabinet_id };
     $.ajax({
-        url: "load_data.php",
+        url: "/includes/main/load_data.php",
         method: "POST",
         cache: false,
         data: parameters,

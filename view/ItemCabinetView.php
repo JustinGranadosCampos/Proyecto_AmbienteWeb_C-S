@@ -1,5 +1,5 @@
 <?php
-    include './model/ItemsCabinet.inc.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/model/ItemsCabinet.inc.php';
     class ItemCabinetView extends ItemCabinet
     {
         public function showButtonNew()
@@ -48,7 +48,7 @@
                 echo '<td>' . $row["DETAIL"] . '</td>';
                 if ($_SESSION['Profile'] == 1)
                 {
-                    echo '<td><div class="text-center"><div class="btn-group"><a href="updateItemCabinet.php?id=' . $row["idITEM_CABINET"] . '" class="btn bg-dark text-light btnEdit" id="btnEdit">Edit</a></div></div></td>';
+                    echo '<td><div class="text-center"><div class="btn-group"><a href="../includes/edit/updateItemCabinet.php?id=' . $row["idITEM_CABINET"] . '" class="btn bg-dark text-light btnEdit" id="btnEdit">Edit</a></div></div></td>';
                 }
                 echo '</tr>';
             }

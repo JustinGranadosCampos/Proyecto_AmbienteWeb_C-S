@@ -1,6 +1,6 @@
 <?php
-    include './view/CabinetView.php';
-    include './controller/cabinetController.php';
+    include '../../view/CabinetView.php';
+    include '../../controller/cabinetController.php';
     $cabinetView = new CabinetView();
     $id = $_GET['id'];
 
@@ -15,7 +15,7 @@
         $cabinetController = new CabinetController();
         $cabinetController->deleteCabinet($id);
     }
-    include './validation.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/includes/main/validation.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Cabinet</title>
     <?php
-        include './styles.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/styles.php';
     ?>
 </head>
 <body>
@@ -44,7 +44,7 @@
                                 $cabinetView->showCabinet($id);
                             ?>
                         <div class="modal-footer">
-                            <a href="./Cabinet_management.php" class="btn btn-light">Cancel</a>
+                            <a href="../../masterPages/cabinet_management.php" class="btn btn-light">Cancel</a>
                             <button
                                 type="submit"
                                 id="btnSaveUpdateCabinet"
@@ -58,7 +58,7 @@
             </div>
         </div>
     <?php
-        include './scripts.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/scripts.php';
     ?>
 </body>
 </html>

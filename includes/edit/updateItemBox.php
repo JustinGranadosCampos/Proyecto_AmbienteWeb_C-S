@@ -1,7 +1,7 @@
 <?php
-    include './controller/errorHandlerController.php';
-    include './view/ItemBoxView.php';
-    include './controller/ItemBoxController.php';
+    include '../../controller/errorHandlerController.php';
+    include '../../view/ItemBoxView.php';
+    include '../../controller/ItemBoxController.php';
 
     $itemBox = new ItemBoxView();
     $id = $_GET['id'];
@@ -11,36 +11,8 @@
         $itemBoxController = new ItemBoxController();
         $itemBoxController->updateItemBox($id, $_POST['cboBoxNumber'], $_POST['txtSerialNumber'], $_POST['txtName'], $_POST['txtAsset'], $_POST['txtModel'], $_POST['txtIsmpStatus'], $_POST['txtDetails']);
     }
-
-    // if (isset($_POST['btnDelete']))
-    // {
-    //     $itemBoxController = new ItemBoxController();
-        // echo '<script type="text/javascript">';
-        // echo 'setTimeout(function () {
-        //         swal({
-        //             "title":"Item will be deleted!",
-        //             "text":"Are you sure you want to delete the item?",
-        //             "icon":"warning",
-        //             "buttons":{
-        //                 "cancel":"Cancel",
-        //                 "catch":{
-        //                     "text":"Continue",
-        //                     "value":"catch",
-        //                 },
-        //             },
-        //         }).then((value) => { 
-        //             switch (value){
-        //                 case "catch":'.
-        //                     $itemBoxController->deleteItemBox($id);
-        //                     'break;
-        //             }
-        //            });
-        //       }, 1);
-        //       </script>';
-        // $itemBoxController = new ItemBoxController();
-        // $itemBoxController->deleteItemBox($id);
-    // }
-    include './validation.php';
+    
+    include $_SERVER['DOCUMENT_ROOT'].'/includes/main/validation.php';
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Item Box</title>
     <?php
-        include './styles.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/styles.php';
     ?>
 </head>
 <body>
@@ -83,7 +55,7 @@
             </div>
         </div>
     <?php
-        include './scripts.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/scripts.php';
     ?>
 </body>
 </html>

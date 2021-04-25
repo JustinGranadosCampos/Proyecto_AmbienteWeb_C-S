@@ -90,19 +90,6 @@ class ItemBox extends Conexion
     public function updateItem($id, $box, $serialNumber, $name, $asset, $model, $ismp, $details){
         try{
             $sql = "call UpdateItemBox($id, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
-            /*
-            $sql = "call UpdateItemBox(?, ?, ?, ?, ?, ?, ?)";
-            $gsent = $gbd->prepare($sql);
-            $gsent->bindParam(1, $id, PDO::PARAM_INT);
-            $gsent->bindParam(2, $serialNumber, PDO::PARAM_INT);
-            $gsent->bindParam(3, $name, PDO::PARAM_INT);
-            $gsent->bindParam(4, $asset, PDO::PARAM_INT);
-            $gsent->bindParam(5, $model, PDO::PARAM_INT);
-            $gsent->bindParam(6, $ismp, PDO::PARAM_INT);
-            $gsent->bindParam(7, $details, PDO::PARAM_INT);
-            
-            $gsent->execute();
-            */
 
             if ($this->conectar()->query($sql))
             {
@@ -116,7 +103,7 @@ class ItemBox extends Conexion
                             "text":"The item was sucessfully updated!",
                             "icon":"success"
                         }).then(function(){ 
-                                location.replace("./box_items.php");
+                                location.replace("../../masterPages/box_items.php");
                             });
                         }, 1500);
                         </script>';
@@ -146,7 +133,7 @@ class ItemBox extends Conexion
         if($this->conectar()->query($sql))
         {
             echo '<script>alert("Registro eliminado exitosamente");</script>';
-            echo '<script>location.replace("./box_items.php");</script>';
+            echo '<script>location.replace("../../masterPages/box_items.php");</script>';
         }
         else
         {

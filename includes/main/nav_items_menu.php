@@ -10,14 +10,14 @@
     if ($_SESSION['Profile'] == 1)
     {
         echo '<li class="nav-item">';
-        echo '<a class="nav-link" href="./box_management.php">Boxes</a>';
+        echo '<a class="nav-link" href="../../masterPages/box_management.php">Boxes</a>';
         echo '</li>';
 
         echo '<li class="nav-item dropdown">';
         echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cabinets</a>';
         echo '<div class="dropdown-menu">';
-        echo '<a class="dropdown-item" href="/cabinet_management.php">Cabinet Management</a>';
-        echo '<a class="dropdown-item" href="/cabinet_level.php">Cabinet Level Management</a>';
+        echo '<a class="dropdown-item" href="../../masterPages/cabinet_management.php">Cabinet Management</a>';
+        echo '<a class="dropdown-item" href="../../masterPages/cabinet_level.php">Cabinet Level Management</a>';
         echo '</div>';
         echo '</li>';
 
@@ -25,7 +25,7 @@
         echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>';
         echo '<div class="dropdown-menu">';
         echo '<a class="dropdown-item" href="#">'.$username.'</a>';
-        echo '<a class="dropdown-item" href="./logout.php">Logout</a>';
+        echo '<a class="dropdown-item" href="../../masterPages/logout.php">Logout</a>';
         echo '</div>';
         echo '</li>';
     }
@@ -35,14 +35,14 @@
         echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>';
         echo '<div class="dropdown-menu">';
         echo ' <a class="dropdown-item" href="#">'.$username.'</a>';
-        echo '<a class="dropdown-item" href="./logout.php">Logout</a>';
+        echo '<a class="dropdown-item" href="../../masterPages/logout.php">Logout</a>';
         echo '</div>';
         echo '</li>';
     }
     else
     {
         echo '<li class="nav-item">';
-        echo '<a class="nav-link" href="./admin/login.php">Login</a>';
+        echo '<a class="nav-link" href="../../admin/login.php">Login</a>';
         echo '</li>';
     }
 ?>

@@ -1,5 +1,5 @@
 <?php
-    include './view/ItemCabinetView.php';
+    include '../../view/ItemCabinetView.php';
     // include './controller/ItemBoxController.php';
     $itemView = new ItemCabinetView();
     $id = $_GET['id'];
@@ -15,7 +15,7 @@
     //     $itemBoxController = new ItemBoxController();
     //     $itemBoxController->deleteItemBox($id);
     // }
-    include './validation.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/includes/main/validation.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Item Cabinet</title>
     <?php
-        include './styles.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/styles.php';
     ?>
 </head>
 <body>
@@ -44,7 +44,7 @@
                                 $itemView->getItemCabinet($id);
                             ?>
                         <div class="modal-footer">
-                            <a href="cabinet_items.php" class="btn btn-light">Cancel</a>
+                            <a href="../../masterPages/cabinet_items.php" class="btn btn-light">Cancel</a>
                             <button
                                 type="submit"
                                 id="btnSaveBoxItem"
@@ -58,7 +58,7 @@
             </div>
         </div>
     <?php
-        include './scripts.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/scripts.php';
     ?>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-    include './model/Cabinet_Level.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/model/Cabinet_Level.php';
     class CabinetLevelView extends CabinetLevel
     {
         public function showCabinetsLevels()

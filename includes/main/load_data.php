@@ -1,5 +1,5 @@
 <?php
-    include_once './model/Conexion.inc.php';
+    include_once '../../model/Conexion.inc.php';
     $type = $_POST['type'];
     $id = $_POST['id'];
     $connection = new Conexion();

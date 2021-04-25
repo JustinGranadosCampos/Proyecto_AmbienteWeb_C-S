@@ -1,7 +1,7 @@
-<?php
-    include './validation.php';
-    include './view/ItemCabinetView.php';
-    include './controller/ItemCabinetController.php';
+ <?php
+    include '../includes/main/validation.php';
+    include '../view/ItemCabinetView.php';
+    include '../controller/ItemCabinetController.php';
     $itemView = new ItemCabinetView();
 
     if (isset($_POST['btnSaveItemCabinet']))
@@ -35,14 +35,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Items in Cabinets</title>
     <?php
-        include './styles.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/styles.php';
     ?>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="box_items.php">
-            <img src="./img/qrv_logo.png" width="80" height="50" alt="Main_logo" loading="lazy"
+            <img src="../img/qrv_logo.png" width="80" height="50" alt="Main_logo" loading="lazy"
                 class="d-inline-block align-top logo">
             <h1 class="text title d-inline-block">QRV Inventory System</h1>
         </a>
@@ -59,7 +59,7 @@
                     <a class="nav-link active activeUnderline" href="./cabinet_items.php">Cabinet Items <span class="sr-only">(current)</span></a>
                 </li>
                 <?php
-                    include './nav_items_menu.php';
+                    include $_SERVER['DOCUMENT_ROOT'].'/includes/main/nav_items_menu.php';
                 ?>
             </ul>
         </div>
@@ -148,7 +148,7 @@
         </div>
     </div>
     <?php
-        include './scripts.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/scripts.php';
     ?>
 </body>
 

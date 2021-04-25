@@ -1,6 +1,6 @@
 <?php
-    include './view/ItemBoxView.php';
-    include './controller/ItemBoxController.php';
+    include '../view/ItemBoxView.php';
+    include '../controller/ItemBoxController.php';
     $itemBox = new ItemBoxView();
 
     if (isset($_POST['btnSaveBoxItem']))
@@ -8,7 +8,7 @@
         $itemBoxController = new ItemBoxController();
         $itemBoxController->addBoxItem($_POST['cboBoxNumber'], $_POST['txtSerialNumber'], $_POST['txtName'], $_POST['txtAsset'], $_POST['txtModel'], $_POST['txtIsmpStatus'], $_POST['txtDetails']);
     }
-    include './validation.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/includes/main/validation.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,13 +19,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Items in Boxes</title>
     <?php
-        include './styles.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/styles.php';
     ?>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="box_items.php">
-            <img src="./img/qrv_logo.png" width="80" height="50" alt="Main_logo" loading="lazy"
+            <img src="../img/qrv_logo.png" width="80" height="50" alt="Main_logo" loading="lazy"
                 class="d-inline-block align-top logo">
             <h1 class="text title d-inline-block">QRV Inventory System</h1>
         </a>
@@ -42,7 +42,7 @@
                     <a class="nav-link" href="./cabinet_items.php">Cabinet Items</a>
                 </li>
                 <?php
-                    include './nav_items_menu.php';
+                    include $_SERVER['DOCUMENT_ROOT'].'/includes/main/nav_items_menu.php';
                 ?>
             </ul>
         </div>
@@ -132,7 +132,7 @@
             </div>
         </div>
     <?php
-        include './scripts.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/main/scripts.php';
     ?>
 </body>
 
