@@ -140,9 +140,6 @@
                             <div class="form-group">
                                 <label for="txtEditIdNextCabinetLevel" class="col-form-label">ID CABINET LEVEL</label>
                                 <input type="text" name="txtEditIdNextCabinetLevel" class="form-control" id="txtEditIdNextCabinetLevel" readonly>
-                                <?php
-                                    // $cabLevel->showNextCabinetLevel();
-                                ?>
                             </div>
                             <div class="form-group">
                             <label for="txtEdiLevel_Number" class="col-form-label">LEVEL NUMBER</label>
@@ -156,18 +153,12 @@
                             <label for="txtEditIdCabinet_CL" class="col-form-label">CABINET NUMBER</label>
                             <select name="txtEditIdCabinet_CL" id="txtEditIdCabinet_CL" class="form-control" required>
                                 <option value="-1">Select an option</option>
-                                <?php
-                                    // $cabLevel->showCabinets();
-                                ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="txtEditIdItem_CL" class="col-form-label">ITEM SERIAL NUMBER</label>
                             <select name="txtEditIdItem_CL" id="txtEditIdItem_CL" class="form-control" required>
                                 <option value="-1">Select an option</option>
-                                <?php
-                                    // $cabLevel->showItems();
-                                ?>
                             </select>
                         </div>
                         <div class="modal-footer">

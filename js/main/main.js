@@ -380,12 +380,13 @@ $(document).ready(function () {
     $('#btnSaveNewCabinetLevel').click(function () {
         if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
             $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
+
             let id = $('#txtIdNextCabinetLevel').val();
             let lvlNumber = $('#txtLevel_Number').val();
             let label = $('#txtLabelCabinetLevel').val();
             let idCabinet = $('#txtIdCabinet_CL').val();
             let idItem = $('#txtIdItem_CL').val();
-            console.log(`${id}, ${lvlNumber}, ${label}, ${idCabinet}, ${idItem}`);
+            
             $.ajax({
                 type: "POST",
                 url: "./includes/inserts/insert_new_cabinet_level.php",
@@ -402,43 +403,32 @@ $(document).ready(function () {
         }
     });
 
-    // /* Update Cabinet Level */
-    // $('#').click(function () {
-    //     if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
-    //         $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
-    //         $.ajax({
-    //             type: "POST",
-    //             url: "./includes/updates/update_cabinet_level.php",
-    //             data: { "id":id, "lvlNumber":lvlNumber, "label":label, "idCabinet":idCabinet, "idItem":idItem},
-    //             success: response => {
-    //                 if (response == "success") {
-    //                     swal({
-    //                         title: "Cabinet Level Added",
-    //                         text: "New Cabinet Level Added",
-    //                         icon: "success",
-    //                         dangerMode: true,
-    //                         buttons: {
-    //                             catch: {
-    //                                 text: "Continue",
-    //                                 value: "catch",
-    //                             },
-    //                         },
-    //                     }).then((value) => {
-    //                         switch (value) {
-    //                             case "catch":
-    //                                 location.reload();
-    //                                 break;
-    //                         }
-    //                     });
-    //                 } else {
+    /* Update Cabinet Level */
+    $('#btnSaveEditCabinetLevel').click(function () {
+        if ($('#txtEdiLevel_Number').val() != '' && $('#txtEditLabelCabinetLevel').val() != '' &&
+            $('#txtEditIdCabinet_CL').val() > 0 && $('#txtEditIdItem_CL').val() > 0) {
 
-    //                 }
-    //             }
-    //         });
-    //     } else {
-    //         swal("Error", "Plese fill out the blank spaces", "info");
-    //     }
-    // });
+            let id = $('#txtEditIdNextCabinetLevel').val();
+            let lvlNumber = $('#txtEdiLevel_Number').val();
+            let label = $('#txtEditLabelCabinetLevel').val();
+            let idCabinet = $('#txtEditIdCabinet_CL').val();
+            let idItem = $('#txtEditIdItem_CL').val();
+
+            $.ajax({
+                type: "POST",
+                url: "./includes/updates/update_cabinet_level.php",
+                data: { "id": id, "lvlNumber": lvlNumber, "label": label, "idCabinet": idCabinet, "idItem": idItem },
+                success: response => {
+                    validateUpdateSuccess(response, "Cabinet Level", "./cabinet_level.php");
+                },
+                error: () => {
+                    swal("Error", "Data was not sent correctly", "error");
+                }
+            });
+        } else {
+            swal("Error", "Plese fill out the blank spaces", "info");
+        }
+    });
 
     /* Delete Cabinet Level */
     $('#btnDeleteEditCabinetLevel').click(function (e) {
@@ -585,7 +575,7 @@ function validateUpdateSuccess(response, data, url) {
             "text": "The " + data + " item was not updated!",
             "icon": "error"
         }).then(function () {
-            location.replace(url);
+            // location.replace(url);
         });
     }
 }
