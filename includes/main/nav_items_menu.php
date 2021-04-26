@@ -22,9 +22,9 @@
         echo '</li>';
 
         echo '<li class="nav-item dropdown">';
-        echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>';
+        echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">'.$username.'</a>';
         echo '<div class="dropdown-menu">';
-        echo '<a class="dropdown-item" href="#">'.$username.'</a>';
+        echo '<a class="dropdown-item" href="#">Edit profile</a>';
         echo '<a class="dropdown-item" href="../../masterPages/logout.php">Logout</a>';
         echo '</div>';
         echo '</li>';
@@ -32,9 +32,9 @@
     else if($_SESSION['Profile'] == 2)
     {
         echo '<li class="nav-item dropdown">';
-        echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>';
+        echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">'.$username.'</a>';
         echo '<div class="dropdown-menu">';
-        echo ' <a class="dropdown-item" href="#">'.$username.'</a>';
+        echo ' <a class="dropdown-item" href="#">Edit profile</a>';
         echo '<a class="dropdown-item" href="../../masterPages/logout.php">Logout</a>';
         echo '</div>';
         echo '</li>';
