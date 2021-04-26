@@ -78,33 +78,33 @@
             return $data;
         }
 
-        protected function insertItem($serialNumber, $name, $asset, $model, $ismp, $details)
-        {
-            try {
-                $query = $this->conectar()->query("call GetLastIdItemCabinet()");
-                $result = $query->fetch(PDO::FETCH_ASSOC);
-                $lastId = $result['idITEM_CABINET'] + 1;
-                $sql = "call InsertNewItemCabinet($lastId, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
-                if ($this->conectar()->query($sql)) {
-                    echo '<script type="text/javascript">';
-                    echo 'setTimeout(function () {
-                        swal({
-                            "title":"Item Added!",
-                            "text":"The item was sucessfully added!",
-                            "icon":"success"
-                        }).then(function(){ 
+        // protected function insertItem($serialNumber, $name, $asset, $model, $ismp, $details)
+        // {
+        //     try {
+        //         $query = $this->conectar()->query("call GetLastIdItemCabinet()");
+        //         $result = $query->fetch(PDO::FETCH_ASSOC);
+        //         $lastId = $result['idITEM_CABINET'] + 1;
+        //         $sql = "call InsertNewItemCabinet($lastId, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
+        //         if ($this->conectar()->query($sql)) {
+        //             echo '<script type="text/javascript">';
+        //             echo 'setTimeout(function () {
+        //                 swal({
+        //                     "title":"Item Added!",
+        //                     "text":"The item was sucessfully added!",
+        //                     "icon":"success"
+        //                 }).then(function(){ 
                                 
-                            });
-                        }, 1500);
-                        </script>';
-                } else {
-                    echo "\nPDO::errorInfo():\n";
-                    echo $this->conectar()->errorInfo();
-                }
-            } catch (PDOException $e) {
-                $this->reportError($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
-            }
-        }
+        //                     });
+        //                 }, 2500);
+        //                 </script>';
+        //         } else {
+        //             echo "\nPDO::errorInfo():\n";
+        //             echo $this->conectar()->errorInfo();
+        //         }
+        //     } catch (PDOException $e) {
+        //         $this->reportError($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+        //     }
+        // }
 
         protected function updateItem($id, $box, $serialNumber, $name, $asset, $model, $ismp, $details)
         {
@@ -134,5 +134,13 @@
                 echo "\nPDO::errorInfo():\n";
                 echo $this->conectar()->errorInfo();
             }
+        }
+
+        #Get the next auto_incremental ID from Item Cabinet
+        protected function getLastIdItemCabinet(){
+            $sql = $this->conectar()->query("call GetLastIdItemCabinet()");
+            $result = $sql->fetch(PDO::FETCH_ASSOC);
+            $lastId = $result['idITEM_CABINET'] + 1;
+            return $lastId;
         }
     }

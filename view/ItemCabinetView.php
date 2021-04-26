@@ -20,7 +20,7 @@
             echo '<thead class="text-center">';
             echo '<tr>';
             // echo '<th id="boxLabel">CABINET Number</th>';
-            // echo '<th id="boxLabel">CABINET LABEL</th>';
+            echo '<th id="idCabinet">ID</th>';
             echo '<th id="serialNumber">SERIAL NUMBER</th>';
             echo '<th id="iName">NAME</th>';
             echo '<th id="iAsset">ASSET</th>';
@@ -39,7 +39,7 @@
             foreach ($result as $row) {
                 echo '<tr>';
                 // echo '<td>' . $row["idCABINET"] . '</td>';
-                // echo '<td>' . $row["LABEL"] . '</td>';
+                echo '<td>' . $row["idITEM_CABINET"] . '</td>';
                 echo '<td>' . $row["SERIAL_NUMBER"] . '</td>';
                 echo '<td>' . $row["NAME"] . '</td>';
                 echo '<td>' . $row["ASSET"] . '</td>';
@@ -125,5 +125,9 @@
                 echo '<option value=' . $row["LEVEL_NUMBER"] . '>' . $row["LABEL"] . '</option>';
             }
         }
+
+        public function showNextItemCabinet(){
+            $result = $this->getLastIdItemCabinet();
+            echo '<input type="text" class="form-control" id="idItemCabinet" name="idItemCabinet" value=' . $result . ' readonly>';
+        }
     }
-?>

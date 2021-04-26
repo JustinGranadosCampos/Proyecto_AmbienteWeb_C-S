@@ -6,10 +6,10 @@
         {
             echo '<thead class="text-center">';
             echo '<tr>';
-            echo '<th id="idCabinetLevel">ID</th>';
+            echo '<th id="idCabinet">CABINET</th>';
+            echo '<th id="idCabinetLevel">ID CABINET LEVEL</th>';
             echo '<th id="levelNumber">LEVEL NUMBER</th>';
             echo '<th id="label">LABEL</th>';
-            echo '<th id="idCabinet">CABINET</th>';
             echo '<th id="idItemCabinet">ITEM</th>';
             echo '<th>ACTIONS</th>';
             echo '</tr>';
@@ -18,10 +18,10 @@
             $result = $this->getCabinetsLevels();
             foreach ($result as $row) {
                 echo '<tr>';
+                echo '<td>' . $row["CABINET_idCABINET"] . '</td>';
                 echo '<td>' . $row["ID"] . '</td>';
                 echo '<td>' . $row["LEVEL_NUMBER"] . '</td>';
                 echo '<td>' . $row["LABEL"] . '</td>';
-                echo '<td>' . $row["CABINET_idCABINET"] . '</td>';
                 echo '<td>' . $row["NAME"] . '</td>';
                 // echo '<td><div class="text-center"><div class="btn-group"><a href="" class="btn bg-dark text-light btnEdit" id>Edit</a></div></div></td>';
                 echo '<td><div class="text-center"><div class="btn-group"><button type="button" name="btnEditCabinetLevel" class="btn bg-dark text-light btnEdit" id="btnEditCabinetLevel">Edit</button></div></div></td>';

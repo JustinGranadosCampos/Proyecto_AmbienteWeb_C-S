@@ -4,18 +4,19 @@
     include '../controller/ItemCabinetController.php';
     $itemView = new ItemCabinetView();
 
-    if (isset($_POST['btnSaveItemCabinet']))
-    {
-        $itemController = new ItemCabinetController();
-        if(isset($_POST['cboCabinetLabel']))
-        {
-            // $idCabinet = $_POST['cboCabinetNumber'];
-            // $levelNumber = $_POST['cboCabinetLabel'];
-            // $label = $itemController->getCabinetLevelLabel($idCabinet, $levelNumber);
-            $itemController -> insertItemCabinet($_POST['serial-number'],$_POST['item-name'],$_POST['item-asset'],
-                                                 $_POST['item-model'],$_POST['ismpStatus'],$_POST['details']);
-        }
-    }
+    // if (isset($_POST['btnSaveItemCabinet'])) {
+        // $itemController = new ItemCabinetController();
+    //     if (isset($_POST['cboCabinetLabel'])) {
+            // $itemController->insertItemCabinet(
+    //             $_POST['serial-number'],
+    //             $_POST['item-name'],
+    //             $_POST['item-asset'],
+    //             $_POST['item-model'],
+    //             $_POST['ismpStatus'],
+    //             $_POST['details']
+    //         );
+    //     }
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -93,18 +94,12 @@
                 </div>
                 <form action="cabinet_items.php" method="POST">
                     <div class="modal-body">
-                        <!-- <div class="form-group">
-                            <label for="itemLabel" class="col-form-label">Cabinet Number</label>
-                            <select name="cboCabinetNumber" id="cboCabinetNumber" class="form-control" data-live-search="true" title="Select Cabinet Number">
-                                
-                            </select>
-                        </div>
                         <div class="form-group">
-                            <label for="txtCabinetLabel" class="col-form-label">Cabinet Label</label>
-                            <select name="cboCabinetLabel" id="cboCabinetLabel" class="form-control" data-live-search="true" title="Select Cabinet Level Number">
-                               
-                            </select>
-                        </div> -->
+                            <label for="idItemCabinet" class="col-form-label">ID</label>
+                            <?php
+                                $itemView->showNextItemCabinet();
+                            ?>
+                        </div>
                         <div class="form-group">
                             <label for="serial-number" class="col-form-label">Serial Number</label>
                             <input type="text" class="form-control" id="serial-number" name="serial-number" required>
@@ -132,7 +127,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" name="btnCancelItemCabinet" data-dismiss="modal">Cancel</button>
-                        <button type="submit" id="btnSaveItemCabinet" name="btnSaveItemCabinet" class="btn btn-dark">Save</button>
+                        <button type="button" id="btnSaveItemCabinet" name="btnSaveItemCabinet" class="btn btn-dark">Save</button>
                     </div>
                 </form>
             </div>

@@ -1,9 +1,9 @@
 <?php
     class ItemCabinetController extends ItemCabinet{
-        public function insertItemCabinet($serialNumber, $name, $asset, $model, $ismp, $details)
-        {
-            $this->insertItem($serialNumber, $name, $asset, $model, $ismp, $details);
-        }
+        // public function insertItemCabinet($serialNumber, $name, $asset, $model, $ismp, $details)
+        // {
+        //     $this->insertItem($serialNumber, $name, $asset, $model, $ismp, $details);
+        // }
 
         public function updateItemCabinet($cabinetNumber, $cabinetLevel, $cabinetLabel, $serialNumber, $name, $asset, $model, $ismp, $details)
         {
