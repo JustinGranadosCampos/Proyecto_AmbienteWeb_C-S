@@ -1,14 +1,13 @@
 <?php
-    
     include_once '../../model/Conexion.inc.php';
 
     $connection = new Conexion();
     $state = "error";
 
     // { "id": id, "sn": sn, "itemName": itemName, "asset": asset, "model": model, "ismp": ismp, "details": details },
-    if (isset($_POST['id']) && isset($_POST['sn']) && isset($_POST['itemName']) && isset($_POST['asset']) && 
+    if (isset($_POST['id']) && isset($_POST['sn']) && isset($_POST['itemName']) && isset($_POST['asset']) &&
         isset($_POST['model']) && isset($_POST['ismp'])) {
-        
+
         $id = $_POST['id'];
         $sn = $_POST['sn'];
         $itemName = $_POST['itemName'];
@@ -17,7 +16,7 @@
         $ismp = $_POST['ismp'];
         $details = $_POST['details'];
 
-        $sql = "call InsertNewItemCabinet(?, ?, ?, ?, ?, ?, ?)";
+        $sql = "call  UpdateItemCabinet(?, ?, ?, ?, ?, ?, ?)";
         $stm = $connection->conectar()->prepare($sql);
 
         $stm->bindParam(1, $id, PDO::PARAM_INT);

@@ -274,9 +274,11 @@ $(document).ready(function () {
 
     //*******************************************************************************
 
+    //***************//
     // Cabinet Level //
+    //***************//
 
-    /* Insert Item Cabinet */
+    /* Insert Cabinet Level */
     $('#btnSaveNewCabinetLevel').click(function () {
         if ($('#txtLevel_Number').val() != '' && $('#txtLabelCabinetLevel').val() != '' &&
             $('#txtIdCabinet_CL').val() > 0 && $('#txtIdItem_CL').val() > 0) {
@@ -407,7 +409,6 @@ $(document).ready(function () {
     $('#btnDeleteEditCabinetLevel').click(function (e) {
         e.preventDefault();
         let id = $('#txtEditIdNextCabinetLevel').val();
-        console.log(id);
         swal({
             title: "This Cabinet level will be deleted!",
             text: "Are you sure you want to delete it?",
@@ -443,10 +444,10 @@ $(document).ready(function () {
 
     //******************************************************************************************
 
-     //***************//
+    //***************//
     // Item Cabinet //
-   //**************//
-   
+    //**************//
+
     /* Insert Item Cabinet */
     $('#btnSaveItemCabinet').click(function () {
         if ($('#serial-number').val() != '' && $('#item-name').val() != '' &&
@@ -512,18 +513,21 @@ $(document).ready(function () {
             $('#txtEditAssetIC').val() > 0 && $('#txtEditModelIC').val() != '' &&
             $('#txtEditismpStatusIC').val() != '') {
 
-            let id = $('#txtEditIdNextCabinetLevel').val();
-            let lvlNumber = $('#txtEdiLevel_Number').val();
-            let label = $('#txtEditLabelCabinetLevel').val();
-            let idCabinet = $('#txtEditIdCabinet_CL').val();
-            let idItem = $('#txtEditIdItem_CL').val();
+            /* Get selected row values */
+            let id = $('#idItemCabinet').val();
+            let sn = $('#txtEditSerialNumberIC').val();
+            let itemName = $('#txtEditNameIC').val();
+            let asset = $('#txtEditAssetIC').val();
+            let model = $('#txtEditModelIC').val();
+            let ismp = $('#txtEditismpStatusIC').val();
+            let details = $('#txtEditDetailsIC').val();
 
             $.ajax({
                 type: "POST",
-                url: "/includes/updates/update_cabinet_level.php",
-                data: { "id": id, "lvlNumber": lvlNumber, "label": label, "idCabinet": idCabinet, "idItem": idItem },
+                url: "/includes/updates/update_item_cabinet.php",
+                data: { "id": id, "sn": sn, "itemName": itemName, "asset": asset, "model": model, "ismp": ismp, "details": details },
                 success: response => {
-                    validateUpdateSuccess(response, "Cabinet Level", "/masterPages/cabinet_level.php");
+                    validateUpdateSuccess(response, "Item Cabinet", "/masterPages/cabinet_items.php");
                 },
                 error: () => {
                     swal("Error", "Data was not sent correctly", "error");
@@ -537,10 +541,9 @@ $(document).ready(function () {
     /* Delete Item Cabinet */
     $('#btnDeleteEditItemCabinet').click(function (e) {
         e.preventDefault();
-        let id = $('#txtEditIdNextCabinetLevel').val();
-        console.log(id);
+        let id = $('#txtEditIdIC').val();
         swal({
-            title: "This Cabinet level will be deleted!",
+            title: "This Item will be deleted!",
             text: "Are you sure you want to delete it?",
             icon: "warning",
             dangerMode: true,
@@ -556,10 +559,10 @@ $(document).ready(function () {
                 case "catch":
                     $.ajax({
                         type: "POST",
-                        url: "/includes/delete/delete_cabinet_level.php",
+                        url: "/includes/delete/delete_item_cabinet.php",
                         data: { "id": id },
                         success: response => {
-                            validateDeleteSuccess(response, "Cabinet Level", "/masterPages/cabinet_level.php");
+                            validateDeleteSuccess(response, "Item Cabinet", "/masterPages/cabinet_items.php");
                         },
                         error: () => {
                             swal("Error", "Data was not sent correctly", "error");
