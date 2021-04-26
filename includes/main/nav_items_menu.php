@@ -24,8 +24,11 @@
         echo '<li class="nav-item dropdown">';
         echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Loan</a>';
         echo '<div class="dropdown-menu">';
-        echo '<a class="dropdown-item" href="#">Add Loan+</a>';
-        echo '<a class="dropdown-item" href="#">Return Item</a>';
+        echo '<a class="dropdown-item" href="#">Loan Item Box</a>';
+        echo '<a class="dropdown-item" href="#">Loan Item Cabinet</a>';
+        echo '<div class="dropdown-divider"></div>';
+        echo '<a class="dropdown-item" href="#">Return Item Box</a>';
+        echo '<a class="dropdown-item" href="#">Return Item Cabinet</a>';
         echo '</div>';
         echo '</li>';
 
