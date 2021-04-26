@@ -22,8 +22,8 @@
         $stm->bindParam(1, $id, PDO::PARAM_INT);
         $stm->bindParam(2, $sn, PDO::PARAM_STR);
         $stm->bindParam(3, $itemName, PDO::PARAM_STR);
-        $stm->bindParam(4, $asset, PDO::PARAM_STR);
-        $stm->bindParam(5, $model, PDO::PARAM_STR);
+        $stm->bindParam(4, $model, PDO::PARAM_STR);
+        $stm->bindParam(5, $asset, PDO::PARAM_STR);
         $stm->bindParam(6, $ismp, PDO::PARAM_STR);
         $stm->bindParam(7, $details, PDO::PARAM_STR);
 

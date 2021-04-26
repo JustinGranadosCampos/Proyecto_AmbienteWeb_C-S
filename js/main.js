@@ -514,7 +514,7 @@ $(document).ready(function () {
             $('#txtEditismpStatusIC').val() != '') {
 
             /* Get selected row values */
-            let id = $('#idItemCabinet').val();
+            let id = $('#txtEditIdIC').val();
             let sn = $('#txtEditSerialNumberIC').val();
             let itemName = $('#txtEditNameIC').val();
             let asset = $('#txtEditAssetIC').val();
