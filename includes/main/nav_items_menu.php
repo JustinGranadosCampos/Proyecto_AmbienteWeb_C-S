@@ -22,6 +22,14 @@
         echo '</li>';
 
         echo '<li class="nav-item dropdown">';
+        echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Loan</a>';
+        echo '<div class="dropdown-menu">';
+        echo '<a class="dropdown-item" href="#">Add Loan+</a>';
+        echo '<a class="dropdown-item" href="#">Return Item</a>';
+        echo '</div>';
+        echo '</li>';
+
+        echo '<li class="nav-item dropdown">';
         echo '<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">'.$username.'</a>';
         echo '<div class="dropdown-menu">';
         echo '<a class="dropdown-item" href="#">Edit profile</a>';
