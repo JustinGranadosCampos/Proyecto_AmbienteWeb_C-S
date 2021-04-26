@@ -18,14 +18,14 @@ $(document).ready(function () {
         ]
     });
 
-    $('#cboCabinetNumber').selectpicker();
-    $('#cboCabinetLabel').selectpicker();
+    // $('#cboCabinetNumber').selectpicker();
+    // $('#cboCabinetLabel').selectpicker();
 
-    $('#cboCabinetNumber').change(function () {
-        $('#cboCabinetLabel').val("Select Cabinet Label");
-        var id = parseInt($('#cboCabinetNumber').val());
-        load_data('sub_category_data', id);
-    });
+    // $('#cboCabinetNumber').change(function () {
+    //     $('#cboCabinetLabel').val("Select Cabinet Label");
+    //     var id = parseInt($('#cboCabinetNumber').val());
+    //     load_data('sub_category_data', id);
+    // });
 
     // *** Show modals in pages *** //
 
@@ -75,12 +75,12 @@ $(document).ready(function () {
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
         $(".modal-title").text("New Cabinet Item");
-        load_data('category_data', '');
+        // load_data('category_data', '');
     });
 
-    $("#btnEdit").click(function () {
-        load_data('category_data', '');
-    });
+    // $("#btnEdit").click(function () {
+    //     load_data('category_data', '');
+    // });
 
     $("#btnNewUser").click(function () {
         $("#modalAddUser").modal("show");
@@ -188,20 +188,20 @@ $(document).ready(function () {
     // *** ********************************* *** //
 
     /**/
-    $("#btnSaveItemCabinet").click(function () {
-        alert("Entré a la función");
-        var label = $('#cboCabinetLabel option:selected').html();
-        console.log(label);
-        $.ajax({
-            url: "cabinet_items.php",
-            method: "POST",
-            cache: false,
-            data: "label=" + label,
-            beforeSend: function () { // callback que se ejecutará antes de enviar la solicitud
-                console.log("Enviando por medio de post");
-            },
-        });
-    });
+    // $("#btnSaveItemCabinet").click(function () {
+    //     alert("Entré a la función");
+    //     var label = $('#cboCabinetLabel option:selected').html();
+    //     console.log(label);
+    //     $.ajax({
+    //         url: "cabinet_items.php",
+    //         method: "POST",
+    //         cache: false,
+    //         data: "label=" + label,
+    //         beforeSend: function () { // callback que se ejecutará antes de enviar la solicitud
+    //             console.log("Enviando por medio de post");
+    //         },
+    //     });
+    // });
     /**/
 
     // ************************************* //
@@ -488,34 +488,34 @@ function isBlank(field) {
     }
 }
 
-function load_data(type, cabinet_id) {
-    let parameters = { "type": type, "id": cabinet_id };
-    $.ajax({
-        url: "/includes/main/load_data.php",
-        method: "POST",
-        cache: false,
-        data: parameters,
-        success: function (data) {
-            var content = '';
-            if (data > 0 || data != null) {
-                data = $.parseJSON(data);
-                for (let i in data) {
-                    content += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
-                }
-                if (type == "category_data") {
-                    $('#cboCabinetNumber').html(content);
-                    $('#cboCabinetNumber').selectpicker('refresh');
-                } else {
-                    $('#cboCabinetLabel').html(content);
-                    $('#cboCabinetLabel').selectpicker('refresh');
-                }
-            }
-        },
-        error: function () {
-            alert("Error");
-        }
-    });
-}
+// function load_data(type, cabinet_id) {
+//     let parameters = { "type": type, "id": cabinet_id };
+//     $.ajax({
+//         url: "/includes/main/load_data.php",
+//         method: "POST",
+//         cache: false,
+//         data: parameters,
+//         success: function (data) {
+//             var content = '';
+//             if (data > 0 || data != null) {
+//                 data = $.parseJSON(data);
+//                 for (let i in data) {
+//                     content += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+//                 }
+//                 if (type == "category_data") {
+//                     $('#cboCabinetNumber').html(content);
+//                     $('#cboCabinetNumber').selectpicker('refresh');
+//                 } else {
+//                     $('#cboCabinetLabel').html(content);
+//                     $('#cboCabinetLabel').selectpicker('refresh');
+//                 }
+//             }
+//         },
+//         error: function () {
+//             alert("Error");
+//         }
+//     });
+// }
 
 function validateDeleteSuccess(response, data, url) {
     if (response == "success") {

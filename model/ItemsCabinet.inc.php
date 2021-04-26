@@ -4,7 +4,7 @@
     {
         protected function getItems()
         {
-            $sql = "call Items_x_Cabinet()";
+            $sql = "call ShowAllItemCabinet()";
             $result = $this->conectar()->query($sql);
             $data = array();
 
@@ -16,7 +16,8 @@
             // $con->desconectar();
         }
 
-        protected function getItem($id){
+        protected function getItem($id)
+        {
             $sql = "call GetItemCabinet($id)";
             $result = $this->conectar()->query($sql);
             $data = array();
@@ -25,7 +26,8 @@
             return $row;
         }
 
-        protected function getFullItem($id){
+        protected function getFullItem($id)
+        {
             $sql = "call ShowItem_Cabinet_Level($id)";
             $result = $this->conectar()->query($sql);
             $data = array();
@@ -34,7 +36,8 @@
             return $row;
         }
 
-        protected function getCabinetData($idCabinet, $cabinetNumber){
+        protected function getCabinetData($idCabinet, $cabinetNumber)
+        {
             $sql = "call GetCabinet($idCabinet, $cabinetNumber)";
             $result = $this->conectar()->query($sql);
             $data = array();
@@ -43,7 +46,8 @@
             return $row;
         }
 
-        protected function getLabel($id, $levelNum){
+        protected function getLabel($id, $levelNum)
+        {
             $sql = "call GetCabinetLabel($id, $levelNum)";
             $result = $this->conectar()->query($sql)->fetch();
             $row = $result['LABEL'];
@@ -74,67 +78,61 @@
             return $data;
         }
 
-        protected function insertItem($cabinetNumber, $cabinetLevel, $cabinetLabel, $serialNumber, $name, $asset, $model, $ismp, $details){
-            $query = $this->conectar()->query("call GetLastIdItemCabinet()");
-            $result = $query->fetch(PDO::FETCH_ASSOC);
-            $lastId = $result['idITEM_CABINET'] + 1;
-            $sql = "call InsertNewItemCabinet($lastId, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
-            if ($this->conectar()->query($sql))
-            {
-                $sqlRelation = "call InsertItemCabinetLevel($cabinetLevel, '$cabinetLabel', $lastId, $cabinetNumber)";
-                if ($this->conectar()->query($sqlRelation))
-                {
-                    echo '<script>alert("Registro agregado exitosamente");</script>';
-                    echo '<script>location.replace("./cabinet_items.php");</script>';
-                }
-                else
-                {
+        protected function insertItem($serialNumber, $name, $asset, $model, $ismp, $details)
+        {
+            try {
+                $query = $this->conectar()->query("call GetLastIdItemCabinet()");
+                $result = $query->fetch(PDO::FETCH_ASSOC);
+                $lastId = $result['idITEM_CABINET'] + 1;
+                $sql = "call InsertNewItemCabinet($lastId, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
+                if ($this->conectar()->query($sql)) {
+                    echo '<script type="text/javascript">';
+                    echo 'setTimeout(function () {
+                        swal({
+                            "title":"Item Added!",
+                            "text":"The item was sucessfully added!",
+                            "icon":"success"
+                        }).then(function(){ 
+                                
+                            });
+                        }, 1500);
+                        </script>';
+                } else {
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
                 }
-            }
-            else
-            {
-                echo "\nPDO::errorInfo():\n";
-                echo $this->conectar()->errorInfo();
+            } catch (PDOException $e) {
+                $this->reportError($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
 
-        protected function updateItem($id, $box, $serialNumber, $name, $asset, $model, $ismp, $details){
+        protected function updateItem($id, $box, $serialNumber, $name, $asset, $model, $ismp, $details)
+        {
             $sql = "call UpdateItemBox($id, '$serialNumber', '$name', '$asset', '$model', '$ismp', '$details')";
-            if ($this->conectar()->query($sql))
-            {
+            if ($this->conectar()->query($sql)) {
                 $sql = "call UpdateItem_x_Box($id, $box)";
-                if ($this->conectar()->query($sql))
-                {
+                if ($this->conectar()->query($sql)) {
                     echo '<script>alert("Registro actualizado exitosamente");</script>';
                     echo '<script>location.replace("./index.php");</script>';
-                }
-                else
-                {
+                } else {
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
                 }
-            }
-            else
-            {
+            } else {
                 echo "\nPDO::errorInfo():\n";
                 echo $this->conectar()->errorInfo();
             }
         }
 
-        protected function deleteItem($id){
+        protected function deleteItem($id)
+        {
             $sql = "call DeleteItemBox($id)";
-            if($this->conectar()->query($sql))
-            {
+            if ($this->conectar()->query($sql)) {
                 echo '<script>alert("Registro eliminado exitosamente");</script>';
                 echo '<script>location.replace("./index.php");</script>';
-            }
-            else
-            {
+            } else {
                 echo "\nPDO::errorInfo():\n";
                 echo $this->conectar()->errorInfo();
             }
         }
     }
-?>

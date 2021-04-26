@@ -9,20 +9,11 @@
         $itemController = new ItemCabinetController();
         if(isset($_POST['cboCabinetLabel']))
         {
-            $idCabinet = $_POST['cboCabinetNumber'];
-            $levelNumber = $_POST['cboCabinetLabel'];
-            $label = $itemController->getCabinetLevelLabel($idCabinet, $levelNumber);
-            $itemController -> insertItemCabinet(
-                                                    $idCabinet,
-                                                    $levelNumber,
-                                                    $label,
-                                                    $_POST['serial-number'],
-                                                    $_POST['item-name'],
-                                                    $_POST['item-asset'],
-                                                    $_POST['item-model'],
-                                                    $_POST['ismpStatus'],
-                                                    $_POST['details']
-                                                );
+            // $idCabinet = $_POST['cboCabinetNumber'];
+            // $levelNumber = $_POST['cboCabinetLabel'];
+            // $label = $itemController->getCabinetLevelLabel($idCabinet, $levelNumber);
+            $itemController -> insertItemCabinet($_POST['serial-number'],$_POST['item-name'],$_POST['item-asset'],
+                                                 $_POST['item-model'],$_POST['ismpStatus'],$_POST['details']);
         }
     }
 ?>
@@ -102,18 +93,18 @@
                 </div>
                 <form action="cabinet_items.php" method="POST">
                     <div class="modal-body">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="itemLabel" class="col-form-label">Cabinet Number</label>
                             <select name="cboCabinetNumber" id="cboCabinetNumber" class="form-control" data-live-search="true" title="Select Cabinet Number">
-                                <!-- call ajax method -->
+                                
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="txtCabinetLabel" class="col-form-label">Cabinet Label</label>
                             <select name="cboCabinetLabel" id="cboCabinetLabel" class="form-control" data-live-search="true" title="Select Cabinet Level Number">
-                                <!-- call ajax method -->
+                               
                             </select>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="serial-number" class="col-form-label">Serial Number</label>
                             <input type="text" class="form-control" id="serial-number" name="serial-number" required>
@@ -124,7 +115,7 @@
                         </div>
                         <div class="form-group">
                             <label for="item-asset" class="col-form-label">ASSET</label>
-                            <input type="text" class="form-control" id="item-asset" name="item-asset" required>
+                            <input type="text" class="form-control" id="item-asset" name="item-asset" onkeypress="return isNumber();" required>
                         </div>
                         <div class="form-group">
                             <label for="item-model" class="col-form-label">MODEL</label>
