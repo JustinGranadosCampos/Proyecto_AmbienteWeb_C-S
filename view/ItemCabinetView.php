@@ -48,7 +48,7 @@
                 echo '<td>' . $row["DETAIL"] . '</td>';
                 if ($_SESSION['Profile'] == 1)
                 {
-                    echo '<td><div class="text-center"><div class="btn-group"><a href="../includes/edit/updateItemCabinet.php?id=' . $row["idITEM_CABINET"] . '" class="btn bg-dark text-light btnEdit" id="btnEdit">Edit</a></div></div></td>';
+                    echo '<td><div class="text-center"><div class="btn-group"><button type="button" name="btnEditItemCabinet" class="btn bg-dark text-light btnEdit" id="btnEditItemCabinet">Edit</button></div></div></td>';
                 }
                 echo '</tr>';
             }

@@ -133,6 +133,62 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Edit -->
+
+    <div class="modal fade" id="modalEditItemCabinet" data-backdrop="static" tabindex="1" role="dialog" aria-labelledby="modalEditItemCabinet"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modalEdit-header">
+                        <h5 class="modal-title-ItemCabinet modalEdit-title" id="modalEditItemCabinet"></h5>
+                    </div>
+                    <form action="" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="txtEditIdIC" class="col-form-label">ID</label>
+                                <input type="text" name="txtEditIdIC" class="form-control" id="txtEditIdIC" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditSerialNumberIC" class="col-form-label">Serial Number</label>
+                                <input type="text" class="form-control" id="txtEditSerialNumberIC" name="txtEditSerialNumberIC" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditNameIC" class="col-form-label">Name</label>
+                                <input type="text" class="form-control" id="txtEditNameIC" name="txtEditNameIC" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditAssetIC" class="col-form-label">ASSET</label>
+                                <input type="text" class="form-control" id="txtEditAssetIC" name="txtEditAssetIC" onkeypress="return isNumber();" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditModelIC" class="col-form-label">MODEL</label>
+                                <input type="text" class="form-control" id="txtEditModelIC" name="txtEditModelIC" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditismpStatusIC" class="col-form-label">ISMP Status</label>
+                                <input type="text" class="form-control" id="txtEditismpStatusIC" name="txtEditismpStatusIC" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEditDetailsIC" class="col-form-label">Details</label>
+                                <input type="text" class="form-control" id="txtEditDetailsIC" name="txtEditDetailsIC">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="btnCancelEditItemCabinet" class="btn btn-light">Cancel</button>
+                            <button
+                                type="button"
+                                id="btnSaveEditItemCabinet"
+                                name="btnSaveEditItemCabinet"
+                                class="btn btn-dark">Save</button>
+                                <button type="button" name="btnDeleteEditItemCabinet" id="btnDeleteEditItemCabinet" class="btn btn-danger">Delete</button></div></div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+    </div>
+
     <?php
         include $_SERVER['DOCUMENT_ROOT'].'/includes/main/scripts.php';
     ?>

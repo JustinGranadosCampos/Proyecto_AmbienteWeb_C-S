@@ -41,12 +41,12 @@ $(document).ready(function () {
         $(".modalEdit-title").text("Edit Box Item");
     });
 
-    $(document).ready(function () {
-        $("#modalItemCabinetEdit").modal("show");
-        $(".modalEdit-header").css("color", "#343a40");
-        $(".modalEdit-header").css("color", "#343a40");
-        $(".modalEdit-title").text("Edit Cabinet Item");
-    });
+    // $(document).ready(function () {
+    //     $("#modalItemCabinetEdit").modal("show");
+    //     $(".modalEdit-header").css("color", "#343a40");
+    //     $(".modalEdit-header").css("color", "#343a40");
+    //     $(".modalEdit-title").text("Edit Cabinet Item");
+    // });
 
     $(document).ready(function () {
         $("#modalBoxEdit").modal("show");
@@ -98,6 +98,10 @@ $(document).ready(function () {
 
     $('#btnCancelCabinetLevel').click(function () {
         $("#modalEditCabinetLevel").modal("hide");
+    });
+
+    $('#btnCancelEditItemCabinet').click(function () {
+        $("#modalEditItemCabinet").modal("hide");
     });
 
     /*  Validations  */
@@ -282,7 +286,7 @@ $(document).ready(function () {
             let label = $('#txtLabelCabinetLevel').val();
             let idCabinet = $('#txtIdCabinet_CL').val();
             let idItem = $('#txtIdItem_CL').val();
-            
+
             $.ajax({
                 type: "POST",
                 url: "/includes/inserts/insert_new_cabinet_level.php",
@@ -302,6 +306,7 @@ $(document).ready(function () {
     /* SHOW DATA ON MODAL (CABINET LEVEL)*/
     $(document).on('click', '#btnEditCabinetLevel', function () {
 
+        /* Get selected row values */
         let row = $(this).closest("tr");
         let idCabinet = parseInt(row.find('td:eq(0)').text());
         let id = parseInt(row.find('td:eq(1)').text());
@@ -355,6 +360,7 @@ $(document).ready(function () {
             }
         });
 
+        /* Show modal after 1.8s */
         setTimeout(() => {
             $("#modalEditCabinetLevel").modal("show");
             $(".modal-header").css("color", "#343a40");
@@ -362,7 +368,7 @@ $(document).ready(function () {
             $(".modal-title-CabinetLevel").text("Edit Cabinet Level");
         }, 1800);
 
-
+        /* Set all the values*/
         $('#txtEditIdNextCabinetLevel').val(id);
         $('#txtEdiLevel_Number').val(lvlNumber);
         $('#txtEditLabelCabinetLevel').val(label);
@@ -370,7 +376,7 @@ $(document).ready(function () {
         $('#txtEditIdItem_CL').val(idItem);
     });
 
-    /* Update Item Cabinet */
+    /* Update Cabinet Level */
     $('#btnSaveEditCabinetLevel').click(function () {
         if ($('#txtEdiLevel_Number').val() != '' && $('#txtEditLabelCabinetLevel').val() != '' &&
             $('#txtEditIdCabinet_CL').val() > 0 && $('#txtEditIdItem_CL').val() > 0) {
@@ -397,7 +403,7 @@ $(document).ready(function () {
         }
     });
 
-    /* Delete Item Cabinet */
+    /* Delete Cabinet Level */
     $('#btnDeleteEditCabinetLevel').click(function (e) {
         e.preventDefault();
         let id = $('#txtEditIdNextCabinetLevel').val();
@@ -437,8 +443,10 @@ $(document).ready(function () {
 
     //******************************************************************************************
 
+     //***************//
     // Item Cabinet //
-
+   //**************//
+   
     /* Insert Item Cabinet */
     $('#btnSaveItemCabinet').click(function () {
         if ($('#serial-number').val() != '' && $('#item-name').val() != '' &&
@@ -451,11 +459,11 @@ $(document).ready(function () {
             let model = $('#item-model').val();
             let ismp = $('#ismpStatus').val();
             let details = $('#details').val();
-            
+
             $.ajax({
                 type: "POST",
                 url: "/includes/inserts/insert_new_item_cabinet.php",
-                data: { "id":id, "sn": sn, "itemName": itemName, "asset": asset, "model": model, "ismp": ismp, "details": details },
+                data: { "id": id, "sn": sn, "itemName": itemName, "asset": asset, "model": model, "ismp": ismp, "details": details },
                 success: function (response) {
                     validateInsertSuccess(response, "Item Cabinet", "/masterPages/cabinet_items.php");
                 },
@@ -469,80 +477,40 @@ $(document).ready(function () {
     });
 
     /* SHOW DATA ON MODAL (ITEM CABINET)*/
-    $(document).on('click', '#', function () {
+    $(document).on('click', '#btnEditItemCabinet', function () {
 
+        /* Get selected row values */
         let row = $(this).closest("tr");
-        let idCabinet = parseInt(row.find('td:eq(0)').text());
-        let id = parseInt(row.find('td:eq(1)').text());
-        let lvlNumber = parseInt(row.find('td:eq(2)').text());
-        let label = row.find('td:eq(3)').text();
-        let idItem = row.find('td:eq(4)').text();
+        let id = parseInt(row.find('td:eq(0)').text());
+        let sn = row.find('td:eq(1)').text();
+        let name = row.find('td:eq(2)').text();
+        let asset = parseInt(row.find('td:eq(3)').text());
+        let model = row.find('td:eq(4)').text();
+        let ismp = row.find('td:eq(5)').text();
+        let details = row.find('td:eq(6)').text();
 
-        $.ajax({
-            type: "POST",
-            url: "/includes/selects/select_all_cabinets.php",
-            data: { "idCabinet": idCabinet },
-            success: response => {
-                let content = '';
-                if (response > 0 || response != null) {
-                    let data = $.parseJSON(response);
-                    for (let i in data) {
-                        if (idCabinet == data[i].value) {
-                            content += '<option value="' + data[i].value + '" selected>' + data[i].name + '</option>';
-                        } else {
-                            content += '<option value="' + data[i].value + '">' + data[i].name + '</option>';
-                        }
-                    }
-                    $('#txtEditIdCabinet_CL').html(content);
-                }
-            },
-            error: () => {
-                swal("ERROR", "Data was not sent correctly", "error");
-            }
-        });
+        /* Show modal */
+        $("#modalEditItemCabinet").modal("show");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-header").css("color", "#343a40");
+        $(".modal-title-ItemCabinet").text("Edit Item Cabinet");
 
-        $.ajax({
-            type: "POST",
-            url: "/includes/selects/select_all_itemsCabinet.php",
-            data: { "idItem": idItem },
-            success: response => {
-                let content = '';
-                if (response > 0 || response != null) {
-                    let data = $.parseJSON(response);
-                    for (let i in data) {
-                        if (idItem == data[i].name) {
-                            content += '<option value="' + data[i].id + '" selected>' + "[" + data[i].serialNumber + "] " + data[i].name + '</option>';
-                        } else {
-                            content += '<option value="' + data[i].id + '">' + "[" + data[i].serialNumber + "] " + data[i].name + '</option>';
-                        }
-                    }
-                    $('#txtEditIdItem_CL').html(content);
-                }
-            },
-            error: () => {
-                swal("ERROR", "Data was not sent correctly", "error");
-            }
-        });
+        /* Set all the values */
+        $('#txtEditIdIC').val(id);
+        $('#txtEditSerialNumberIC').val(sn);
+        $('#txtEditNameIC').val(name);
+        $('#txtEditAssetIC').val(asset);
+        $('#txtEditModelIC').val(model);
+        $('#txtEditismpStatusIC').val(ismp);
+        $('#txtEditDetailsIC').val(details);
 
-        setTimeout(() => {
-            $("#modalEditCabinetLevel").modal("show");
-            $(".modal-header").css("color", "#343a40");
-            $(".modal-header").css("color", "#343a40");
-            $(".modal-title-CabinetLevel").text("Edit Cabinet Level");
-        }, 1800);
-
-
-        $('#txtEditIdNextCabinetLevel').val(id);
-        $('#txtEdiLevel_Number').val(lvlNumber);
-        $('#txtEditLabelCabinetLevel').val(label);
-        $('#txtEditIdCabinet_CL').val(idCabinet);
-        $('#txtEditIdItem_CL').val(idItem);
     });
 
-    /* Update Cabinet Level */
-    $('#btnSaveEditCabinetLevel').click(function () {
-        if ($('#txtEdiLevel_Number').val() != '' && $('#txtEditLabelCabinetLevel').val() != '' &&
-            $('#txtEditIdCabinet_CL').val() > 0 && $('#txtEditIdItem_CL').val() > 0) {
+    /* Update Item Cabinet */
+    $('#btnSaveEditItemCabinet').click(function () {
+        if ($('#txtEditSerialNumberIC').val() != '' && $('#txtEditNameIC').val() != '' &&
+            $('#txtEditAssetIC').val() > 0 && $('#txtEditModelIC').val() != '' &&
+            $('#txtEditismpStatusIC').val() != '') {
 
             let id = $('#txtEditIdNextCabinetLevel').val();
             let lvlNumber = $('#txtEdiLevel_Number').val();
@@ -566,8 +534,8 @@ $(document).ready(function () {
         }
     });
 
-    /* Delete Cabinet Level */
-    $('#btnDeleteEditCabinetLevel').click(function (e) {
+    /* Delete Item Cabinet */
+    $('#btnDeleteEditItemCabinet').click(function (e) {
         e.preventDefault();
         let id = $('#txtEditIdNextCabinetLevel').val();
         console.log(id);
