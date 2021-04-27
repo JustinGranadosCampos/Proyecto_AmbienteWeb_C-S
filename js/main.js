@@ -577,16 +577,70 @@ $(document).ready(function () {
 
     /********************************************************************/
 
-     //*******//
+    //*******//
     // Loan //
-   //******//
+    //******//
 
     // Box Item
-    $(document).ready(function () {
-        
+    $('.form-loan-itemBox').ready(function () {
+        // if ($('#itemBoxLoan') < 0) {
+        $.ajax({
+            type: "POST",
+            url: "/includes/selects/select_all_item_box.php",
+            success: function (response) {
+                let content = '<option value="-1">Select an option</option>';
+                if (response > 0 || response != null) {
+                    let data = $.parseJSON(response);
+                    for (let i in data) {
+                        content += '<option value="' + data[i].idItem + '">' + "Serial Number: [" + data[i].sn + "] - Item: " + data[i].name + '</option>';
+                    }
+                    $('#itemBoxLoan').html(content);
+                    // $('#txtIdBoxLoan').val(data[i].idBOX);
+                    // $('#txtSerialNumberLoanIB').val(data[i].sn);
+                    // $('#txtNameLoanIB').val(data[i].name);
+                    // $('#txtAssetLoanIB').val(data[i].asset);
+                    // $('#txtModelLoanIB').val(data[i].model);
+                }
+            },
+            error: function () {
+                swal("Error", "Data was not sent correctly", "error");
+            }
+        });
+
+        setTimeout(() => {
+            //Llenar campos
+        }, 500);
+        // } else {
+
+        // }
+        $('#itemBoxLoan').change(function () {
+            let id = $('txtIdBoxLoan').val();
+            if (id > 0) {
+                $.ajax({
+                    type: "POST",
+                    url: "/includes/selects/select_item_box.php",
+                    data: { "id": id },
+                    success: function (response) {
+                        console.log(response);
+
+                        if (response > 0 || response != null) {
+                            // let data = $.parseJSON(response);
+                            $('#txtIdBoxLoan').val(response.idBOX);
+                            $('#txtSerialNumberLoanIB').val(response.sn);
+                            $('#txtNameLoanIB').val(response.name);
+                            $('#txtAssetLoanIB').val(response.asset);
+                            $('#txtModelLoanIB').val(response.model);
+                        }
+                    },
+                    error: function () {
+                        swal("Error", "Data was not sent correctly", "error");
+                    }
+                });
+            }
+        });
     });
 
-   /********************************************************************/
+    /********************************************************************/
 });
 
 function isNumber(evt) {

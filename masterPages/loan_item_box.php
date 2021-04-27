@@ -41,32 +41,33 @@
 
     <!-- Modal -->
     <div class="container-fluid loanItemBox">
-        <form action="" method="POST">
+        <form class="form-loan-itemBox" action="" method="POST">
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="itemBoxLoan" class="col-form-label">Box Number</label>
+                    <label for="itemBoxLoan" class="col-form-label">Item Box</label>
                     <select class="form-control" name="itemBoxLoan" id="itemBoxLoan">
+                        <option value="-1">Select an option</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="txtSerialNumber" class="col-form-label">Serial Number</label>
-                    <input type="text" name="txtLabel" class="form-control" id="txtLabel" readonly>
+                    <label for="txtIdBoxLoan" class="col-form-label">Box Number</label>
+                    <input type="text" name="txtIdBoxLoan" class="form-control" id="txtIdBoxLoan" readonly required>
                 </div>
                 <div class="form-group">
-                    <label for="txtSerialNumber" class="col-form-label">Name</label>
-                    <input type="text" name="txtLabel" class="form-control" id="txtLabel" readonly>
+                    <label for="txtSerialNumberLoanIB" class="col-form-label">Serial Number</label>
+                    <input type="text" name="txtSerialNumberLoanIB" class="form-control" id="txtSerialNumberLoanIB" readonly required>
                 </div>
                 <div class="form-group">
-                    <label for="txtSerialNumber" class="col-form-label">Asset</label>
-                    <input type="text" name="txtLabel" class="form-control" id="txtLabel" readonly>
+                    <label for="txtNameLoanIB" class="col-form-label">Name</label>
+                    <input type="text" name="txtNameLoanIB" class="form-control" id="txtNameLoanIB" readonly required>
                 </div>
                 <div class="form-group">
-                    <label for="txtSerialNumber" class="col-form-label">Model</label>
-                    <input type="text" name="txtLabel" class="form-control" id="txtLabel" readonly>
+                    <label for="txtAssetLoanIB" class="col-form-label">Asset</label>
+                    <input type="text" name="txtAssetLoanIB" class="form-control" id="txtAssetLoanIB" readonly required>
                 </div>
                 <div class="form-group">
-                    <label for="txtSerialNumber" class="col-form-label">ISMP Status</label>
-                    <input type="text" name="txtLabel" class="form-control" id="txtLabel" readonly>
+                    <label for="txtModelLoanIB" class="col-form-label">Model</label>
+                    <input type="text" name="txtModelLoanIB" class="form-control" id="txtModelLoanIB" readonly required>
                 </div>
                 <div class="form-group">
                     <label for="txtLocationItemBox" class="col-form-label">Location To Loan</label>
