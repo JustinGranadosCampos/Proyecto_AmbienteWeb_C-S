@@ -140,3 +140,12 @@ body{
 .loanItemBox {
     max-width: 500px;
 }
+
+.edit_profile {
+    max-width: 500px;
+    margin-top: 15%;
+}
+
+.mgTop {
+    margin-left: 2em;
+}

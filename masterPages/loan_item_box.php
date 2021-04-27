@@ -45,7 +45,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="itemBoxLoan" class="col-form-label">Item Box</label>
-                    <select class="form-control" name="itemBoxLoan" id="itemBoxLoan">
+                    <select class="form-control" name="itemBoxLoan" id="itemBoxLoan" required>
                         <option value="-1">Select an option</option>
                     </select>
                 </div>
@@ -76,7 +76,7 @@
             </div>
             <div class="form-group d-flex justify-content-center">
                 <button type="button" class="btn btn-light" onclick="location.replace('box_items.php');">Cancel</button>
-                <button type="submit" id="btnSaveItemBoxLoan" name="btnSaveItemBoxLoan" class="btn btn-dark">Save</button>
+                <button type="button" id="btnSaveItemBoxLoan" name="btnSaveItemBoxLoan" class="btn btn-dark">Save</button>
             </div>
         </form>
     </div>

@@ -583,7 +583,6 @@ $(document).ready(function () {
 
     // Box Item
     $('.form-loan-itemBox').ready(function () {
-        // if ($('#itemBoxLoan') < 0) {
         $.ajax({
             type: "POST",
             url: "/includes/selects/select_all_item_box.php",
@@ -595,11 +594,6 @@ $(document).ready(function () {
                         content += '<option value="' + data[i].idItem + '">' + "Serial Number: [" + data[i].sn + "] - Item: " + data[i].name + '</option>';
                     }
                     $('#itemBoxLoan').html(content);
-                    // $('#txtIdBoxLoan').val(data[i].idBOX);
-                    // $('#txtSerialNumberLoanIB').val(data[i].sn);
-                    // $('#txtNameLoanIB').val(data[i].name);
-                    // $('#txtAssetLoanIB').val(data[i].asset);
-                    // $('#txtModelLoanIB').val(data[i].model);
                 }
             },
             error: function () {
@@ -607,29 +601,22 @@ $(document).ready(function () {
             }
         });
 
-        setTimeout(() => {
-            //Llenar campos
-        }, 500);
-        // } else {
-
-        // }
         $('#itemBoxLoan').change(function () {
-            let id = $('txtIdBoxLoan').val();
+            let id = $('#itemBoxLoan').val();
+            console.log(id);
             if (id > 0) {
                 $.ajax({
                     type: "POST",
                     url: "/includes/selects/select_item_box.php",
                     data: { "id": id },
                     success: function (response) {
-                        console.log(response);
-
                         if (response > 0 || response != null) {
-                            // let data = $.parseJSON(response);
-                            $('#txtIdBoxLoan').val(response.idBOX);
-                            $('#txtSerialNumberLoanIB').val(response.sn);
-                            $('#txtNameLoanIB').val(response.name);
-                            $('#txtAssetLoanIB').val(response.asset);
-                            $('#txtModelLoanIB').val(response.model);
+                            let data = $.parseJSON(response);
+                            $('#txtIdBoxLoan').val(data[0].idBOX);
+                            $('#txtSerialNumberLoanIB').val(data[0].sn);
+                            $('#txtNameLoanIB').val(data[0].name);
+                            $('#txtAssetLoanIB').val(data[0].asset);
+                            $('#txtModelLoanIB').val(data[0].model);
                         }
                     },
                     error: function () {
@@ -640,7 +627,49 @@ $(document).ready(function () {
         });
     });
 
+    $('#btnSaveItemBoxLoan').click(function () {
+        let id = $('#itemBoxLoan').val();
+        let detail = $('#txtLocationItemBox').val();
+        if (id > 0) {
+            $.ajax({
+                type: "POST",
+                url: "/includes/inserts/insert_loan_item_box.php",
+                data: { "id": id, "detail": detail },
+                success: function (response) {
+                    console.log(response);
+                    validateInsertSuccess(response, "Item Box Loan", "/masterPages/box_items.php");
+                },
+                error: function () {
+                    swal("Error", "Data was not sent correctly", "error");
+                }
+            });
+        }
+    });
     /********************************************************************/
+
+    //*******//
+    // User //
+    //******//
+
+    // Change Password
+    $('#btnSaveUser').click(function () {
+        let pass = $('#txtPasswordUser').val();
+        let confirmPass = $('#txtConfirmPasswordUser').val();
+
+        if (pass === confirmPass) {
+            $.ajax({
+                type: "POST",
+                url: "/includes/updates/update_password_user.php",
+                data: { "pass":pass },
+                success: function (response) {
+                    validateInsertSuccess(response, "Password", "/masterPages/box_items.php");
+                },
+                error: function () {
+                    swal("Error", "Data was not sent correctly", "error");
+                }
+            });
+        }
+    });
 });
 
 function isNumber(evt) {

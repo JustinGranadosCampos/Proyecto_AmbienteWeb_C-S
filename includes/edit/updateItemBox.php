@@ -41,7 +41,7 @@
                                 $itemBox->getItemBox($id);
                             ?>
                         <div class="modal-footer">
-                            <a href="box_items.php" class="btn btn-light">Cancel</a>
+                            <a href="../../masterPages/box_items.php" class="btn btn-light">Cancel</a>
                             <button
                                 type="submit"
                                 id="btnSaveBoxItem"
