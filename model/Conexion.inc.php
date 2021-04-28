@@ -24,12 +24,11 @@ class Conexion
         $this->conexion = null;
     }
 
-    public function reportError($code, $msg, $file, $line)
+    public function reportError($wwid, $code, $msg, $file, $line)
     {
-        $codigopesito = 1234;
         $sql = "call InsertErrorLog(?, ?, ?, ?, ?)";
         $gsent = $this->conectar()->prepare($sql);
-        $gsent->bindParam(1, $codigopesito, PDO::PARAM_INT);
+        $gsent->bindParam(1, $wwid, PDO::PARAM_INT);
         $gsent->bindParam(2, $code, PDO::PARAM_STR);
         $gsent->bindParam(3, $msg, PDO::PARAM_STR);
         $gsent->bindParam(4, $file, PDO::PARAM_STR);

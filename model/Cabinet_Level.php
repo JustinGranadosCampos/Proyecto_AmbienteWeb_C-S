@@ -1,39 +1,58 @@
 <?php
+
+    error_reporting(0);
+    if (!isset($_SESSION)) {
+        session_start();
+    }
     include __DIR__.'/Conexion.inc.php';
 
     class CabinetLevel extends Conexion
     {
         #Get All Cabinet_Level
-        protected function getCabinetsLevels(){
-            $sql = "call ShowCabinetsLevels()";
-            $result = $this->conectar()->query($sql);
-            $data = array();
+        protected function getCabinetsLevels()
+        {
+            try {
+                $sql = "call ShowCabinetsLevels()";
+                $result = $this->conectar()->query($sql);
+                $data = array();
 
-            while ($row = $result->fetch()) {
-                $data[] = $row;
+                while ($row = $result->fetch()) {
+                    $data[] = $row;
+                }
+
+                return $data;
+            } catch (EXCEPTION $e) {
+                $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            } catch (PDOEXCEPTION $e) {
+                $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
-
-            return $data;
             // $con->desconectar();
-                
         }
 
         #Get Cabinet_Level by ID
-        protected function getBox($id){
-            $sql = "call ShowBox($id)";
-            $result = $this->conectar()->query($sql);
-            $row = $result->fetch();
+        protected function getBox($id)
+        {
+            try {
+                $sql = "call ShowBox($id)";
+                $result = $this->conectar()->query($sql);
+                $row = $result->fetch();
             
-            return $row;
+                return $row;
+            } catch (EXCEPTION $e) {
+                $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            } catch (PDOEXCEPTION $e) {
+                $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            }
         }
 
         #Insert to Cabinet_Level
-        protected function insertBox($id, $label){
-            $sql = "call InsertBox($id, '$label')";
-            if ($this->conectar()->query($sql))
-            {
-                echo '<script type="text/javascript">';
-                echo 'setTimeout(function () {
+        protected function insertBox($id, $label)
+        {
+            try {
+                $sql = "call InsertBox($id, '$label')";
+                if ($this->conectar()->query($sql)) {
+                    echo '<script type="text/javascript">';
+                    echo 'setTimeout(function () {
                     swal({
                         "title":"Box Added!",
                         "text":"New Box Added!",
@@ -43,20 +62,25 @@
                         });
                     }, 1500);
                     </script>';
-            }
-            else
-            {
-                echo "\nPDO::errorInfo():\n";
-                echo $this->conectar()->errorInfo();
+                } else {
+                    echo "\nPDO::errorInfo():\n";
+                    echo $this->conectar()->errorInfo();
+                }
+            } catch (EXCEPTION $e) {
+                $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            } catch (PDOEXCEPTION $e) {
+                $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
 
         #Update Cabinet_Level
-        protected function updateBoxData($id, $label){
-            $sql = "call UpdateBox($id, '$label')";
-            if ($this->conectar()->query($sql)) {
-                echo '<script type="text/javascript">';
-                echo 'setTimeout(function () {
+        protected function updateBoxData($id, $label)
+        {
+            try {
+                $sql = "call UpdateBox($id, '$label')";
+                if ($this->conectar()->query($sql)) {
+                    echo '<script type="text/javascript">';
+                    echo 'setTimeout(function () {
                     swal({
                         "title":"Done!",
                         "text":"The box was sucessfully updated!",
@@ -66,63 +90,90 @@
                         });
                     }, 1500);
                     </script>';
-            }
-            else
-            {
-                echo "\nPDO::errorInfo():\n";
-                echo $this->conectar()->errorInfo();
+                } else {
+                    echo "\nPDO::errorInfo():\n";
+                    echo $this->conectar()->errorInfo();
+                }
+            } catch (EXCEPTION $e) {
+                $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            } catch (PDOEXCEPTION $e) {
+                $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
 
         #Delete Cabinet_Level by ID
-        protected function deleteBoxData($id){
-            $sql = "call DeleteBox($id)";
-            if ($this->conectar()->query($sql)) {
-                echo '<script>alert("Registro eliminado");</script>';
-                echo '<script>location.replace("../../masterPages/box_management.php");</script>';
-            }
-            else
-            {
-                echo "\nPDO::errorInfo():\n";
-                echo $this->conectar()->errorInfo();
+        protected function deleteBoxData($id)
+        {
+            try {
+                $sql = "call DeleteBox($id)";
+                if ($this->conectar()->query($sql)) {
+                    echo '<script>alert("Registro eliminado");</script>';
+                    echo '<script>location.replace("../../masterPages/box_management.php");</script>';
+                } else {
+                    echo "\nPDO::errorInfo():\n";
+                    echo $this->conectar()->errorInfo();
+                }
+            } catch (EXCEPTION $e) {
+                $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            } catch (PDOEXCEPTION $e) {
+                $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
 
         #Get the next auto_incremental ID from Cabinet_Level
-        protected function getLastIdCabinetLevel(){
-            $sql = $this->conectar()->query("call GetLastIdCabinetLevel()");
-            $result = $sql->fetch(PDO::FETCH_ASSOC);
-            $lastId = $result['ID'] + 1;
-            return $lastId;
+        protected function getLastIdCabinetLevel()
+        {
+            try {
+                $sql = $this->conectar()->query("call GetLastIdCabinetLevel()");
+                $result = $sql->fetch(PDO::FETCH_ASSOC);
+                $lastId = $result['ID'] + 1;
+                return $lastId;
+            } catch (EXCEPTION $e) {
+                $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            } catch (PDOEXCEPTION $e) {
+                $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            }
         }
 
         #Get All Cabinet Items
-        protected function getAllItems(){
-            $sql = "call Items_x_Cabinet()";
-            $result = $this->conectar()->query($sql);
-            $data = array();
+        protected function getAllItems()
+        {
+            try {
+                $sql = "call Items_x_Cabinet()";
+                $result = $this->conectar()->query($sql);
+                $data = array();
 
-            while ($row = $result->fetch()) {
-                $data[] = $row;
+                while ($row = $result->fetch()) {
+                    $data[] = $row;
+                }
+
+                return $data;
+            } catch (EXCEPTION $e) {
+                $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            } catch (PDOEXCEPTION $e) {
+                $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
-
-            return $data;
             // $con->desconectar();
         }
         
         #Get All Cabinets
-        protected function geAlltCabinets(){
-            $sql = "call ShowCabinets()";
-            $result = $this->conectar()->query($sql);
-            $data = array();
+        protected function geAlltCabinets()
+        {
+            try {
+                $sql = "call ShowCabinets()";
+                $result = $this->conectar()->query($sql);
+                $data = array();
 
-            while ($row = $result->fetch()) {
-                $data[] = $row;
-            }
+                while ($row = $result->fetch()) {
+                    $data[] = $row;
+                }
             
-            return $data;
+                return $data;
+            } catch (EXCEPTION $e) {
+                $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            } catch (PDOEXCEPTION $e) {
+                $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            }
             // $con->desconectar();
-                
         }
     }
-?>
