@@ -92,7 +92,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
-                <form action="cabinet_items.php" method="POST">
+                <form action="" method="POST" class="formCabinetItem">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="idItemCabinet" class="col-form-label">ID</label>
@@ -102,23 +102,23 @@
                         </div>
                         <div class="form-group">
                             <label for="serial-number" class="col-form-label">Serial Number</label>
-                            <input type="text" class="form-control" id="serial-number" name="serial-number" required>
+                            <input type="text" class="form-control" id="serial-number" name="serial-number" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="item-name" class="col-form-label">Name</label>
-                            <input type="text" class="form-control" id="item-name" name="item-name" required>
+                            <input type="text" class="form-control" id="item-name" name="item-name" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="item-asset" class="col-form-label">ASSET</label>
-                            <input type="text" class="form-control" id="item-asset" name="item-asset" onkeypress="return isNumber();" required>
+                            <input type="text" class="form-control" id="item-asset" name="item-asset" onkeypress="return isNumber();" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="item-model" class="col-form-label">MODEL</label>
-                            <input type="text" class="form-control" id="item-model" name="item-model" required>
+                            <input type="text" class="form-control" id="item-model" name="item-model" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="ismpStatus" class="col-form-label">ISMP Status</label>
-                            <input type="text" class="form-control" id="ismpStatus" name="ismpStatus" required>
+                            <input type="text" class="form-control" id="ismpStatus" name="ismpStatus" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="details" class="col-form-label">Details</label>
@@ -151,23 +151,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtEditSerialNumberIC" class="col-form-label">Serial Number</label>
-                                <input type="text" class="form-control" id="txtEditSerialNumberIC" name="txtEditSerialNumberIC" required>
+                                <input type="text" class="form-control" id="txtEditSerialNumberIC" name="txtEditSerialNumberIC" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="txtEditNameIC" class="col-form-label">Name</label>
-                                <input type="text" class="form-control" id="txtEditNameIC" name="txtEditNameIC" required>
+                                <input type="text" class="form-control" id="txtEditNameIC" name="txtEditNameIC" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="txtEditAssetIC" class="col-form-label">ASSET</label>
-                                <input type="text" class="form-control" id="txtEditAssetIC" name="txtEditAssetIC" onkeypress="return isNumber();" required>
+                                <input type="text" class="form-control" id="txtEditAssetIC" name="txtEditAssetIC" onkeypress="return isNumber();" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="txtEditModelIC" class="col-form-label">MODEL</label>
-                                <input type="text" class="form-control" id="txtEditModelIC" name="txtEditModelIC" required>
+                                <input type="text" class="form-control" id="txtEditModelIC" name="txtEditModelIC" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="txtEditismpStatusIC" class="col-form-label">ISMP Status</label>
-                                <input type="text" class="form-control" id="txtEditismpStatusIC" name="txtEditismpStatusIC" required>
+                                <input type="text" class="form-control" id="txtEditismpStatusIC" name="txtEditismpStatusIC" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="txtEditDetailsIC" class="col-form-label">Details</label>

@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-group">
                     <label for="txtIdBoxLoan" class="col-form-label">Box Number</label>
-                    <input type="text" name="txtIdBoxLoan" class="form-control" id="txtIdBoxLoan" readonly required>
+                    <input type="text" name="txtIdBoxLoan" class="form-control" id="txtIdBoxLoan" readonly required >
                 </div>
                 <div class="form-group">
                     <label for="txtSerialNumberLoanIB" class="col-form-label">Serial Number</label>
@@ -59,19 +59,19 @@
                 </div>
                 <div class="form-group">
                     <label for="txtNameLoanIB" class="col-form-label">Name</label>
-                    <input type="text" name="txtNameLoanIB" class="form-control" id="txtNameLoanIB" readonly required>
+                    <input type="text" name="txtNameLoanIB" class="form-control" id="txtNameLoanIB" readonly required >
                 </div>
                 <div class="form-group">
                     <label for="txtAssetLoanIB" class="col-form-label">Asset</label>
-                    <input type="text" name="txtAssetLoanIB" class="form-control" id="txtAssetLoanIB" readonly required>
+                    <input type="text" name="txtAssetLoanIB" class="form-control" id="txtAssetLoanIB" readonly required >
                 </div>
                 <div class="form-group">
                     <label for="txtModelLoanIB" class="col-form-label">Model</label>
-                    <input type="text" name="txtModelLoanIB" class="form-control" id="txtModelLoanIB" readonly required>
+                    <input type="text" name="txtModelLoanIB" class="form-control" id="txtModelLoanIB" readonly required >
                 </div>
                 <div class="form-group">
                     <label for="txtLocationItemBox" class="col-form-label">Location To Loan</label>
-                    <textarea class="form-control" name="txtLocationItemBox" id="txtLocationItemBox" required></textarea>
+                    <textarea class="form-control" name="txtLocationItemBox" id="txtLocationItemBox" required autocomplete="off"></textarea>
                 </div>
             </div>
             <div class="form-group d-flex justify-content-center">

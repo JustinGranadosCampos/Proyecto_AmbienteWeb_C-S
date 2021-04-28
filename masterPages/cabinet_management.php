@@ -91,7 +91,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtSerialNumber" class="col-form-label">Cabinet Number</label>
-                                <input type="text" name="txtCabinetNumber" class="form-control" id="txtLabel" onkeypress="return isNumber(event)" required>
+                                <input type="text" name="txtCabinetNumber" class="form-control" id="txtLabel" onkeypress="return isNumber(event)" required autocomplete="off">
                             </div>
                         </div>
                         <div class="modal-footer">

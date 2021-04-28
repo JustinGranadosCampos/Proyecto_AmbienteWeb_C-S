@@ -91,11 +91,11 @@
                         </div>
                         <div class="form-group">
                             <label for="txtLevel_Number" class="col-form-label">LEVEL NUMBER</label>
-                            <input type="text" name="txtLevel_Number" class="form-control" id="txtLevel_Number" onkeypress="return isNumber();" required>
+                            <input type="text" name="txtLevel_Number" class="form-control" id="txtLevel_Number" onkeypress="return isNumber();" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="txtLabelCabinetLevel" class="col-form-label">LABEL</label>
-                            <input type="text" name="txtLabelCabinetLevel" class="form-control" id="txtLabelCabinetLevel" required>
+                            <input type="text" name="txtLabelCabinetLevel" class="form-control" id="txtLabelCabinetLevel" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="txtIdCabinet_CL" class="col-form-label">CABINET NUMBER</label>

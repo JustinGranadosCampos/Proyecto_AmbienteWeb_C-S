@@ -33,7 +33,7 @@
                 echo '</div>';
                 echo '<div class="form-group">';
                 echo '<label for="txtNumber" class="col-form-label">Cabinet Number</label>';
-                echo '<input type="text" name="txtNumber" class="form-control" id="txtNumber" value="' . $result["CABINET_NUMBER"] . '">';
+                echo '<input type="text" name="txtNumber" class="form-control" id="txtNumber" onkeypress="return isNumber();" value="' . $result["CABINET_NUMBER"] . '" required>';
                 echo '</div>';
             }
         }

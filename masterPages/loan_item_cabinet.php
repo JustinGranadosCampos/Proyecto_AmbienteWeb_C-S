@@ -91,12 +91,12 @@
                         <div class="form-group">
                             <label for="itemLabel" class="col-form-label">Box Number</label>
                             <?php
-                                        $boxView->showNextBox();
-                                    ?>
+                                $boxView->showNextBox();
+                            ?>
                         </div>
                         <div class="form-group">
                             <label for="txtSerialNumber" class="col-form-label">Label</label>
-                            <input type="text" name="txtLabel" class="form-control" id="txtLabel">
+                            <input type="text" name="txtLabel" class="form-control" id="txtLabel" required autocomplete="off">
                         </div>
                     </div>
                     <div class="modal-footer">

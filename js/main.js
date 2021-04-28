@@ -41,13 +41,6 @@ $(document).ready(function () {
         $(".modalEdit-title").text("Edit Box Item");
     });
 
-    // $(document).ready(function () {
-    //     $("#modalItemCabinetEdit").modal("show");
-    //     $(".modalEdit-header").css("color", "#343a40");
-    //     $(".modalEdit-header").css("color", "#343a40");
-    //     $(".modalEdit-title").text("Edit Cabinet Item");
-    // });
-
     $(document).ready(function () {
         $("#modalBoxEdit").modal("show");
         $(".modal-header").css("color", "#343a40");
@@ -66,6 +59,7 @@ $(document).ready(function () {
         $(".modal-header").css("color", "#343a40");
         $(".modal-header").css("color", "#343a40");
         $(".modal-title").text("New Cabinet Item");
+        $('.formCabinetItem').trigger("reset");
     });
 
     $("#btnNewUser").click(function () {
@@ -184,7 +178,7 @@ $(document).ready(function () {
                             validateDeleteSuccess(response, "Item", "../../masterPages/box_items.php")
                         },
                         error: function () {
-                            swal("ERROR", "Data was not sent correctly", "error");
+                            swal("Error", "Data was not sent correctly", "error");
                         }
                     });
                     break;
@@ -225,7 +219,7 @@ $(document).ready(function () {
                             validateDeleteSuccess(response, "Box", "../../masterPages/box_management.php");
                         },
                         error: function () {
-                            swal("ERROR", "Data was not sent correctly", "error");
+                            swal("Error", "Data was not sent correctly", "error");
                         }
                     });
                     break;
@@ -264,7 +258,7 @@ $(document).ready(function () {
                             validateDeleteSuccess(response, "Cabinet", "../../masterPages/cabinet_management.php");
                         },
                         error: function () {
-                            swal("ERROR", "Data was not sent correctly", "error");
+                            swal("Error", "Data was not sent correctly", "error");
                         }
                     });
                     break;
@@ -335,7 +329,7 @@ $(document).ready(function () {
                 }
             },
             error: () => {
-                swal("ERROR", "Data was not sent correctly", "error");
+                swal("Error", "Data was not sent correctly", "error");
             }
         });
 
@@ -358,7 +352,7 @@ $(document).ready(function () {
                 }
             },
             error: () => {
-                swal("ERROR", "Data was not sent correctly", "error");
+                swal("Error", "Data was not sent correctly", "error");
             }
         });
 
@@ -577,56 +571,6 @@ $(document).ready(function () {
 
     /********************************************************************/
 
-    //*******//
-    // Loan //
-    //******//
-
-    // Box Item
-    $('.form-loan-itemBox').ready(function () {
-        $.ajax({
-            type: "POST",
-            url: "/includes/selects/select_all_item_box.php",
-            success: function (response) {
-                let content = '<option value="-1">Select an option</option>';
-                if (response > 0 || response != null) {
-                    let data = $.parseJSON(response);
-                    for (let i in data) {
-                        content += '<option value="' + data[i].idItem + '">' + "Serial Number: [" + data[i].sn + "] - Item: " + data[i].name + '</option>';
-                    }
-                    $('#itemBoxLoan').html(content);
-                }
-            },
-            error: function () {
-                swal("Error", "Data was not sent correctly", "error");
-            }
-        });
-
-        $('#itemBoxLoan').change(function () {
-            let id = $('#itemBoxLoan').val();
-            console.log(id);
-            if (id > 0) {
-                $.ajax({
-                    type: "POST",
-                    url: "/includes/selects/select_item_box.php",
-                    data: { "id": id },
-                    success: function (response) {
-                        if (response > 0 || response != null) {
-                            let data = $.parseJSON(response);
-                            $('#txtIdBoxLoan').val(data[0].idBOX);
-                            $('#txtSerialNumberLoanIB').val(data[0].sn);
-                            $('#txtNameLoanIB').val(data[0].name);
-                            $('#txtAssetLoanIB').val(data[0].asset);
-                            $('#txtModelLoanIB').val(data[0].model);
-                        }
-                    },
-                    error: function () {
-                        swal("Error", "Data was not sent correctly", "error");
-                    }
-                });
-            }
-        });
-    });
-
     $('#btnSaveItemBoxLoan').click(function () {
         let id = $('#itemBoxLoan').val();
         let detail = $('#txtLocationItemBox').val();
@@ -652,22 +596,29 @@ $(document).ready(function () {
     //******//
 
     // Change Password
-    $('#btnSaveUser').click(function () {
+    $('#btnSaveUser').click(function (e) {
+        e.preventDefault();
         let pass = $('#txtPasswordUser').val();
         let confirmPass = $('#txtConfirmPasswordUser').val();
 
-        if (pass === confirmPass) {
-            $.ajax({
-                type: "POST",
-                url: "/includes/updates/update_password_user.php",
-                data: { "pass":pass },
-                success: function (response) {
-                    validateInsertSuccess(response, "Password", "/masterPages/box_items.php");
-                },
-                error: function () {
-                    swal("Error", "Data was not sent correctly", "error");
+        if ($('#txtPasswordUser').val().length == 0 || pass != '') {
+            if ($('#txtConfirmPasswordUser').val().length == 0 || confirmPass != '') {
+                if (pass == confirmPass) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/includes/updates/update_password_user.php",
+                        data: { "pass": pass },
+                        success: function (response) {
+                            validateInsertSuccess(response, "Password", "/masterPages/box_items.php");
+                        },
+                        error: function () {
+                            swal("Error", "Data was not sent correctly", "error");
+                        }
+                    });
                 }
-            });
+            }
+        } else {
+            swal("Error", "Please fill all the blank spaces", "error");
         }
     });
 });
@@ -751,3 +702,73 @@ function validateUpdateSuccess(response, data, url) {
         });
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//*******//
+    // Loan //
+    //******//
+
+    // Box Item
+    // $('.form-loan-itemBox').ready(function () {
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/includes/selects/select_all_item_box.php",
+    //         success: function (response) {
+    //             let content = '<option value="-1">Select an option</option>';
+    //             if (response > 0 || response != null) {
+    //                 let data = $.parseJSON(response);
+    //                 for (let i in data) {
+    //                     content += '<option value="' + data[i].idItem + '">' + "Serial Number: [" + data[i].sn + "] - Item: " + data[i].name + '</option>';
+    //                 }
+    //                 $('#itemBoxLoan').html(content);
+    //             }
+    //         },
+    //         error: function () {
+    //             // swal("Error", "Data was not sent correctly", "error");
+    //         }
+    //     });
+
+    //     $('#itemBoxLoan').change(function () {
+    //         let id = $('#itemBoxLoan').val();
+    //         console.log(id);
+    //         if (id > 0) {
+    //             $.ajax({
+    //                 type: "POST",
+    //                 url: "/includes/selects/select_item_box.php",
+    //                 data: { "id": id },
+    //                 success: function (response) {
+    //                     if (response > 0 || response != null) {
+    //                         let data = $.parseJSON(response);
+    //                         $('#txtIdBoxLoan').val(data[0].idBOX);
+    //                         $('#txtSerialNumberLoanIB').val(data[0].sn);
+    //                         $('#txtNameLoanIB').val(data[0].name);
+    //                         $('#txtAssetLoanIB').val(data[0].asset);
+    //                         $('#txtModelLoanIB').val(data[0].model);
+    //                     }
+    //                 },
+    //                 error: function () {
+    //                     swal("Error", "Data was not sent correctly", "error");
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });

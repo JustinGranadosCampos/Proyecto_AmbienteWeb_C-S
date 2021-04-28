@@ -36,7 +36,7 @@
                 echo '</div>';
                 echo '<div class="form-group">';
                 echo '<label for="txtIdLabel" class="col-form-label">LABEL</label>';
-                echo '<input type="text" name="txtIdLabel" class="form-control" id="txtIdLabel" value="' . $result["LABEL"] . '">';
+                echo '<input type="text" name="txtIdLabel" class="form-control" id="txtIdLabel" value="' . $result["LABEL"] . '" required>';
                 echo '</div>';
             }
         }

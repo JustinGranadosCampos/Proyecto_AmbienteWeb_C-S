@@ -87,7 +87,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="itemLabel" class="col-form-label">Box Number</label>
-                                <select name="cboBoxNumber" id="cboBoxNumber" class="form-control">
+                                <select name="cboBoxNumber" id="cboBoxNumber" class="form-control" required>
                                     <?php
                                         $itemBox->showBoxes();
                                     ?>
@@ -95,27 +95,27 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtSerialNumber" class="col-form-label">Serial Number</label>
-                                <input type="text" name="txtSerialNumber" class="form-control" id="txtSerialNumber" required>
+                                <input type="text" name="txtSerialNumber" class="form-control" id="txtSerialNumber" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="txtName" class="col-form-label">Name</label>
-                                <input type="text" name="txtName" class="form-control" id="txtName" required>
+                                <input type="text" name="txtName" class="form-control" id="txtName" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="txtAsset" class="col-form-label">ASSET</label>
-                                <input type="number" name="txtAsset" class="form-control" id="txtAsset" onkeypress="return isNumber(event)" required>
+                                <input type="text" name="txtAsset" class="form-control" id="txtAsset" onkeypress="return isNumber(event)" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="txtModel" class="col-form-label">MODEL</label>
-                                <input type="text" name="txtModel" class="form-control" id="txtModel" required>
+                                <input type="text" name="txtModel" class="form-control" id="txtModel" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="txtIsmpStatus" class="col-form-label">ISMP Status</label>
-                                <input type="text" name="txtIsmpStatus" class="form-control" id="txtIsmpStatus" required>
+                                <input type="text" name="txtIsmpStatus" class="form-control" id="txtIsmpStatus" required autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="txtDetails" class="col-form-label">Details</label>
-                                <input type="text" name="txtDetails" class="form-control" id="txtDetails">
+                                <input type="text" name="txtDetails" class="form-control" id="txtDetails" autocomplete="off">
                             </div>
                         </div>
                         <div class="modal-footer">

@@ -45,18 +45,18 @@
             <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="txtPasswordUser">Password</label>
-                <input type="password" class="form-control" id="txtPasswordUser">
+                <input type="password" class="form-control" id="txtPasswordUser" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="txtConfirmPasswordUser">Confirm Password</label>
-                    <input type="password" class="form-control" id="txtConfirmPasswordUser">
+                    <input type="password" class="form-control" id="txtConfirmPasswordUser" required>
                 </div>
             </div>
         </form>
         <div class="form-group d-flex justify-content-center">
             <button type="button" id="btnCancelUser" onclick="location.replace('box_items.php');" name="btnCancelUser" class="btn btn-secondary">Cancel</button>
             <div class="mgTop"></div>
-            <button type="button" id="btnSaveUser" onclick="location.replace('box_items.php');" name="btnSaveUser" class="btn btn-primary">Save</button>
+            <button type="button" id="btnSaveUser" name="btnSaveUser" class="btn btn-primary">Save</button>
         </div>
     </div>
     <?php
