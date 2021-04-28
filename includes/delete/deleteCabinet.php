@@ -18,4 +18,5 @@
             echo $connection->conectar()->errorInfo();
         }
     }
+    $connection->desconectar();
     echo $state;

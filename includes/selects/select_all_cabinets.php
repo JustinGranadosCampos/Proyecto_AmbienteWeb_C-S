@@ -17,5 +17,6 @@
         }
     }
 
+    $connection->desconectar();
     $jsonObj = json_encode($output, JSON_FORCE_OBJECT);
     echo $jsonObj;

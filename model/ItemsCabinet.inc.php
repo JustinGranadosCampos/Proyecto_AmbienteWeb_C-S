@@ -18,10 +18,13 @@
                 while ($row = $result->fetch()) {
                     $data[] = $row;
                 }
+                $this->desconectar();
                 return $data;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
             // $con->desconectar();
@@ -35,10 +38,13 @@
                 $data = array();
                 $row = $result->fetch();
             
+                $this->desconectar();
                 return $row;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -51,10 +57,13 @@
                 $data = array();
                 $row = $result->fetch();
             
+                $this->desconectar();
                 return $row;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -67,10 +76,13 @@
                 $data = array();
                 $row = $result->fetch();
             
+                $this->desconectar();
                 return $row;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -81,10 +93,13 @@
                 $sql = "call GetCabinetLabel($id, $levelNum)";
                 $result = $this->conectar()->query($sql)->fetch();
                 $row = $result['LABEL'];
+                $this->desconectar();
                 return $row;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -99,10 +114,13 @@
                 while ($row = $result->fetch()) {
                     $data[] = $row;
                 }
+                $this->desconectar();
                 return $data;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -117,10 +135,13 @@
                 while ($row = $result->fetch()) {
                     $data[] = $row;
                 }
+                $this->desconectar();
                 return $data;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -134,17 +155,22 @@
                     if ($this->conectar()->query($sql)) {
                         echo '<script>alert("Registro actualizado exitosamente");</script>';
                         echo '<script>location.replace("./index.php");</script>';
+                        $this->desconectar();
                     } else {
                         echo "\nPDO::errorInfo():\n";
                         echo $this->conectar()->errorInfo();
+                        $this->desconectar();
                     }
                 } else {
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
+                    $this->desconectar();
                 }
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -156,13 +182,17 @@
                 if ($this->conectar()->query($sql)) {
                     echo '<script>alert("Registro eliminado exitosamente");</script>';
                     echo '<script>location.replace("./index.php");</script>';
+                    $this->desconectar();
                 } else {
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
+                    $this->desconectar();
                 }
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -174,10 +204,13 @@
                 $sql = $this->conectar()->query("call GetLastIdItemCabinet()");
                 $result = $sql->fetch(PDO::FETCH_ASSOC);
                 $lastId = $result['idITEM_CABINET'] + 1;
+                $this->desconectar();
                 return $lastId;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }

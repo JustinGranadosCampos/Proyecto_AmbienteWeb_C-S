@@ -33,10 +33,13 @@
                         });
                     }, 500);
                     </script>';
+                    $this->desconectar();
                 }
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }

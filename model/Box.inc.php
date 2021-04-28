@@ -20,10 +20,13 @@
                 while ($row = $result->fetch()) {
                     $data[] = $row;
                 }
+                $this->desconectar();
                 return $data;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
             // $con->desconectar();
@@ -36,10 +39,13 @@
                 $result = $this->conectar()->query($sql);
                 $row = $result->fetch();
             
+                $this->desconectar();
                 return $row;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -60,14 +66,18 @@
                         });
                     }, 1500);
                     </script>';
-                // echo '<script>location.replace("./box_management.php");</script>';
+
+                    $this->desconectar();
                 } else {
+                    $this->desconectar();
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
                 }
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -88,14 +98,17 @@
                         });
                     }, 1500);
                     </script>';
-                // echo '<script>location.replace("./box_management.php");</script>';
+                    $this->desconectar();
                 } else {
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
+                    $this->desconectar();
                 }
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -110,10 +123,13 @@
                 } else {
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
+                    $this->desconectar();
                 }
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -125,10 +141,13 @@
                 $result = $sql->fetch(PDO::FETCH_ASSOC);
                 // echo $result;
                 $lastId = $result['idBOX'] + 1;
+                $this->desconectar();
                 return $lastId;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }

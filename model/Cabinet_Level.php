@@ -20,13 +20,15 @@
                     $data[] = $row;
                 }
 
+                $this->desconectar();
                 return $data;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
-            // $con->desconectar();
         }
 
         #Get Cabinet_Level by ID
@@ -37,10 +39,13 @@
                 $result = $this->conectar()->query($sql);
                 $row = $result->fetch();
             
+                $this->desconectar();
                 return $row;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -62,13 +67,17 @@
                         });
                     }, 1500);
                     </script>';
+                    $this->desconectar();
                 } else {
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
+                    $this->desconectar();
                 }
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -90,13 +99,17 @@
                         });
                     }, 1500);
                     </script>';
+                    $this->desconectar();
                 } else {
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
+                    $this->desconectar();
                 }
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -110,12 +123,16 @@
                     echo '<script>alert("Registro eliminado");</script>';
                     echo '<script>location.replace("../../masterPages/box_management.php");</script>';
                 } else {
+                    $this->desconectar();
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
+                    $this->desconectar();
                 }
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -127,10 +144,13 @@
                 $sql = $this->conectar()->query("call GetLastIdCabinetLevel()");
                 $result = $sql->fetch(PDO::FETCH_ASSOC);
                 $lastId = $result['ID'] + 1;
+                $this->desconectar();
                 return $lastId;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
         }
@@ -147,10 +167,13 @@
                     $data[] = $row;
                 }
 
+                $this->desconectar();
                 return $data;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
             // $con->desconectar();
@@ -168,10 +191,13 @@
                     $data[] = $row;
                 }
             
+                $this->desconectar();
                 return $data;
             } catch (EXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             } catch (PDOEXCEPTION $e) {
+                $this->desconectar();
                 $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
             }
             // $con->desconectar();

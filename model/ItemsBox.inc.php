@@ -21,10 +21,13 @@ class ItemBox extends Conexion
             while ($row = $result->fetch()) {
                 $data[] = $row;
             }
+            $this->desconectar();
             return $data;
         } catch (EXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($wwid, $_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         } catch (PDOEXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         }
         // $con->desconectar();
@@ -41,10 +44,13 @@ class ItemBox extends Conexion
             while ($row = $result->fetch()) {
                 $data[] = $row;
             }
+            $this->desconectar();
             return $data;
         } catch (EXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         } catch (PDOEXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         }
         // $con->desconectar();
@@ -58,10 +64,13 @@ class ItemBox extends Conexion
             $data = array();
             $row = $result->fetch();
         
+            $this->desconectar();
             return $row;
         } catch (EXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         } catch (PDOEXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         }
     }
@@ -76,10 +85,13 @@ class ItemBox extends Conexion
             while ($row = $result->fetch()) {
                 $data[] = $row;
             }
+            $this->desconectar();
             return $data;
         } catch (EXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         } catch (PDOEXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         }
     }
@@ -105,17 +117,22 @@ class ItemBox extends Conexion
                             });
                         }, 1500);
                         </script>';
+                        $this->desconectar();
                 } else {
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
+                    $this->desconectar();
                 }
             } else {
                 echo "\nPDO::errorInfo():\n";
                 echo $this->conectar()->errorInfo();
+                $this->desconectar();
             }
         } catch (EXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         } catch (PDOEXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         }
     }
@@ -139,17 +156,22 @@ class ItemBox extends Conexion
                             });
                         }, 1500);
                         </script>';
+                        $this->desconectar();
                 } else {
                     echo "\nPDO::errorInfo():\n";
                     echo $this->conectar()->errorInfo();
+                    $this->desconectar();
                 }
             } else {
                 echo "\nPDO::errorInfo():\n";
                 echo $this->conectar()->errorInfo();
+                $this->desconectar();
             }
         } catch (EXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         } catch (PDOEXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         }
     }
@@ -161,13 +183,18 @@ class ItemBox extends Conexion
             if ($this->conectar()->query($sql)) {
                 echo '<script>alert("Registro eliminado exitosamente");</script>';
                 echo '<script>location.replace("../../masterPages/box_items.php");</script>';
+            
+                $this->desconectar();
             } else {
                 echo "\nPDO::errorInfo():\n";
                 echo $this->conectar()->errorInfo();
+                $this->desconectar();
             }
         } catch (EXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         } catch (PDOEXCEPTION $e) {
+            $this->desconectar();
             $this->reportError($_SESSION['wwid'], $e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
         }
     }
