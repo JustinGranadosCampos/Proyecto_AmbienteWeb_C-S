@@ -4,7 +4,7 @@ error_reporting(0);
 function controlErrores($err_severity = null, $err_msg = null, $err_file = null, $err_line = null, array $err_context = array())
 {
     if (!class_exists("Conexion")){
-        include_once './model/Conexion.inc.php';
+        include_once '../model/Conexion.inc.php';
     }
     $conexion = new Conexion();
     
